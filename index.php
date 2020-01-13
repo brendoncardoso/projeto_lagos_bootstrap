@@ -280,5 +280,5 @@
         </div>
     </div>
     
-<?php include_once('footer.php'); ?>dd
+<?php include_once('footer.php'); ?>
                          
