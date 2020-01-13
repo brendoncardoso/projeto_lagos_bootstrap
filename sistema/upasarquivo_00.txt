@@ -1,0 +1,32 @@
+- recuperar dados vindo da li
+- mostrar dados na lateral Esquerda
+
+Para adicionar uma página na raiz
+do modulo. Criar botão (nova pagina na
+raiz).
+
+
+depois de escolher alguma página
+
+botões:
+add | Edit | remove
+testar opçõa modal para add e edit
+
+
+add - formulário para cadastrar na pagina
+seleciona com o treeview
+
+edit - carrega dormulário com dados 
+preenchidos.
+
+remove - Mudar status para desativado.
+
+
+
+obs: quandp status desativado 
+a página deve ser mostrada no treeview
+com alguma característica diferente.
+
+obs: Verificar com o junior a criação
+uma senha padrão desativar páginas.
+

@@ -1,0 +1,430 @@
+/* Global properties ======================================================== */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
+mark, rp, rt, ruby, summary, time {display:inline;}
+a, div, em, form, h1, h2, h3, h4, h5, h6, hr, input, l, ol, p, pre, strong, textarea, table, tbody, tr, td, ul {
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+}
+body { 	 
+    color:#4e4e4e;
+    /*min-width:1051px;*/
+    padding:0;
+}
+html, input, select, textarea {
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,"Segoe WP",sans-serif;
+    font-size: 14px;
+    line-height: 1;
+}
+
+h1, .title1 {
+    color: #333333;
+    font: 36px/48px 'Segoe UI Light',Helvetica,Arial,'Sans-Serif';
+}
+
+h2,h3,h4{
+    padding: 10px 0;
+}
+hr {
+    border:none;
+    border-top: 1px solid #E2E2E2;
+}
+
+.center{text-align: center;}
+.clear{clear: both;}
+.hidden{display: none;}
+.exemplo{color:#999; font-style: italic; font-size: 12px; padding-left: 10px;}
+
+/* Global properties ======================================================== */
+
+.main {
+    width:1051px;
+    padding:0;
+    margin:0 auto;
+    /*font-size:0.75em;*/
+    line-height:1.5em;
+    position:relative;
+    background: none;
+}
+
+nav ul{
+    margin:0;
+    padding:0;
+}
+
+nav .div-menu{
+    /*background: url("new-images/fundo_menu.png") repeat-y scroll right center #ECECEC;*/
+    width: 160px;
+    float: left;
+    height: 100%;
+}
+
+nav ul li{
+    /*border-top: 1px solid #F7F7F7;
+    border-bottom: 1px solid #CCCCCC;*/
+    display: block;
+    width: 160px;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px;
+    width: 140px;
+}
+
+nav ul li a:hover{
+    background: #999;
+    color: #FFF;
+}
+
+div#conteudo{
+    border-left: 1px solid #E2E2E2;
+    float: left;
+    padding: 5px 10px;
+    min-height: 360px;
+}
+div#header{
+    border-bottom: 1px solid #E2E2E2;
+    height: 55px;
+}
+section#footer{
+    clear: both;
+    height: 30px;
+    border-top: 1px solid #E2E2E2;
+}
+
+h1,h2,h3,h4,h5{
+    color: #3A64C4;
+}
+
+/*-- LOGIN --*/
+
+#corpo-login{
+    border: 1px solid #E2E2E2;
+    height: 140px;
+    margin: 25px auto 0;
+    padding-left: 15px;
+    width: 560px;
+}
+#corpo-login h2{
+    margin-bottom: 8px;
+}
+
+#corpo-login label{
+    font-weight: bold;
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+}
+
+#corpo-login .botao{
+    padding: 11px 39px;
+}
+
+#corpo-login input[type=text],#corpo-login input[type=password]{
+    border: 1px solid #E2E2E2;
+    height: 30px;
+    width: 180px;
+}
+
+#corpo-login p{
+    line-height: 40px;
+}
+#corpo-login #logo{
+    padding: 0 20px;
+}
+.div-float{
+    float: left;
+}
+
+table.grid{
+    font-size: 12px;
+    border:none;
+}
+
+table.grid thead tr{
+    font-size: 14px;
+    background: #CCC;
+}
+table.grid thead tr th{
+    padding: 5px;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #999999;
+    text-align: center;
+}
+table.grid thead tr th:last-child{
+    padding: 5px;
+    border-right: 1px solid #E2E2E2;
+}
+table.grid tbody tr td{
+    padding: 5px;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    height: 30px;
+}
+table.grid tbody tr td:first-child{
+    padding: 5px;
+    border-left: 1px solid #E2E2E2;
+}
+table.grid tbody tr td:last-child{
+    padding: 5px;
+    border-right: 1px solid #E2E2E2;
+}
+table.grid tbody tr.even{
+    background: #FFFFFF;
+}
+table.grid tbody tr.odd{
+    background: #F0F0F0;
+}
+table.grid tfoot tr{
+    height: 28px;
+    background: #DBDBDB;
+}
+table.grid td.tdsubtitle{
+    background: #DBDBDB;
+}
+
+.blocos{
+    padding: 0 0 10px 0;
+    /*border-bottom: 1px solid #E2E2E2;*/
+    width: 869px;
+    display: block;
+}
+
+.button{
+    font-weight: bold;
+    padding: 5px 12px;
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin: 10px 0;
+    background: #E2E2E2;
+    border: 1px solid #CCC;
+    margin-left: 10px;
+}
+
+.button:hover{
+    color: #FFF;
+    background: #999;
+    border: 1px solid #E2E2E2;
+}
+
+#btGo{
+    background: none repeat scroll 0 0 #E2E2E2;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px 0 5px 10px;
+    padding: 3px 5px;
+}
+
+#btGo:hover{
+    color: #FFF;
+    background: #999;
+    border: 1px solid #E2E2E2;
+}
+
+fieldset{
+    padding: 10px 10px 0 10px;
+    border: 1px solid #E2E2E2;
+}
+
+fieldset label.first{
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    /*font-weight: bold;*/
+    padding: 0 10px 0 0;
+}
+fieldset label.first2{
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    /*font-weight: bold;*/
+    padding: 0 10px 0 0;
+    vertical-align: top;
+}
+
+fieldset ul.first2{
+    display: inline-block;
+    padding: 0 0 0 210px;
+    position: relative;
+    top: -30px;
+    list-style: none;
+}
+
+fieldset p{
+    line-height: 40px;
+}
+
+.box-1{
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.box-image{
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    /*width: 80%;*/
+}
+
+.message{
+    background: none repeat scroll 0 0 #F0F0F0;
+    border: 1px solid #E2E2E2;
+    margin: 10px 0;
+    padding: 6px;
+    width: 98%;
+}
+
+#showCargos{
+    margin: 0 0 20px 120px;
+}
+
+#tableShowCargos td{
+    padding: 0 20px 0 0;
+    height: 25px;
+}
+
+.ulShowCargos{
+    list-style: none;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    width: 420px;
+}
+
+.anexoDown{
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    margin: 0 5px 0 0;
+}
+
+/**--PAGINAÇÃO--***/
+span.paginacao{
+    letter-spacing: 2px;
+    /*display: inline-block;
+    float: left;*/
+}
+
+.paginaSel{
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+#go{
+    width: 40px;
+}
+/**--PAGINAÇÃO--***/
+
+/****---ÍCONES---****************************************/
+a.icon {
+    width: 30px; 
+    height: 30px; 
+    display: inline-block;
+    cursor: pointer;
+}
+a.icon-grande {
+    width: 63px; 
+    height: 63px; 
+    display: inline-block;
+}
+
+.icon-excluir{ background: url("../images/icons_metroPB-48.png") no-repeat scroll -17px -104px transparent;}
+.icon-salvar{ background: url("../images/icons_metroPB-48.png") no-repeat scroll -17px -278px transparent;}
+.icon-editar{ background: url("../images/icons_metroPB-48.png") no-repeat scroll -108px -149px transparent;}
+.icon-baixar{ background: url("../images/icons_metroPB-48.png") no-repeat scroll -245px -17px transparent;}
+.icon-add{ background: url("../images/icons_metroPB-48.png") no-repeat scroll -245px -192px transparent;}
+
+.icon-novo-grande{ background: url("../images/icons_metroPB.png") no-repeat scroll -224px -399px transparent;}
+
+
+/******/
+
+.box{
+    width: 550px;
+    height: auto;
+    display: table;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    
+}
+#logo{
+    width: 100px;
+    margin: 0 auto;
+    
+}
+.box h3{
+    text-align: center;
+    background: #1C6DB4;
+    padding: 10px; 
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.box #logo img{
+    width: 240px;
+    margin-left: -60px;
+}
+#formUp{
+    margin: 20px;
+    width: 82%;
+}
+.first{
+    font-family: arial;
+    font-size: 12px; 
+    color: #333;
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin: 10px;
+}
+.input{
+    width: 310px;
+    padding: 4px;
+    border: 1px solid #ccc;
+}
+
+.select{
+    width: 320px;
+    padding: 4px;
+    border: 1px solid #ccc;
+}
+
+.lnk{
+    cursor: pointer;
+}
+
+.lnk:hover{
+    background: #F3F3F3;
+}
+
+.bk{
+    background: #DBDBDB;
+}
+
+.f_left{
+    width: 30px;
+    text-align: center;
+}
+
+.some{
+    display: none;
+}
+

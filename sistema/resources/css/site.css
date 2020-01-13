@@ -1,0 +1,102 @@
+body { 	 
+    color:#4E4E4E;
+    min-width:800px!important;
+    padding:0;
+    background: #022960;
+}
+html, input, select, textarea {
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,"Segoe WP",sans-serif;
+    font-size: 14px;
+    line-height: 1;
+}
+a, div, em, form, h1, h2, h3, h4, h5, h6, hr, input, p {
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+}
+h1, .title1 {
+    color: #333333;
+    font: 36px/48px 'Segoe UI Light',Helvetica,Arial,'Sans-Serif';
+}
+h1,h2,h3,h4,h5{
+    padding: 10px 0;
+    color: #3A64C4;
+    font-family: 'Segoe UI Light',Helvetica,Arial,'Sans-Serif';
+}
+hr {
+    border:none;
+    border-top: 1px solid #E2E2E2;
+}
+.main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #489BF0;
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    width: auto;
+}
+fieldset{
+    padding: 10px 10px 0 10px;
+    border: 1px solid #E2E2E2;
+}
+
+fieldset label.first{
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    /*font-weight: bold;*/
+    padding: 0 10px 0 0;
+}
+fieldset label.first2{
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    /*font-weight: bold;*/
+    padding: 0 10px 0 0;
+    vertical-align: top;
+}
+
+fieldset ul.first2{
+    display: inline-block;
+    padding: 0 0 0 210px;
+    position: relative;
+    top: -30px;
+    list-style: none;
+}
+
+fieldset p{
+    line-height: 40px;
+}
+ul{
+    padding: 0 0 0 20px;
+}
+.ulCargos{
+    list-style: none;
+}
+
+.button{
+    font-weight: bold;
+    padding: 5px 12px;
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin: 10px 0;
+    background: #E2E2E2;
+    border: 1px solid #CCC;
+    margin-left: 10px;
+}
+
+.button:hover{
+    color: #FFF;
+    background: #999;
+    border: 1px solid #E2E2E2;
+}
+.cadaUm{padding:5px; border: 1px solid #4880CE; background: #D5E0EF; margin-bottom: 3px;}
+.chamamento{background: #FFFFFF; padding: 10px; width: 700px; border: 1px solid #999999;}
+
+.hidden{display: none;}
+
