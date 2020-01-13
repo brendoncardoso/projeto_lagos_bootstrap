@@ -1,0 +1,158 @@
+* {
+    font-family: arial;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #DDD;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    height: 110px;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 114px;
+}
+
+.menu {
+    align-items: center;
+}
+
+nav ul, nav li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    padding-top: 53px;
+    color: #000;
+    font-family: arial;
+}
+
+nav i {
+    position: absolute;
+    margin-top: -30px;
+    padding-left: 14px;
+}
+
+
+nav .active a,
+nav a:hover {
+    background-color: #4ab0e2;
+    color: white;
+}
+
+
+
+a:hover{
+    transition:0.3s;
+    background-color: #008FD5!important;
+}
+
+#banner {
+    background-image: url('../images/business.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
+    position: absolute;
+}
+
+.bannerfake{
+    padding-top: 355px;
+}
+
+.banneroptions {
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    color: white;
+
+}
+
+.banner1, .banner2, .banner3, .banner4{
+    flex: 1;
+    padding: 20px;
+}
+
+.icon {
+    text-align: center;
+    margin-bottom: 41px;
+}
+
+.banner1 {
+    background-color: #199ad9;
+    opacity: 0.9;
+}
+
+.banner2 {
+    background-color: #5eb8e4;
+    opacity: 0.9;
+}
+
+.banner3 {
+    background-color: #199ad9;
+    opacity: 0.9;
+}
+
+.banner4{
+    background-color: #5eb8e4;
+    opacity: 0.9;
+}
+
+.banner_tittle{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+
+.banner_subtittle{
+    font-size: 14px;
+    text-align: center;
+}
+
+.banner_more {
+    text-align: center;
+    border: 3px solid white;
+    width: 43px;
+    height: 43px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.more{
+    text-align: center;
+    align-items: center;
+    padding: 14px;
+}
+
+
+
+
