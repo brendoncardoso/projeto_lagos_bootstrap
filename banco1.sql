@@ -17,7 +17,6 @@ CREATE DATABASE IF NOT EXISTS `lagosrio_sistema` /*!40100 DEFAULT CHARACTER SET 
 USE `lagosrio_sistema`;
 
 -- Copiando estrutura para tabela lagosrio_sistema.cargos
-DROP TABLE IF EXISTS `cargos`;
 CREATE TABLE IF NOT EXISTS `cargos` (
   `id_cargo` int(11) NOT NULL AUTO_INCREMENT,
   `id_nivel` int(11) NOT NULL DEFAULT '0',
@@ -29,7 +28,6 @@ CREATE TABLE IF NOT EXISTS `cargos` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.cms
-DROP TABLE IF EXISTS `cms`;
 CREATE TABLE IF NOT EXISTS `cms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cms_historia` longtext NOT NULL,
@@ -39,7 +37,6 @@ CREATE TABLE IF NOT EXISTS `cms` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.cms_img_noticia
-DROP TABLE IF EXISTS `cms_img_noticia`;
 CREATE TABLE IF NOT EXISTS `cms_img_noticia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_noticia` int(11) NOT NULL,
@@ -47,12 +44,11 @@ CREATE TABLE IF NOT EXISTS `cms_img_noticia` (
   `img_extesao` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_noticia` (`id_noticia`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.cms_logo
-DROP TABLE IF EXISTS `cms_logo`;
 CREATE TABLE IF NOT EXISTS `cms_logo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_logo` int(11) NOT NULL,
@@ -63,18 +59,16 @@ CREATE TABLE IF NOT EXISTS `cms_logo` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.cms_slides
-DROP TABLE IF EXISTS `cms_slides`;
 CREATE TABLE IF NOT EXISTS `cms_slides` (
   `id_img` int(11) NOT NULL AUTO_INCREMENT,
   `extensao` text NOT NULL,
   `nome_imagem` text NOT NULL,
   PRIMARY KEY (`id_img`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.compras
-DROP TABLE IF EXISTS `compras`;
 CREATE TABLE IF NOT EXISTS `compras` (
   `id_compra` int(10) NOT NULL AUTO_INCREMENT,
   `id_unidade` int(10) DEFAULT NULL,
@@ -92,7 +86,6 @@ CREATE TABLE IF NOT EXISTS `compras` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.curriculos
-DROP TABLE IF EXISTS `curriculos`;
 CREATE TABLE IF NOT EXISTS `curriculos` (
   `id_curriculo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(250) DEFAULT NULL,
@@ -109,7 +102,6 @@ CREATE TABLE IF NOT EXISTS `curriculos` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.editalpessoal
-DROP TABLE IF EXISTS `editalpessoal`;
 CREATE TABLE IF NOT EXISTS `editalpessoal` (
   `id_editalpessoal` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(10) unsigned NOT NULL DEFAULT '0',
@@ -129,7 +121,6 @@ CREATE TABLE IF NOT EXISTS `editalpessoal` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.editalpessoal_cargos
-DROP TABLE IF EXISTS `editalpessoal_cargos`;
 CREATE TABLE IF NOT EXISTS `editalpessoal_cargos` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_edital` int(10) unsigned NOT NULL,
@@ -140,7 +131,6 @@ CREATE TABLE IF NOT EXISTS `editalpessoal_cargos` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.edital_prorrogacoes
-DROP TABLE IF EXISTS `edital_prorrogacoes`;
 CREATE TABLE IF NOT EXISTS `edital_prorrogacoes` (
   `id_prorrogacao` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_pessoal` int(10) unsigned DEFAULT NULL,
@@ -156,7 +146,6 @@ CREATE TABLE IF NOT EXISTS `edital_prorrogacoes` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.empresa
-DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa` (
   `id_empresa` int(11) NOT NULL AUTO_INCREMENT,
   `id_edital` int(11) NOT NULL DEFAULT '0',
@@ -173,7 +162,6 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.empresas_prestador
-DROP TABLE IF EXISTS `empresas_prestador`;
 CREATE TABLE IF NOT EXISTS `empresas_prestador` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_empresa` varchar(200) NOT NULL DEFAULT '',
@@ -183,7 +171,6 @@ CREATE TABLE IF NOT EXISTS `empresas_prestador` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.escala
-DROP TABLE IF EXISTS `escala`;
 CREATE TABLE IF NOT EXISTS `escala` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(11) unsigned NOT NULL,
@@ -201,7 +188,6 @@ CREATE TABLE IF NOT EXISTS `escala` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.fale_conosco
-DROP TABLE IF EXISTS `fale_conosco`;
 CREATE TABLE IF NOT EXISTS `fale_conosco` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(500) NOT NULL,
@@ -214,7 +200,6 @@ CREATE TABLE IF NOT EXISTS `fale_conosco` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.fale_conosco_mensagens
-DROP TABLE IF EXISTS `fale_conosco_mensagens`;
 CREATE TABLE IF NOT EXISTS `fale_conosco_mensagens` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(500) NOT NULL,
@@ -225,7 +210,6 @@ CREATE TABLE IF NOT EXISTS `fale_conosco_mensagens` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.niveis
-DROP TABLE IF EXISTS `niveis`;
 CREATE TABLE IF NOT EXISTS `niveis` (
   `id_nivel` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) CHARACTER SET latin1 NOT NULL DEFAULT '',
@@ -235,7 +219,6 @@ CREATE TABLE IF NOT EXISTS `niveis` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.noticias
-DROP TABLE IF EXISTS `noticias`;
 CREATE TABLE IF NOT EXISTS `noticias` (
   `id_noticia` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `titulo` varchar(250) NOT NULL,
@@ -253,7 +236,6 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.ouvidoria
-DROP TABLE IF EXISTS `ouvidoria`;
 CREATE TABLE IF NOT EXISTS `ouvidoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(500) NOT NULL,
@@ -265,7 +247,6 @@ CREATE TABLE IF NOT EXISTS `ouvidoria` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.ouvidoria_mensagem
-DROP TABLE IF EXISTS `ouvidoria_mensagem`;
 CREATE TABLE IF NOT EXISTS `ouvidoria_mensagem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(500) NOT NULL,
@@ -277,7 +258,6 @@ CREATE TABLE IF NOT EXISTS `ouvidoria_mensagem` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.pasta
-DROP TABLE IF EXISTS `pasta`;
 CREATE TABLE IF NOT EXISTS `pasta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(500) NOT NULL,
@@ -288,7 +268,6 @@ CREATE TABLE IF NOT EXISTS `pasta` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.pessoa
-DROP TABLE IF EXISTS `pessoa`;
 CREATE TABLE IF NOT EXISTS `pessoa` (
   `id_pessoa` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_edital` int(11) unsigned NOT NULL DEFAULT '0',
@@ -307,7 +286,6 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.pessoa_cargo
-DROP TABLE IF EXISTS `pessoa_cargo`;
 CREATE TABLE IF NOT EXISTS `pessoa_cargo` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_pessoa` int(10) unsigned NOT NULL,
@@ -318,7 +296,6 @@ CREATE TABLE IF NOT EXISTS `pessoa_cargo` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.ponto
-DROP TABLE IF EXISTS `ponto`;
 CREATE TABLE IF NOT EXISTS `ponto` (
   `id_ponto` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(11) unsigned NOT NULL,
@@ -333,7 +310,6 @@ CREATE TABLE IF NOT EXISTS `ponto` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.prestacao_categoria1
-DROP TABLE IF EXISTS `prestacao_categoria1`;
 CREATE TABLE IF NOT EXISTS `prestacao_categoria1` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_pasta` int(11) NOT NULL DEFAULT '0',
@@ -346,7 +322,6 @@ CREATE TABLE IF NOT EXISTS `prestacao_categoria1` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.prestacao_categoria2
-DROP TABLE IF EXISTS `prestacao_categoria2`;
 CREATE TABLE IF NOT EXISTS `prestacao_categoria2` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_pasta` int(11) NOT NULL DEFAULT '0',
@@ -360,7 +335,6 @@ CREATE TABLE IF NOT EXISTS `prestacao_categoria2` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.prestacao_categoria3
-DROP TABLE IF EXISTS `prestacao_categoria3`;
 CREATE TABLE IF NOT EXISTS `prestacao_categoria3` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_pasta` int(11) NOT NULL DEFAULT '0',
@@ -377,7 +351,6 @@ CREATE TABLE IF NOT EXISTS `prestacao_categoria3` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.relatorio
-DROP TABLE IF EXISTS `relatorio`;
 CREATE TABLE IF NOT EXISTS `relatorio` (
   `id_execucao` int(11) NOT NULL AUTO_INCREMENT,
   `id_unidade` int(11) NOT NULL DEFAULT '0',
@@ -392,7 +365,6 @@ CREATE TABLE IF NOT EXISTS `relatorio` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.unidades
-DROP TABLE IF EXISTS `unidades`;
 CREATE TABLE IF NOT EXISTS `unidades` (
   `id_unidade` int(11) NOT NULL AUTO_INCREMENT,
   `cod_unidade` varchar(50) DEFAULT NULL,
@@ -406,12 +378,11 @@ CREATE TABLE IF NOT EXISTS `unidades` (
   `diretorio` varchar(250) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_unidade`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.unidades_cargos
-DROP TABLE IF EXISTS `unidades_cargos`;
 CREATE TABLE IF NOT EXISTS `unidades_cargos` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(10) unsigned NOT NULL,
@@ -424,7 +395,6 @@ CREATE TABLE IF NOT EXISTS `unidades_cargos` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.upa_usuarios
-DROP TABLE IF EXISTS `upa_usuarios`;
 CREATE TABLE IF NOT EXISTS `upa_usuarios` (
   `id_upa_usuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(10) unsigned NOT NULL,
@@ -437,17 +407,17 @@ CREATE TABLE IF NOT EXISTS `upa_usuarios` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela lagosrio_sistema.usuarios
-DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `usu_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_unidade` int(11) unsigned NOT NULL,
   `login` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT '',
   `senha` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '',
+  `adm` int(11) NOT NULL DEFAULT '0',
   `setor` smallint(1) unsigned NOT NULL DEFAULT '1',
   `status` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`usu_id`),
   KEY `id_unidade` (`id_unidade`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 
