@@ -137,7 +137,7 @@
         <meta http-equiv="Expires" content="-1" />
         <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
-        <title><?php echo utf8_encode("Escala Médica"); ?></title>
+        <title>Escala Médica</title>
         <style>
             #btn-excluir {
                 background-color: #ff7c7c; 
@@ -182,7 +182,11 @@
     <body>
         <div class="main">
             <div id="header">
-                <h1 class="title1"><?php echo utf8_encode("Escala Médica"); ?></h1>
+                <?php if($setor != 1) { ?>
+                    <h1>ESCALA MÉDICA</h1>
+                <?php } else { ?>
+                    <h1>ADMINISTRAÇÃO DE CANDIDATOS</h1>
+                <?php } ?>
             </div>
             <nav>
                 <?php include('../includes/menu_adm.php'); ?>
@@ -191,7 +195,7 @@
             <section>
                 <div id="conteudo">
                     <div class="blocos">
-                        <h2><?php echo utf8_encode("Importação de Escala"); ?></h2><br>
+                        <h2>Importação de Escala</h2><br>
                         <fieldset>
                             <legend>Importando Escala</legend>
                             
@@ -217,7 +221,7 @@
                                     <br><br>
                                 <?php } ?>
                                 
-                                <label for="arquivo_excel">Arquvio Excel:</label><br>
+                                <label for="arquivo_excel">Arquivo Excel:</label><br>
                                 <input type="file" id="arquivo_excel" name="arquivo_excel"><br><br>
                                 
                                 <span>OBS: O arquivo precisar ser um CSV.</span>
@@ -296,7 +300,7 @@
                         <?php } ?>
 
                         
-                        <h2 style="margin-top: 20px;"><?php echo utf8_encode("Histórico de Escala"); ?></h2>
+                        <h2 style="margin-top: 20px;">Histórico de Escala</h2>
                         
                         <?php if (isset($num_rows_escalaPorUnidade) && $num_rows_escalaPorUnidade > 0) { ?> 
                             <table width="750" id="table-historico" style="font-size: 12px;">

@@ -80,10 +80,10 @@ if(isset($_SESSION['message'])){
                         <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
                             <thead>
                                 <tr>
-                                    <th>Nº EDITAL</th>
-                                    <th>Unidade</th>
-                                    <th>Data de Inicio</th>
-                                    <th>Data de Encerramento</th>
+                                    <th class="center">Nº EDITAL</th>
+                                    <th class="center">Unidade</th>
+                                    <th class="center">Data de Inicio</th>
+                                    <th class="center">Data de Encerramento</th>
                                     <th colspan="2">AÇÃO</th>
                                 </tr>
                             </thead>
@@ -94,10 +94,10 @@ if(isset($_SESSION['message'])){
                                     $class = (($i++ % 2) == 0) ? "even" : "odd";
                                     ?>
                                     <tr class="<?php echo $class ?>">
-                                        <td><?php echo $dados_editab['numero'] ?></td>
+                                        <td class="center"><?php echo $dados_editab['numero'] ?></td>
                                         <td><?php echo $dados_editab['nome'] ?></td>
-                                        <td><?php echo $dados_editab['dt_ini'] ?></td>
-                                        <td><?php echo $dados_editab['dt_fim'] ?></td>
+                                        <td class="center" ><?php echo $dados_editab['dt_ini'] ?></td>
+                                        <td class="center"><?php echo $dados_editab['dt_fim'] ?></td>
                                         <td class="center"><a href="javascript:;" class="icon icon-editar" title="Editar" data-key="<?php echo $dados_editab['id_compra'] ?>" >&nbsp;</a></td>
                                         <td class="center"><a href="javascript:;" class="icon icon-excluir" title="Excluir" data-key="<?php echo $dados_editab['id_compra'] ?>" >&nbsp;</a></td>
                                     </tr>
@@ -121,10 +121,10 @@ if(isset($_SESSION['message'])){
                         <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
                             <thead>
                                 <tr>
-                                    <th>Nº EDITAL</th>
-                                    <th>Unidade</th>
-                                    <th>Data de Inicio</th>
-                                    <th>Data de Encerramento</th>
+                                    <th class="center">Nº EDITAL</th>
+                                    <th class="center">Unidade</th>
+                                    <th class="center">Data de Inicio</th>
+                                    <th class="center">Data de Encerramento</th>
                                     <th colspan="2">AÇÃO</th>
                                 </tr>
                             </thead>
@@ -135,10 +135,10 @@ if(isset($_SESSION['message'])){
                                     $class = (($i++ % 2) == 0) ? "even" : "odd";
                                     ?>
                                     <tr class="<?php echo $class ?>">
-                                        <td><?php echo $dados_editab['numero'] ?></td>
+                                        <td class="center"><?php echo $dados_editab['numero'] ?></td>
                                         <td><?php echo $dados_editab['nome'] ?></td>
-                                        <td><?php echo $dados_editab['dt_ini'] ?></td>
-                                        <td><?php echo $dados_editab['dt_fim'] ?></td>
+                                        <td class="center"><?php echo $dados_editab['dt_ini'] ?></td>
+                                        <td class="center"><?php echo $dados_editab['dt_fim'] ?></td>
                                         <td class="center"><a href="javascript:;" class="icon icon-editar" title="Editar" data-key="<?php echo $dados_editab['id_compra'] ?>" >&nbsp;</a></td>
                                         <td class="center"><a href="javascript:;" class="icon icon-excluir" title="Excluir" data-key="<?php echo $dados_editab['id_compra'] ?>" >&nbsp;</a></td>
                                     </tr>

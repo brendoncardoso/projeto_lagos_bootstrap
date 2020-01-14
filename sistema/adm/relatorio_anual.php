@@ -139,7 +139,7 @@ $sql_t = mysql_query("SELECT A.*, B.nome AS nome_unidade
 
             <div id="header">
 
-                <h1 class="title1">ADMINISTRAÇÃO DE CANDIDATOS</h1>
+                <h1>ADMINISTRAÇÃO DE CANDIDATOS</h1>
 
             </div>
 

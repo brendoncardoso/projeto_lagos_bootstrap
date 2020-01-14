@@ -90,7 +90,7 @@ $qr_unidades = mysql_query("SELECT * FROM unidades");
     <body>
         <div class="main">
             <div id="header">
-                <h1 class="title1">ADMINISTRAÇÃO DE CANDIDATOS</h1>
+                <h1>ADMINISTRAÇÃO DE CANDIDATOS</h1>
             </div>
             <nav>
                 <?php include('../includes/menu_adm.php'); ?>
