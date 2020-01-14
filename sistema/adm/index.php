@@ -27,6 +27,7 @@ if (isset($_POST['enviar']) && !empty($_POST['login']) && !empty($_POST['senha']
 
         $_SESSION['logado'] = $row_usu['usu_id'];
         $_SESSION['setor'] = $row_usu['setor'];
+        $_SESSION['adm'] = $row_usu['adm'];
         $_SESSION['id_unidade'] = $row_usu['id_unidade'];
         header('Location: inicio.php');
         exit;

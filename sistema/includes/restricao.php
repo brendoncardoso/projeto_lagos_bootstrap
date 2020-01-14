@@ -9,5 +9,5 @@ if(!isset($_SESSION['logado'])){
 }
 
 $setor = $_SESSION['setor'];
-
+$adm = $_SESSION['adm'];
 ?>
