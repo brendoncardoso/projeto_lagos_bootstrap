@@ -22,17 +22,12 @@
     <!--FOOTER-->
     <div class="footer">
         <div class="container p-0">
-
             <div id="scrollup">
                 <i class="fa fa-angle-double-up"></i>
             </div>
 
             <div class="col-sm-12">
-
                 <div class="row">
-
-                    
-
                     <div class="col-sm-12 footer_lagos">
                         <div class="widget_icon">
                             <img src="assets/images/planeta.png" alt="">
@@ -216,14 +211,12 @@
     <script src="assets/js/jquery.maskedinput.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <!--POPPER-->
-    <script src="assets/js/popper.min.js"></script>
+    <!--<script src="assets/js/popper.min.js"></script>-->
     <script src="assets/js/script.js"></script>   
     <script src="assets/js/document_jquery.js"></script>
     <script src="assets/js/noticia.js"></script>
     <script src="assets/js/acesso-rapido.js"></script>
     <script src="assets/js/parceiros-carousel.js"></script>
-
-
     <script src="assets/js/jquery.progresstimer.js"></script>
 
 </body>

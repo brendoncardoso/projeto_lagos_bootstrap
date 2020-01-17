@@ -83,7 +83,6 @@
                
 
                 $sql = mysql_query("SELECT id FROM escala WHERE mes = " . $mes . " AND ano = " . $ano . " AND setor = '" . utf8_encode($setor) . "' AND id_unidade = " . $id_unidade);
-                echo "SELECT id FROM escala WHERE mes = " . $mes . " AND ano = " . $ano . " AND setor = '" . utf8_encode($setor) . "' AND id_unidade = " . $id_unidade; exit;
                 $num_rows_escala = mysql_num_rows($sql);
 
                 if ($num_rows_escala == 0) {
@@ -147,6 +146,24 @@
                 padding: 3px; 
                 padding-left: 10px;
                 padding-right: 10px;
+            }
+            
+            #btn-excluir:hover {
+                background-color: red;
+            }
+
+            #btn-visualizar {
+                background-color: #4287f5; 
+                border: 1px solid blue; 
+                font-weight: bold;
+                color: #FFF;
+                padding: 3px; 
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            #btn-visualizar:hover {
+                background-color: blue;
             }
             
             #btn-excluir:hover {
@@ -245,7 +262,7 @@
                         
                         <?php
                             if($_SESSION['setor'] == "1") {
-                                $escalasPorUnidade = mysql_query("SELECT id_unidade, nome_unidade, mes, setor, ano FROM escala GROUP BY nome_unidade, setor, mes");
+                                $escalasPorUnidade = mysql_query("SELECT id, id_unidade, nome_unidade, mes, setor, ano FROM escala GROUP BY nome_unidade, setor, mes");
                                 $escalasPorAno = mysql_query("SELECT DISTINCT ano FROM escala GROUP BY nome_unidade, setor, mes");
                                 while($row = mysql_fetch_assoc($escalasPorAno)){
                                     $arrayAno[] = $row['ano'];
@@ -253,9 +270,9 @@
 
                                 if(isset($_POST['escala_ano']) && !empty($_POST['escala_ano'])){
                                     $ano = $_POST['escala_ano'];
-                                    $escalasPorUnidade = mysql_query("SELECT id_unidade, nome_unidade, mes, setor, ano FROM escala WHERE ano = ". $ano ." GROUP BY nome_unidade, setor, mes");
+                                    $escalasPorUnidade = mysql_query("SELECT id, id_unidade, nome_unidade, mes, setor, ano FROM escala WHERE ano = ". $ano ." GROUP BY nome_unidade, setor, mes");
                                 }else{
-                                    $escalasPorUnidade = mysql_query("SELECT id_unidade, nome_unidade, mes, setor, ano FROM escala GROUP BY nome_unidade, setor, mes");
+                                    $escalasPorUnidade = mysql_query("SELECT id, id_unidade, nome_unidade, mes, setor, ano FROM escala GROUP BY nome_unidade, setor, mes");
                                 }
                             } else {
                                 //$escalasPorUnidade = mysql_query("SELECT nome_unidade, mes, setor, ano FROM escala WHERE id_unidade = " . $_SESSION['id_unidade'] . " GROUP BY setor, mes");
@@ -267,15 +284,17 @@
 
                                 if(isset($_POST['escala_ano']) && !empty($_POST['escala_ano'])){
                                     $ano = $_POST['escala_ano'];
-                                    $escalasPorUnidade = mysql_query("SELECT nome_unidade, mes, setor, ano FROM escala WHERE id_unidade = " . $_SESSION['id_unidade'] . " AND ano = ". $ano ." GROUP BY setor, mes");
+                                    $escalasPorUnidade = mysql_query("SELECT id, nome_unidade, mes, setor, ano FROM escala WHERE id_unidade = " . $_SESSION['id_unidade'] . " AND ano = ". $ano ." GROUP BY setor, mes");
                                 }else{
-                                    $escalasPorUnidade = mysql_query("SELECT nome_unidade, mes, setor, ano FROM escala WHERE id_unidade = " . $_SESSION['id_unidade'] . " GROUP BY setor, mes");
+                                    $escalasPorUnidade = mysql_query("SELECT id, nome_unidade, mes, setor, ano FROM escala WHERE id_unidade = " . $_SESSION['id_unidade'] . " GROUP BY setor, mes");
                                 }
 
                             }
                             
                             $num_rows_escalaPorUnidade = mysql_num_rows($escalasPorUnidade);
                         ?>
+
+                        <br>
 
                        <?php if($_SESSION['setor'] != "1" || $_SESSION['setor'] == "1") { ?>
                             <h2>Busca por Escala</h2>
@@ -286,11 +305,8 @@
                                         <label class="first">Ano:</label> 
                                         <select name="escala_ano" id="menu" style="width: 400px;">
                                             <option value="-1"> « Selecione o ano » </option>
-                                            <?php
-                                                $anoAtual = date('Y');
-                                            ?>
                                             <?php foreach($arrayAno as $val => $key) { ?>
-                                                <option value="<?php echo $key; ?>"><?php echo $key; ?></option>
+                                                <option value="<?php echo $key; ?>" <?= isset($ano) && $key == $ano ? 'selected' : ''; ?>><?php echo $key; ?></option>
                                             <?php } ?>                                        
                                         </select>
                                     </p>
@@ -303,13 +319,13 @@
                         <h2 style="margin-top: 20px;">Histórico de Escala</h2>
                         
                         <?php if (isset($num_rows_escalaPorUnidade) && $num_rows_escalaPorUnidade > 0) { ?> 
-                            <table width="750" id="table-historico" style="font-size: 12px;">
+                            <table width="100%" id="table-historico" style="font-size: 12px;">
                                 <tr style="text-align: center; font-size: 13px;">
                                     <th>Unidade</th>
                                     <th>Setor</th>
-                                    <th><?php echo utf8_encode("Mês"); ?></th>
+                                    <th>Mês</th>
                                     <th>Ano</th>
-                                    <th><?php echo utf8_encode("Ações"); ?></th>
+                                    <th>Ações</th>
                                 </tr>
                                 <?php while ($row = mysql_fetch_assoc($escalasPorUnidade)) { ?>
                                     <tr>
@@ -319,16 +335,15 @@
                                         <td><?php echo $row['ano']; ?></td>
                                         <td style="padding: 5px;">
                                             <?php if($_SESSION['setor'] == "1") { ?>
-                                                <a id="btn-excluir" href="excluir_escala.php?id_escala=<?php echo $row['mes']; ?>&ano=<?php echo $row['ano']; ?>&id_unidade=<?php echo $row['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Excluir</a>
-                                            <?php } else { ?>
-                                                <a id="btn-excluir" href="excluir_escala.php?id_escala=<?php echo $row['mes']; ?>&ano=<?php echo $row['ano']; ?>&id_unidade=<?php echo $_SESSION['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Excluir</a>
+                                                <a id="btn-visualizar" href="visualizar_escala.php?=id_escala=<?php echo $row['id']; ?>&ano=<?php echo $row['ano']; ?>&mes=<?php echo $row['mes']; ?>&id_unidade=<?php echo $row['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Visualizar</a>
+                                                <a id="btn-excluir" href="excluir_escala.php?=id_escala=<?php echo $row['id']; ?>&ano=<?php echo $row['ano']; ?>&mes=<?php echo $row['mes']; ?>&id_unidade=<?php echo $_SESSION['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Excluir</a>
                                             <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
                             </table>
                         <?php } else { ?>
-                            <span><?php echo utf8_encode("Não existe nenhuma escala registrada."); ?></span>
+                            <span>Não existe nenhuma escala registrada.</span>
                         <?php } ?>
                     </div>
                 </div>

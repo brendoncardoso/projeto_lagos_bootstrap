@@ -3,6 +3,8 @@
 
     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
     date_default_timezone_set('America/Sao_Paulo');
+
+
     
     $id_noticia = isset($_REQUEST['id_noticia']) ? $_REQUEST['id_noticia'] : NULL;
     $sql = mysql_query("SELECT * FROM noticias WHERE id_noticia = '$id_noticia'");

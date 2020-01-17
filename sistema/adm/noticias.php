@@ -85,7 +85,7 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
                 <form method="post" action="" name="form1" id="form1">
                     <div id="conteudo">
                         <div class="blocos">
-                            <h2>Noticias</h2>
+                            <h2>Notícias</h2>
 
                             <input type="hidden" name="id" id="id" value="" />
                             <input type="hidden" name="pagina" id="pagina" value="<?php echo $pagina ?>" />
@@ -93,7 +93,7 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
                             <div id="novo" class="box-1">
                                 <div class="box-image center">
                                     <a hraf="javascript:;" class="icon-grande icon-novo-grande">&nbsp;</a>
-                                    <p class="center">Nova Noticia</p>
+                                    <p class="center">Nova Notícia</p>
                                 </div>
                             </div>
 

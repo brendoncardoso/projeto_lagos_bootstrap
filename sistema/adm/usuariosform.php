@@ -103,6 +103,14 @@ if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
                                     </select>
                                 </p>
 
+                                <?php if($act == 1) { ?>
+                                    <p>
+                                        <label for="" class="first2">
+                                        <small><b style="color: red">Atenção!</b></small></label>
+                                        <small><i>Esqueceu a Senha? Mande uma mensagem para: <b>brendon.carvalho@f71.com.br</b></i></small>
+                                    </p>
+                                <?php } ?>
+
                                 <p class="controls"> 
                                     <?php if ($act == 1) { ?>
                                         <input type="submit" name="enviar" value="Salvar" class="button" />
@@ -112,6 +120,7 @@ if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
                                     <?php } ?>
                                     <input type="button" name="cancelar" value="Cancelar" class="button" />
                                 </p>
+                            
                             </fieldset>
                         </div>
                     </div>

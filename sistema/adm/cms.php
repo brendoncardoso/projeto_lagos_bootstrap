@@ -22,9 +22,6 @@ if(isset($_POST['BreveHistoria']) && !empty($_POST['BreveHistoria'])){
     $sql = mysql_query("UPDATE cms SET cms_historia = ' ' WHERE id = 1");
 }
 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +82,7 @@ if(isset($_POST['BreveHistoria']) && !empty($_POST['BreveHistoria'])){
             <section>
                 <div id="conteudo">
                     <div class="blocos">
-                        <h2>Menu</h2>
+                        <h2>Sistema de Gestão de Conteúdo</h2>
                     <form action="" method="get">
                         <fieldset>
                             <legend>Buscar</legend>

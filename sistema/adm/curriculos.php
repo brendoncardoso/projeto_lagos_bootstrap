@@ -84,7 +84,7 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
 
             <div id="conteudo">
                 <div class="blocos">
-                    <h2>Currículos recentes</h2>
+                    <h2>Currículos Recentes</h2>
                         <form class="form-horizontal" method="POST" action="" id="form" name="form">
                             <div class="form-group">
                                 <fieldset>

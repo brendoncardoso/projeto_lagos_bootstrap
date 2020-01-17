@@ -4,8 +4,6 @@
   
     // define variables
     var items = document.querySelectorAll(".acesso-rapido img");
-
-    console.log(items);
   
     // check if an element is in viewport
     // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport

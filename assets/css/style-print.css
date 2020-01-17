@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    width: 100%;
+}
+.pagina{
+    page-break-after: always;
+}
+
+.logo{
+    display: block;
+    margin: auto;
+    height: 1.5cm;
+}
+.padding{
+    display: inline-block;
+    padding: 0 5px;
+}
+
+h1{font-size: 1.5em !important;}
+h2{font-size: 1.4em !important;}
+h3{font-size: 1.3em !important;}
+h4{font-size: 1.2em !important;}
+h5{font-size: 1.1em !important;}
+h6{font-size: 1em !important;}
+
+
+.text-bold {
+    font-weight: 700!important;
+}
+
+.teste{
+    background-color: #fff;
+        margin: 50px auto;
+        /*padding: 2cm;*/
+        padding-top: 250px;
+    padding-bottom: 250px;
+        box-shadow: 0 0 10px #000;
+        -moz-shadow: 0 0 10px #000;
+        -webkit-box-shadow: 0 0 10px #000;
+        width: 250mm;
+}
+@media screen {
+    body{
+        background-color: #555;
+        margin-top: 80px;
+    }
+    /*
+    A única diferença de .pagina para .pagina2 é que o último
+    não tem margem de impressão e é utilizada em apenas alguns
+    relatórios: contrato_trabalho_professor_v01.php
+    */
+    /*.pagina, .pagina2{
+        background-color: #fff;
+        margin: 50px auto;
+        padding: 2cm;
+        box-shadow: 0 0 10px #000;
+        -moz-shadow: 0 0 10px #000;
+        -webkit-box-shadow: 0 0 10px #000;
+        width: 210mm;
+        //min-height: 297mm;
+    }*/
+}
+
+@media print{
+    .pagina{padding: 0;}
+    .no-print{
+        display: none;
+    }
+}
+
+/** colunas na impressao **/
+.col-print-1 {width:8%;  float:left;}
+.col-print-2 {width:16%; float:left;}
+.col-print-3 {width:25%; float:left;}
+.col-print-4 {width:33%; float:left;}
+.col-print-5 {width:42%; float:left;}
+.col-print-6 {width:50%; float:left;}
+.col-print-7 {width:58%; float:left;}
+.col-print-8 {width:66%; float:left;}
+.col-print-9 {width:75%; float:left;}
+.col-print-10{width:83%; float:left;}
+.col-print-11{width:92%; float:left;}
+.col-print-12{width:100%; float:left;}

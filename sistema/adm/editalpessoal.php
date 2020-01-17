@@ -57,7 +57,7 @@ function prorrogacao($id){
             <section>
                 <div id="conteudo">
                     <div class="blocos">
-                        <h2>Editais de Pessoal</h2>
+                        <h2>Edital de Pessoas</h2>
 
                         <div id="novoEdital" class="box-1">
                             <div class="box-image center">

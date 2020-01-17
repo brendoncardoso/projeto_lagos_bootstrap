@@ -1,126 +1,17 @@
 <?php
-    include 'sistema/includes/conecte.php';
+    include '../sistema/includes/conecte.php';
+
 // RELATÓRIO DE EXECUÇÃO
+$rel_execucao = mysql_query("SELECT A.*, B.nome AS nome_unidade
+FROM relatorio AS A
+LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
+WHERE A.status = 1 AND A.tipo = 1
+ORDER BY A.Ano, A.mes ASC
+    ");
 
-/////////////////////////////////////////////// RELATÓRIO DE 2013 //////////////////////////////////////////////////
-$sql_13 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2013' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni = array();
-
-
-
-while ($row = mysql_fetch_assoc($sql_13)){
-    $uni[$row['id_unidade']]["unidade"] = $row['nome_unidade'];
-    $uni[$row['id_unidade']]["dados"][$row['mes']] = $row['id_unidade'] ."_". $row['mes'] ."_". $row['ano'] . ".pdf";
+while($row = mysql_fetch_assoc($rel_execucao)){
+    $rel_exec[$row['ano']][$row['mes']] = $row['mes']."_".$row['ano'].".pdf";
 }
-
-
-
-/////////////////////////////////////////////// RELATÓRIO DE 2014 ///////////////////////////////////////////////////
-
-$sql_14 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2014' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni_b = array();
-
-
-
-while ($row_b = mysql_fetch_assoc($sql_14)){
-    $uni_b[$row_b['id_unidade']]["unidade"] = $row_b['nome_unidade'];
-    $uni_b[$row_b['id_unidade']]["dados"][$row_b['mes']] = $row_b['id_unidade'] ."_". $row_b['mes'] ."_". $row_b['ano'] . ".pdf";
-}
-
-
-
-////////////////////////////////////////////// RELATÓRIO DE 2015 /////////////////////////////////////////////////////
-
-$sql_15 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2015' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni_15 = array();
-
-
-
-while ($row_15 = mysql_fetch_assoc($sql_15)){
-    $uni_15[$row_15['id_unidade']]["unidade"] = $row_15['nome_unidade'];
-    $uni_15[$row_15['id_unidade']]["dados"][$row_15['mes']] = $row_15['id_unidade'] ."_". $row_15['mes'] ."_". $row_15['ano'] . ".pdf";
-}
-
-///////////////////////////////////////////// RELATÓRIO DE 2016 //////////////////////////////////////////////////////
-
-$sql_16 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2016' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni_16 = array();
-
-
-
-while ($row_16 = mysql_fetch_assoc($sql_16)){
-    $uni_16[$row_16['id_unidade']]["unidade"] = $row_16['nome_unidade'];
-    $uni_16[$row_16['id_unidade']]["dados"][$row_16['mes']] = $row_16['id_unidade'] ."_". $row_16['mes'] ."_". $row_16['ano'] . ".pdf";
-}
-
-
-
-///////////////////////////////////////////// RELATÓRIO DE 2017 ///////////////////////////////////////////////////////
-
-$sql_17 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-        FROM relatorio AS A
-        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-        WHERE A.ano = '2017' AND A.status = 1 AND A.tipo = 1
-        ORDER BY B.nome") or die(mysql_error());
-$uni_17 = array();
-
-
-
-while ($row_17 = mysql_fetch_assoc($sql_17)){
-    $uni_17[$row_17['id_unidade']]["unidade"] = $row_17['nome_unidade'];
-    $uni_17[$row_17['id_unidade']]["dados"][$row_17['mes']] = $row_17['id_unidade'] ."_". $row_17['mes'] ."_". $row_17['ano'] . ".pdf";
-}
-
-
-///////////////////////////////////////////// RELATÓRIO DE 2018 ////////////////////////////////////////////////////////
-
-$sql_18 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2018' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni_18 = array();
-
-
-
-while ($row_18 = mysql_fetch_assoc($sql_18)){
-    $uni_18[$row_18['id_unidade']]["unidade"] = $row_18['nome_unidade'];
-    $uni_18[$row_18['id_unidade']]["dados"][$row_18['mes']] = $row_18['id_unidade'] ."_". $row_18['mes'] ."_". $row_18['ano'] . ".pdf";
-}
-
-///////////////////////////////////////////// RELATÓRIO DE 2019 /////////////////////////////////////////////////////////
-
-$sql_19 = mysql_query("SELECT A.*, B.nome AS nome_unidade
-                        FROM relatorio AS A
-                        LEFT JOIN unidades AS B ON (B.id_unidade = A.id_unidade)
-                        WHERE A.ano = '2019' AND A.status = 1 AND A.tipo = 1
-                        ORDER BY B.nome") or die(mysql_error());
-$uni_19 = array();
-
-
-
-while ($row_19 = mysql_fetch_assoc($sql_19)){
-    $uni_19[$row_19['id_unidade']]["unidade"] = $row_19['nome_unidade'];
-    $uni_19[$row_19['id_unidade']]["dados"][$row_19['mes']] = $row_19['id_unidade'] ."_". $row_19['mes'] ."_". $row_19['ano'] . ".pdf";
-}
-
-
 
 // RELATÓRIO ANUAL
 
@@ -236,9 +127,10 @@ echo '<ul style="display:none; list-style-type: circle;" class="show_compras">';
 echo '</ul>';
 }
 
+
 ?>
 
-<?php include_once('header.php'); ?>
+<?php include_once('../header.php'); ?>
 
     <!--HEADER MENU-->
     <div class="borda_menu"></div>
@@ -556,7 +448,7 @@ echo '</ul>';
                 </div>
                 
                 <div class="col-sm-3 p-0 text-center">
-                    <!--------------------------- ANUAL 2012 ------------------------------>
+                    <!--------------------------- ANUAL 2012 
                     <h5 id="h2_rel12a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2012</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela12a">
                         <thead class="text-center">
@@ -601,9 +493,9 @@ echo '</ul>';
                                 <td>Relatório de Gestão Anual <a href="../sistema/adm/pdf/Relatorio de Gestao Anual.pdf" target="_blank"><img src="assets/images/pdf3.png" alt="" class="right"></a></td>
                             </tr>
                         </tbody>
-                    </table>     
+                    </table>     ------------------------------>
 
-                    <!--------------------------- ANUAL 2013 ------------------------------>
+                    <!--------------------------- ANUAL 2013 
                     <h5 id="h2_rel13a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2013</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela13a">
                         <thead>
@@ -626,9 +518,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table>   
+                    </table>   ------------------------------>
 
-                    <!--------------------------- ANUAL 2014 ------------------------------>
+                    <!--------------------------- ANUAL 2014 
                     <h5 id="h2_rel14a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2014</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela14a">
                         <thead>
@@ -651,9 +543,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table>   
+                    </table>   ------------------------------>
 
-                    <!--------------------------- ANUAL 2015 ------------------------------>
+                    <!--------------------------- ANUAL 2015 
                     <h5 id="h2_rel15a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2015</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela15a" style="display: none;">
                         <thead>
@@ -676,9 +568,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table> 
+                    </table> ------------------------------>
 
-                    <!--------------------------- ANUAL 2016 ------------------------------>
+                    <!--------------------------- ANUAL 2016
                     <h5 id="h2_rel16a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2016</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela16a">
                         <thead>
@@ -701,9 +593,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table> 
+                    </table>  ------------------------------>
 
-                    <!--------------------------- ANUAL 2017 ------------------------------>
+                    <!--------------------------- ANUAL 2017 
                     <h5 id="h2_rel17a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2017</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela17a">
                         <thead>
@@ -726,9 +618,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table>
+                    </table>------------------------------>
 
-                    <!--------------------------- ANUAL 2018 ------------------------------>
+                    <!--------------------------- ANUAL 2018 
                     <h5 id="h2_rel18a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2018</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela18a">
                         <thead>
@@ -751,9 +643,9 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table>
+                    </table>------------------------------>
 
-                    <!--------------------------- ANUAL 2019 ------------------------------>
+                    <!--------------------------- ANUAL 2019 
                     <h5 id="h2_rel19a"><img src="assets/images/relatorio-anual.png"> Relatório Anual 2019</h5>
                     <table class="table table-sm table-bordered table-striped" id="tabela19a">
                         <thead>
@@ -776,259 +668,65 @@ echo '</ul>';
                                 </tr>
                             <?php } ?>
                         </tbody>
-                    </table>                
+                    </table>      ------------------------------>          
                 </div>
-
-                <div class="col-sm-3 p-0 text-center">
-                    <!--------------------------- 2013 ---------------------->
-                    <h5 id="h2_rel13"><img src="assets/images/file2.png">Relatório de Execução 2013</h5>
+                
+                <?php for($x = 2013; $x <= date('Y'); $x++) { ?>
+                    <?php $last_years = substr($x, -2); ?>
+                    <h5 id="h2_rel<?= $last_years; ?>"><img src="assets/images/file2.png">Relatório de Execução <?= $x; ?></h5>
                     <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela13" style="display: none;">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
+                    <table class="table table-sm table-bordered table-striped" id="tabela<?= $last_years?>">
+                        <?php foreach($rel_exec as $ano => $val) { ?>
+                            <?php if($ano == $x) { ?>
+                                <thead class="text-center">
+                                    <?php for ($l = 1; $l <= 12; $l++) { ?>
+                                        <?php foreach($val as $mes => $link) { ?>
+                                            <?php if($mes == $l) { ?>
+                                                <?php
+                                                    switch($mes) {
+                                                        case 1: $nome_mes = "Jan"; break;
+                                                        case 2: $nome_mes = "Fev"; break;
+                                                        case 3: $nome_mes = "Mar"; break;
+                                                        case 4: $nome_mes = "Abr"; break;
+                                                        case 5: $nome_mes = "Mai"; break;
+                                                        case 6: $nome_mes = "Jun"; break;
+                                                        case 7: $nome_mes = "Jul"; break;
+                                                        case 8: $nome_mes = "Ago"; break;
+                                                        case 9: $nome_mes = "Set"; break;
+                                                        case 10: $nome_mes = "Out"; break;
+                                                        case 11: $nome_mes = "Nov"; break;
+                                                        case 12: $nome_mes = "Dez"; break;
+                                                    }    
+                                                ?>
+                                                <th>
+                                                    <?php echo $nome_mes ;?>
+                                                </th>
+                                            <?php } ?>
+                                        <?php } ?>
                                     <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                    <!----------------------------- 2014 ---------------------------->
-                    <h5 id="h2_rel14"><img src="assets/images/file2.png">Relatório de Execução 2014</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela14">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_b as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_b[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_b[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
+                                </thead>
+                                <tbody>
+                                    <?php for ($l = 1; $l <= 12; $l++) { ?>
+                                            <?php foreach($val as $mes => $link) { ?>
+                                                <?php if($mes == $l) { ?>
+                                                    <td>
+                                                        <?php if ($link != "") { ?>
+                                                            <a href="../sistema/adm/rel_execucao/<?php echo $link; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
+                                                        <?php } ?>
+                                                    </td>
+                                                <?php } ?>
+                                            <?php } ?>
                                     <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
+                                </tbody>
+                            <?php } ?>    
+                        <?php } ?>                                    
                     </table>
-
-                    <!----------------------------- 2015 ---------------------------->
-                    <h5 id="h2_rel15"><img src="assets/images/file2.png">Relatório de Execução 2015</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela15">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_15 as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_15[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_15[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                    <!----------------------------- 2016 ---------------------------->
-                    <h5 id="h2_rel16"><img src="assets/images/file2.png">Relatório de Execução 2016</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela16">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_16 as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_16[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_16[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                    <!----------------------------- 2017 ---------------------------->
-                    <h5 id="h2_rel17"><img src="assets/images/file2.png">Relatório de Execução 2017</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela17">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_17 as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_17[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_17[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                    <!----------------------------- 2018 ---------------------------->
-                    <h5 id="h2_rel18"><img src="assets/images/file2.png">Relatório de Execução 2018</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela18">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_18 as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_18[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_18[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                    <!----------------------------- 2019 ---------------------------->
-                    <h5 id="h2_rel19"><img src="assets/images/file2.png">Relatório de Execução 2019</h5>
-                    <?php $count = 0; ?>
-                    <table class="table table-sm table-bordered table-striped" id="tabela19">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Unidade</th>
-                                <th>Jan</th>
-                                <th>Fev</th>
-                                <th>Mar</th>
-                                <th>Abr</th>
-                                <th>Mai</th>
-                                <th>Jun</th>
-                                <th>Jul</th>
-                                <th>Ago</th>
-                                <th>Set</th>
-                                <th>Out</th>
-                                <th>Nov</th>
-                                <th>Dez</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php foreach($uni_19 as $k => $link) { ?>
-                                <tr>
-                                    <td><?php echo $uni_19[$k]['unidade']?></td>
-                                    <?php for($i = 1; $i <= 12; $i++) { ?>
-                                        <td>
-                                            <a href="sistema/adm/rel_execucao/<?php echo $uni_19[$k]['dados'][$i]; ?>" target="_blank"><img src="assets/images/pdf3.png" alt=""></a>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                <?php }?>
                 </div>
             </div>
         </div>
     </div>
 
     
+<?php include_once('../footer.php'); ?>
     
-<?php include_once('footer.php'); ?>
