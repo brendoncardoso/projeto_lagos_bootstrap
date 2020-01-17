@@ -1,7 +1,12 @@
 <?php
     require '../includes/conecte.php';
     require '../includes/restricao.php';
-    
+
+    if(isset($_SESSION['message'])){
+        $mensagem = $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+
     function nomeMes($data) {
         switch ($data) {
             case "01":    $mes = "Janeiro";     break;
@@ -193,7 +198,20 @@
         <script src="../resources/js/jquery.qtip-2.min.js" type="text/javascript"></script>
         <script src="../resources/js/global.js" type="text/javascript"></script>
         
-         
+        <script>
+         $(function(){
+             $("#btn-excluir").click(function(){
+                    var id_unidade = $(this).attr("data-key");
+                    if(confirm('Atenção, essa ação é irreversível, deseja realmente excluir essa Escala?')){
+                        $.post('../actions/action.escala.php', {id_unidade:id_unidade, method:"exclui"} ,function(data) {
+                            if(data){
+                                window.location = "escala.php";
+                            }
+                        },"json");
+                    }
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -315,33 +333,41 @@
                             </form>
                         <?php } ?>
 
-                        
+                        <hr class="clear"/>
+                        <?php if(isset($mensagem)) { ?>
+                            <div class="message">
+                                <?php echo $mensagem; ?>
+                            </div>
+                        <?php } ?>
+
                         <h2 style="margin-top: 20px;">Histórico de Escala</h2>
                         
                         <?php if (isset($num_rows_escalaPorUnidade) && $num_rows_escalaPorUnidade > 0) { ?> 
-                            <table width="100%" id="table-historico" style="font-size: 12px;">
-                                <tr style="text-align: center; font-size: 13px;">
-                                    <th>Unidade</th>
-                                    <th>Setor</th>
-                                    <th>Mês</th>
-                                    <th>Ano</th>
-                                    <th>Ações</th>
-                                </tr>
-                                <?php while ($row = mysql_fetch_assoc($escalasPorUnidade)) { ?>
-                                    <tr>
-                                        <td><?php echo $row['nome_unidade']; ?></td>
-                                        <td><?php echo $row['setor']; ?></td>
-                                        <td><?php echo utf8_encode(nomeMes($row['mes'])); ?></td>
-                                        <td><?php echo $row['ano']; ?></td>
-                                        <td style="padding: 5px;">
-                                            <?php if($_SESSION['setor'] == "1") { ?>
-                                                <a id="btn-visualizar" href="visualizar_escala.php?=id_escala=<?php echo $row['id']; ?>&ano=<?php echo $row['ano']; ?>&mes=<?php echo $row['mes']; ?>&id_unidade=<?php echo $row['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Visualizar</a>
-                                                <a id="btn-excluir" href="excluir_escala.php?=id_escala=<?php echo $row['id']; ?>&ano=<?php echo $row['ano']; ?>&mes=<?php echo $row['mes']; ?>&id_unidade=<?php echo $_SESSION['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Excluir</a>
-                                            <?php } ?>
-                                        </td>
+                            <form method="POST" enctype="multipart/form-data">
+                                <table width="100%" id="table-historico" style="font-size: 12px;">
+                                    <tr style="text-align: center; font-size: 13px;">
+                                        <th>Unidade</th>
+                                        <th>Setor</th>
+                                        <th>Mês</th>
+                                        <th>Ano</th>
+                                        <th>Ações</th>
                                     </tr>
-                                <?php } ?>
-                            </table>
+                                    <?php while ($row = mysql_fetch_assoc($escalasPorUnidade)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['nome_unidade']; ?></td>
+                                            <td><?php echo $row['setor']; ?></td>
+                                            <td><?php echo utf8_encode(nomeMes($row['mes'])); ?></td>
+                                            <td><?php echo $row['ano']; ?></td>
+                                            <td style="padding: 5px;">
+                                                <?php if($_SESSION['setor'] == "1") { ?>
+                                                    <a id="btn-visualizar" href="visualizar_escala.php?=id_escala=<?php echo $row['id']; ?>&ano=<?php echo $row['ano']; ?>&mes=<?php echo $row['mes']; ?>&id_unidade=<?php echo $row['id_unidade']; ?>&setor=<?php echo $row['setor']; ?>">Visualizar</a>
+                                                    <a id="btn-excluir" href="javascript:;" title="Excluir" data-key="<?php echo $row['id_unidade'] ?>" >Excluir</a>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
+                            </form>
                         <?php } else { ?>
                             <span>Não existe nenhuma escala registrada.</span>
                         <?php } ?>
