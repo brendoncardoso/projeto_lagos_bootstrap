@@ -154,7 +154,7 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
 
                         <?php
                             if ($total == 0) {
-                                echo '<h4>Nenhum currículo cadastado.</h4>';
+                                echo '<h4>Nenhum currículo cadastrado.</h4>';
                             } else {
 
                         ?>

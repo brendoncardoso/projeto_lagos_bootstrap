@@ -10,6 +10,8 @@ if (isset($_SESSION['message'])) {
                         FROM usuarios AS A
                         INNER JOIN unidades AS B ON (A.id_unidade = B.id_unidade) ORDER BY A.id_unidade ASC;");
 
+    $sql_rows = mysql_num_rows($sql);
+    
     while($row = mysql_fetch_assoc($sql)){
         $arrayUsu[$row['usu_id']] = [
             "id_unidade" => $row['id_unidade'],
@@ -96,39 +98,43 @@ if (isset($_SESSION['message'])) {
                                 </div>
                             <?php }?>
 
-                            <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Unidade</th>
-                                        <th>Login</th>
-                                        <th>Setor</th>
-                                        <th colspan="2">Ação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        $i = 0;
-                                        $class = (($i++ % 2) == 0) ? "even" : "odd";
-                                    ?>
-                                    <?php foreach($arrayUsu as $id_usu => $values) { ?>
-                                        <tr class="<?php echo $class ?>">
-                                            <td class="center"><?= $id_usu; ?></td>
-                                            <td class="center"><?= $values['nome_unidade']; ?></td>
-                                            <td class="center"><?= $values['login']; ?></td>
-                                            <td class="center">
-                                                <?php if($values['setor'] == 1) { ?>
-                                                    Administrativo
-                                                <?php } else { ?>
-                                                    Escala
-                                                <?php } ?>
-                                            </td>
-                                            <td class="center"><a href="javascript:;" class="icon icon-editar" title="Editar" data-key="<?php echo $id_usu; ?>" >&nbsp;</a></td>
-                                            <td class="center"><a href="javascript:;" class="icon icon-excluir" title="Excluir" data-key="<?php echo $id_usu; ?>" data-login="<?php echo $values['login']?>" >&nbsp;</a></td>
+                            <?php if(!empty($sql_rows) || $sql_rows > 0) { ?>
+                                <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Unidade</th>
+                                            <th>Login</th>
+                                            <th>Setor</th>
+                                            <th colspan="2">Ação</th>
                                         </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $i = 0;
+                                            $class = (($i++ % 2) == 0) ? "even" : "odd";
+                                        ?>
+                                        <?php foreach($arrayUsu as $id_usu => $values) { ?>
+                                            <tr class="<?php echo $class ?>">
+                                                <td class="center"><?= $id_usu; ?></td>
+                                                <td class="center"><?= $values['nome_unidade']; ?></td>
+                                                <td class="center"><?= $values['login']; ?></td>
+                                                <td class="center">
+                                                    <?php if($values['setor'] == 1) { ?>
+                                                        Administrativo
+                                                    <?php } else { ?>
+                                                        Escala
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="center"><a href="javascript:;" class="icon icon-editar" title="Editar" data-key="<?php echo $id_usu; ?>" >&nbsp;</a></td>
+                                                <td class="center"><a href="javascript:;" class="icon icon-excluir" title="Excluir" data-key="<?php echo $id_usu; ?>" data-login="<?php echo $values['login']?>" >&nbsp;</a></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            <?php } else { ?>
+                                <h4>Nenhum usuário cadastrado.</h4>
+                            <?php } ?>
                         </div>
                     </div> 
                 </form>
