@@ -17,6 +17,13 @@ if (isset($_REQUEST['method'])) {
     }
 }
 
+if (isset($_REQUEST['method']) && !empty($_REQUEST['method']) == "excluir_thumb") {
+    $sql_update_view = mysql_query("UPDATE noticias SET status_img = 0 WHERE id_noticia = {$_REQUEST['id_noticia']}");
+    $sql_delete_thumb = mysql_query("DELETE FROM cms_img_noticia WHERE id_noticia = {$_REQUEST['id_noticia']}");
+    $_SESSION["message"] = "Thumbnail atualizado com sucesso!";    
+}
+
+
 //POPULA AS VARIAVEIS PARA A INSERÇÃO OU EDIÇÃO
 $titulo = $_REQUEST['titulo'];
 $subtitulo = $_REQUEST['subtitulo'];

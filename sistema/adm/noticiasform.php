@@ -4,6 +4,11 @@ include('../includes/conecte.php');
 
 include('../includes/restricao.php');
 
+if (isset($_SESSION['message'])) {
+    $mensagem = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+
 $act = 1;
 
 if (isset($_REQUEST['id'])) {
@@ -158,7 +163,6 @@ if (isset($_REQUEST['id'])) {
 
                 var limite = 52;
                 var caracteresDigitados = $('input[name=subtitulo]').val().length;
-                console.log(caracteresDigitados);
                 if(caracteresDigitados > 52){
                     $('.caracteres').text(limite+"/"+limite);
                 }else{
@@ -192,7 +196,19 @@ if (isset($_REQUEST['id'])) {
                         $('.novo_assunto').prop("disabled", true);
                         $('.assuntos').prop("disabled", false);
                     }
-                 })
+                 });
+
+                 $('.excluir_img').on('click', function(){
+                    var id_noticia = $(this).data('id_noticia');
+                    if(confirm("Tem certeza que deseja Exluir a Imagem da notícia do id = "+ id_noticia +" ?")){
+                        $.post('../actions/action.noticias.php', {id_noticia:id_noticia, method: "excluir_thumb"}, 
+                        function(data) {
+                            if(data){
+                                window.location.href = "noticias.php";
+                            }
+                        },"json");
+                    }
+                });
 //               
             });
 
@@ -246,7 +262,7 @@ if (isset($_REQUEST['id'])) {
 
             <section>
 
-                <form name="cadastro" action="../actions/action.noticias.php" method="post" enctype="multipart/form-data" id="form1">
+                <form name="" action="../actions/action.noticias.php" method="post" enctype="multipart/form-data" id="form1">
 
                     <div id="conteudo">
 
@@ -283,34 +299,15 @@ if (isset($_REQUEST['id'])) {
 
                                 <p>
                                     <?php if($status_img == 0) { ?>
-                                        <label class="first2">Imagem(Home):</label><input type="file" name="imagem_noticia" id="" value="" />
+                                        <label class="first2">Thumbnail(Home):</label><input type="file" name="imagem_noticia" id="" value="" />
                                     <?php }else{ ?>
                                         <?php 
                                             $sql_img_noticia = mysql_query("SELECT * FROM cms_img_noticia WHERE id_noticia = {$id_noticia}");    
                                             $row = mysql_fetch_assoc($sql_img_noticia);
                                             $img_noticia = $row['img_noticia'];
                                         ?>
-                                        <script>
-                                            $(document).ready(function(){
-                                                $('.excluir_img').on('click', function(){
-                                                    var id_noticia = $(this).data('id_noticia');
-                                                    if(confirm("Tem certeza que deseja Exluir a Imagem da notícia do id = "+ id_noticia +" ?")){
-                                                        $.ajax({
-                                                            url: '../actions/cms_img_noticias/deleteImgNoticias.php?=id_noticia='+id_noticia, 
-                                                            data: {id_noticia: id_noticia},
-                                                            success: function(data){
-                                                                window.location.href="noticias.php";
-                                                            } 
-                                                        });
-                                                        
-                                                    }else{
-
-                                                    }
-                                                   
-                                                });
-                                            })
-                                        </script>
-                                        <label class="first2">Imagem(Home):</label>
+                                        
+                                        <label class="first2">Thumbnail(Home):</label>
                                         <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
                                             <thead>
                                                 <tr>
@@ -328,10 +325,8 @@ if (isset($_REQUEST['id'])) {
                                                             VISUALIZAR
                                                         </a> 
                                                         
-                                                        <input type="button" name="excluir_img" class="button excluir_img text-center button_center" value="EXCLUIR" data-id_noticia="<?php echo $id_noticia; ?>"/>
+                                                        <input type="submit" name="excluir_img" class="button excluir_img text-center button_center" value="EXCLUIR" data-id_noticia="<?php echo $id_noticia; ?>"/>
                                                     </td>
-                                                    <!--<td class="center" colspan="2"><a href="../adm/inserirSlide.php?imagem=1"><button id="imagem1" class="button text-center button_center" name="imagem">INSERIR</button></a></td>-->
-                                                    <!--<td class="center" colspan="2"></td>-->
                                                 </tr>
                                             </tbody>
                                         </table>

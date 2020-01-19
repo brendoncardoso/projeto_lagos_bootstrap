@@ -1,8 +1,12 @@
 <?php
-
 include('../includes/conecte.php');
 include('../includes/restricao.php');
     
+if (isset($_SESSION['message'])) {
+    $mensagem = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+
 if(isset($_FILES['imagem']['name']) && !empty($_FILES['imagem']['name']) && 
     isset($_POST['nome_imagem']) && !empty($_POST['nome_imagem'])){
     $id_img = $_REQUEST['imagem'];
@@ -12,30 +16,25 @@ if(isset($_FILES['imagem']['name']) && !empty($_FILES['imagem']['name']) &&
     $pasta = "cms_slides/";
 
     $extensao = strtolower(end(explode('.', $_FILES['imagem']['name'])));
+    header('location: slideform.php?imagem='.$_GET['imagem']);
 
-    if(mysql_query("INSERT INTO cms_slides (id_img, extensao, nome_imagem) VALUES ({$id_img}, '{$extensao}', '{$nome_imagem}')")){
-        if (array_search($extensao, $extensoes) === false) {
-            echo "<script>alert('Por favor, envie arquivos com as seguintes extensões: jpg, png ou jpeg'); </script>";
-        }else{
-            $nome_final = $id_img;
     
+    if (array_search($extensao, $extensoes) === false) {
+        $_SESSION["message"] = "Extensão não permitida, por favor, tente novamente.";
+    } else {
+        if(mysql_query("INSERT INTO cms_slides (id_img, extensao, nome_imagem) VALUES ({$id_img}, '{$extensao}', '{$nome_imagem}')")){
+            $nome_final = $id_img;
             if (move_uploaded_file($_FILES['imagem']['tmp_name'], $pasta . $nome_final.".".$extensao)) {
-                // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
-                echo("<script>if(confirm('Upload feito com Sucesso!')){
-                    window.location='cms.php';
-                    } else {
-                    window.location='cms.php';
-                    };</script>");
-                
+                $_SESSION["message"] = "Upload efetuado com sucesso!";            
             } else {
-                // Não foi possível fazer o upload, provavelmente a pasta está incorreta
-                echo "<script>alert('Não foi possível enviar o arquivo, tente novamente'); </script>";
+                $_SESSION["message"] = "Não foi possível enviar o arquivo, tente novamente";
             }
         }
-    }else{
-        echo "<script>alert('Houve um erro ao Inserir imagem para o slide. Por favor, entre em contato com a gente.')</script>";
     }
+} else {
+    $_SESSION["message"] = "Houve um erro. Algum dos campos não está sendo preenchido corretamente!";
 }
+
 
 ?>
 
@@ -71,10 +70,7 @@ if(isset($_FILES['imagem']['name']) && !empty($_FILES['imagem']['name']) &&
         </script>
     </head>
 
-
-
     <body>
-
         <div class="main">
             <div id="header">
                 <h1>ADMINISTRAÇÃO DE CANDIDATOS</h1>
@@ -83,13 +79,20 @@ if(isset($_FILES['imagem']['name']) && !empty($_FILES['imagem']['name']) &&
                 <?php include('../includes/menu_adm.php'); ?>
             </nav>
 
-
             <section>
-                <form name="cadastro" method="post" enctype="multipart/form-data" id="form1">
+                <form name="" method="post" enctype="multipart/form-data" id="form1">
                     <div id="conteudo">
                         <div class="blocos">
-                            <h3>Slide <?php echo $_GET['imagem']?></h3>
+                            <h3>Slide <?= isset($_GET['imagem']) ? $_GET['imagem'] : '';?></h3>
+                            
                             <hr/>
+
+                            <?php if (isset($mensagem))  { ?>
+                                <div class="message">
+                                    <?= $mensagem; ?>
+                                </div>
+                            <?php }?>
+
                             <fieldset>
                                 <legend>Dados</legend>
                                 <p><label class="first2">Nome:</label><input type="text" name="nome_imagem" id="nome" class="validate[required]" /></p>

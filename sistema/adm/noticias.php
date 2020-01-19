@@ -99,7 +99,11 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
 
                             <hr class="clear"/>
 
-                            <?php if (isset($mensagem)) echo "<div class='message'>{$mensagem}</div>"; ?>
+                            <?php if (isset($mensagem)) { ?> 
+                                <div class='message'>
+                                    <?= $mensagem; ?>
+                                </div> 
+                            <?php } ?>
 
                             <?php
                             if (mysql_num_rows($qr_unidade) == 0) {

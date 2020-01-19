@@ -3,8 +3,6 @@
 
     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
     date_default_timezone_set('America/Sao_Paulo');
-
-
     
     $id_noticia = isset($_REQUEST['id_noticia']) ? $_REQUEST['id_noticia'] : NULL;
     $sql = mysql_query("SELECT * FROM noticias WHERE id_noticia = '$id_noticia'");
@@ -12,10 +10,10 @@
     $sql_id = mysql_fetch_assoc($sql);
     $id = $sql_id['id_noticia'];
 
-    $sql = mysql_query("SELECT * FROM cms_logo");
+    $sql = mysql_query("SELECT * FROM cms_logo WHERE status = 1");
     $num_rows = mysql_num_rows($sql);
     $row = mysql_fetch_assoc($sql);
-    $cms_logo = $row['id_logo'];
+    $cms_logo = $row['id'].".".$row['extensao'];
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +58,7 @@
 
                     <?php if($num_rows == 1) { ?>
                         <a href="index.php" class="navbar-brand">
-                            <img src="assets/images/<?php echo $cms_logo; ?>.png" width="150px" alt="">
+                            <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" width="150px" alt="">
                         </a>
                     <?php } else { ?>
                         
