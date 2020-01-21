@@ -303,7 +303,7 @@ fieldset p{
 .ulShowCargos{
     list-style: none;
     display: inline-block;
-    float: left;
+    /*float: left*/
     margin-left: 10px;
     width: 420px;
 }
@@ -428,3 +428,12 @@ a.icon-grande {
     display: none;
 }
 
+.button_center{
+    float: none!important;
+    display: inline-block!important;
+}
+
+.button_a{
+    color: black; 
+    padding: 6px 9px;
+}

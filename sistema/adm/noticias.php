@@ -140,7 +140,6 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
                                                         -
                                                     <?php } ?>
                                                 </td>
-                                                <!--<td class="center"> - </td>-->
                                                 <td class="center"><a href="javascript:;" class="icon icon-editar" title="Editar" data-key="<?php echo $row['id_noticia'] ?>" >&nbsp;</a></td>
                                                 <td class="center"><a href="javascript:;" class="icon icon-excluir" title="Excluir" data-key="<?php echo $row['id_noticia'] ?>" >&nbsp;</a></td>
                                             </tr>

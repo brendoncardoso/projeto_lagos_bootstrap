@@ -1,6 +1,11 @@
 <?php
     include('../includes/conecte.php');
     include('../includes/restricao.php');
+     
+    if (isset($_SESSION['message'])) {
+        $mensagem = $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
 
     if(isset($_POST['id_opcao1']) && !empty($_POST['id_opcao1']) && isset($_POST['nome_arquivo']) && !empty($_POST['nome_arquivo']) && isset($_FILES['arquivo']['name']) && !empty($_FILES['arquivo']['name'])){
         $id_pasta = intval($_POST['id_opcao1']);
@@ -63,6 +68,25 @@
         <script src="../resources/js/jquery.validationEngine-pt.js" type="text/javascript"></script>
         <script src="../resources/js/maskedinput.js" type="text/javascript"></script>
         <script src="../resources/js/jquery.qtip-2.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $(".message").delay(2000).fadeOut("slow");
+
+                $('.excluir_arquivo_categoria2').on('click', function(){
+                    var id = $(this).data('id');
+                    var id_pasta = $(this).data('id_pasta');
+
+                    if(confirm("Tem certeza que deseja Excluir o arquivo dessa pasta?")){
+                        $.post('../actions/action.prestacaocontas.php', {id:id, id_pasta:id_pasta, method: "excluir_arquivo_categoria2"}, 
+                        function(data) {
+                            if(data){
+                                window.location.href = "categoria.php";
+                            }
+                        },"json");
+                    }
+                })
+            });
+        </script>
     </head>
 
 
@@ -139,33 +163,44 @@
                                         <input type="submit" name="buscar" value="BUSCAR" id="buscar" class="button">
                                     </p>
                                 </fieldset>
-                            </form>                
-                            <?php if (isset($sql_pesquisa_rows) && $sql_pesquisa_rows >= 1)  { ?>
-                                <table width="100%" class="grid mt-5" cellspacing="0" cellpadding="0" border="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nome do Arquivo</th>
-                                            <th>Anexo</th>
-                                            <th colspan="2">Excluir</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <?php $i = 0; ?>
-                                        <?php while ($row = mysql_fetch_assoc($sql_select)) { ?>
-                                            <?php $class = (($i++ % 2) == 0) ? "even" : "odd"; ?>
-                                            <tr class="<?php echo $class; ?>">
-                                                <td class="center"><?php echo $row['id']; ?></td>
-                                                <td class="center"><?php echo $row['nome_arquivo']?></td>
-                                                <td class="center"><a href="../adm/atas_documentos/<?php echo $row['id']; ?>_<?php echo $row['id_pasta']?>.pdf" target="_blank"><?php echo $row['arquivo']; ?></a></td>
-                                                <td class="center"><a href="deletearquivo2.php?id=<?php echo $row['id']?>&&id_pasta=<?php echo $row['id_pasta']?>" class="icon icon-excluir" title="Excluir" data-key="16">&nbsp;</a></td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            <?php } ?>
+                            </form>      
                         </div>
+                        <?php if (isset($mensagem)) { ?> 
+                            <div class='message'>
+                                <?= $mensagem; ?>
+                            </div> 
+                        <?php } ?>  
+
+                        <form action="" method="post">
+                                <?php if (isset($sql_pesquisa_rows) && $sql_pesquisa_rows >= 1)  { ?>
+                                    <table width="100%" class="grid mt-5" cellspacing="0" cellpadding="0" border="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nome do Arquivo</th>
+                                                <th>Anexo</th>
+                                                <th colspan="2">Ações</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <?php $i = 0; ?>
+                                            <?php while ($row = mysql_fetch_assoc($sql_select)) { ?>
+                                                <?php $class = (($i++ % 2) == 0) ? "even" : "odd"; ?>
+                                                <tr class="<?php echo $class; ?>">
+                                                    <td class="center"><?php echo $row['id']; ?></td>
+                                                    <td class="center"><?php echo $row['nome_arquivo']?></td>
+                                                    <td class="center"><a href="../adm/atas_documentos/<?php echo $row['id']; ?>_<?php echo $row['id_pasta']?>.pdf" target="_blank"><?php echo $row['arquivo']; ?></a></td>
+                                                    <!--<td class="center"><a href="deletearquivo2.php?id=<?php echo $row['id']?>&&id_pasta=<?php echo $row['id_pasta']?>" class="icon icon-excluir" title="Excluir" data-key="16">&nbsp;</a></td>-->
+                                                    <td class="center">
+                                                        <input class="excluir_arquivo_categoria2 button button_a button_center" type="submit" value="Excluir" data-id="<?php echo $row['id']?>" data-id_pasta="<?php echo $row['id_pasta']?>">
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                <?php } ?>
+                            </form>
                     </div>
             </section>
             <section id="footer">

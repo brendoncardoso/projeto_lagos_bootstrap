@@ -2,6 +2,11 @@
     include('../includes/conecte.php');
     include('../includes/restricao.php');
     
+    if (isset($_SESSION['message'])) {
+        $mensagem = $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+
     //echo $id_unidade_id['id_unidade'];
 
     if(isset($_POST['id_opcao_pasta']) && !empty($_POST['id_opcao_pasta']) && 
@@ -84,10 +89,26 @@
         <script src="../resources/js/jquery.validationEngine-pt.js" type="text/javascript"></script>
         <script src="../resources/js/maskedinput.js" type="text/javascript"></script>
         <script src="../resources/js/jquery.qtip-2.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $(".message").delay(2000).fadeOut("slow");
+
+                $(".excluir_unidade_categoria3").on('click', function(){
+                    var id_pasta = $(this).data('id_pasta');
+                    var id_unidade =  $(this).data('id_unidade');
+
+                    if(confirm("Tem certeza que deseja Excluir a unidade dessa pasta?")){
+                        $.post('../actions/action.prestacaocontas.php', {id_pasta:id_pasta, id_unidade:id_unidade, method: "excluir_unidade_categoria3"}, 
+                        function(data) {
+                            if(data){
+                                window.location.href = "categoria.php";
+                            }
+                        },"json");
+                    }
+                });
+            });
+        </script>
     </head>
-
-
-
     <body>
         <div class="main">
             <div id="header">
@@ -108,7 +129,7 @@
 
                                 <p>
                                     <label class="first2">Selecione a Pasta:</label>
-                                    <select name="id_opcao_pasta" id="edital" style="width: 300px;">
+                                    <select name="id_opcao_pasta" id="edital1" style="width: 300px;">
                                         <option value="-1"> « Selecione » </option>
                                         <?php
                                             $sql = mysql_query("SELECT * FROM pasta");
@@ -127,7 +148,7 @@
 
                                 <p>
                                     <label class="first2">Selecione a Unidade:</label>
-                                    <select name="id_opcao_unidade" id="edital" style="width: 300px;">
+                                    <select name="id_opcao_unidade" id="edital2" style="width: 300px;">
                                         <option value="-1"> « Selecione » </option>
                                         <?php
                                             $sql = mysql_query("SELECT * FROM unidades WHERE status = 1");
@@ -146,7 +167,7 @@
                                 
                                 <p>
                                     <label class="first2">Selecione a Empresa:</label>
-                                    <select name="id_opcao_empresa" id="edital" style="width: 300px;">
+                                    <select name="id_opcao_empresa" id="edital3" style="width: 300px;">
                                         <option value="-1"> « Selecione » </option>
 
                                         <?php
@@ -218,9 +239,15 @@
                         </form>
                     </div>
 
-                    <?php if (isset($sql_pesquisa_rows) && $sql_pesquisa_rows > 0)  { ?>
-                        <div id="respostaCategoria">
-                            <form name="" action="" method="post" enctype="multipart/form-data" id="form1">
+                    <?php if (isset($mensagem)) { ?> 
+                        <div class='message'>
+                            <?= $mensagem; ?>
+                        </div> 
+                    <?php } ?>
+                    
+                    <form name="" action="" method="post" enctype="multipart/form-data" id="form2">
+                        <?php if (isset($sql_pesquisa_rows) && $sql_pesquisa_rows > 0)  { ?>
+                            <div id="respostaCategoria">
                                 <table width="100%" class="grid mt-5" cellspacing="0" cellpadding="0" border="0">
                                     <thead>
                                         <tr>
@@ -240,18 +267,19 @@
                                                     <td class="center"><input type="hidden" name="pegar_id_unidade" value="<?php echo $row['id_unidade']?>"><?php echo $row['nome_unidade']?></td>
                                                     <td class="center"><?php echo $row['quantidade_empresas']?></td>
                                                     <td class="center">
-                                                        <a type="submit" class="button" href="deletarid.php?id_pasta=<?php echo $row['id_pasta']; ?>&&id_unidade=<?php echo $row['id_unidade']; ?>">Excluir</a>
-                                                        <button type="button" class="abrirUnidade button" data_id_unidade="<?php echo $row['id_unidade']?>" data_pasta="<?php echo $id_pasta?>"> Abrir </button>
+                                                        <button type="button" class="abrirUnidade button" data_id_unidade="<?php echo $row['id_unidade']?>" data_pasta="<?php echo $id_pasta?>"> Abrir </button>-->
+                                                        <button type="button" class="abrirUnidade button button_center" data_id_unidade="<?php echo $row['id_unidade']?>" data_pasta="<?php echo $id_pasta?>"> Abrir </button>
+                                                        <input type="submit" class="excluir_unidade_categoria3 button button_a button_center" value="Excluir" data-id_pasta="<?php echo $row['id_pasta']?>" data-id_unidade=<?php echo $row['id_unidade']?>>
                                                     </td>
                                                 </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
-                            </form>
-                        </div>
-                        <div id="respostaUnidade"></div>
-                        <div id="respostaEmpresa"></div>
-                    <?php } ?>
+                            </div>
+                            <div id="respostaUnidade"></div>
+                            <div id="respostaEmpresa"></div>
+                        <?php } ?>
+                    </form>
                 </div>
             </section>
             <section id="footer">

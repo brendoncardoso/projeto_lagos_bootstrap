@@ -84,7 +84,8 @@ if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
                                 <legend>Dados</legend>
                                 <p><label class="first2">Login:</label><input type="text" name="login" id="login" value="<?php echo $login ?>" class="validate[required]" /></p>
                                 <?php if (empty($act)) { ?>
-                                    <p><label class="first2">Senha:</label><input type="password" name="senha" id="senha" value="" class="validate[required]" /></p>
+                                    <p><label class="first2">Senha:</label>
+                                    <input type="password" name="senha" id="senha" value="" class="validate[required]" /></p>
                                 <?php } ?>
                                 <p><label class="first2">Unidade: </label>
                                     <select name="unidade" id="" style="width: 400px;" class="validate[required]">
@@ -96,7 +97,7 @@ if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
                                 </p>
 
                                 <p><label class="first2">Setor: </label>
-                                    <select name="setor" id="" style="width: 400px;" class="validate[required]">
+                                    <select name="setor" style="width: 400px;" class="validate[required]">
                                         <option value="-1">« Selecione »</option>
                                         <option value="1" <?= $setor == 1 ? 'selected' : ''; ?>>Administrativo</option>
                                         <option value="0" <?= $setor == 0 ? 'selected' : ''; ?>>Escala</option>

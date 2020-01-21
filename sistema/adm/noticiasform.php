@@ -234,9 +234,6 @@ if (isset($_REQUEST['id'])) {
                 padding: 1px 10px;
             }
 
-            .button_a :hover{
-                
-            }
         </style>
     </head>
 
@@ -351,7 +348,6 @@ if (isset($_REQUEST['id'])) {
 
                                     <?php } ?>
 
-                                    <!--<input type="button" name="cancelar" value="Cancelar" class="button" />-->
                                    <a href="noticias.php"><input type="button" name="cancelar" value="Cancelar" class="button" /></a>
                                    
                                 </p>

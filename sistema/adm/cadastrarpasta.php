@@ -2,6 +2,13 @@
     include('../includes/conecte.php');
     include('../includes/restricao.php');
 
+    
+    if (isset($_SESSION['message'])) {
+        $mensagem = $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+
+
     if(isset($_POST['nome']) && !empty($_POST['nome'])){
         //$sql = mysql_query("INSERT INTO pasta (nome) VALUES ('$nome')");
         //echo "INSERT INTO pasta (id_pasta, nome) VALUES ('$id', '$nome')";
@@ -41,9 +48,25 @@
         <script src="../resources/js/jquery.validationEngine-pt.js" type="text/javascript"></script>
         <script src="../resources/js/maskedinput.js" type="text/javascript"></script>
         <script src="../resources/js/jquery.qtip-2.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $(".message").delay(2000).fadeOut("slow");
+
+                $('.excluir_pasta').on('click', function(){
+                    var id = $(this).data('id');
+                    if(confirm("Tem certeza que deseja Excluir o arquivo dessa pasta?")){
+                        $.post('../actions/action.prestacaocontas.php', {id:id, method: "excluir_pasta"}, 
+                        function(data) {
+                            if(data){
+                                window.location.href = "cadastrarpasta.php";
+                            }
+                        },"json");
+                    }
+                })
+                
+            })
+        </script>
     </head>
-
-
 
     <body>
         <div class="main">
@@ -72,6 +95,13 @@
                                 </a>
                             </fieldset>
                         </div>
+
+                        <?php if (isset($mensagem)) { ?> 
+                            <div class='message'>
+                                <?= $mensagem; ?>
+                            </div> 
+                        <?php } ?>
+
                         <table width="100%" class="grid mt-5" cellspacing="0" cellpadding="0" border="0">
                             <thead>
                                 <tr>
@@ -89,7 +119,9 @@
                                         <tr class="<?php echo $class; ?>">
                                             <td class="center"><?php echo $pastas['id']; ?></td>
                                             <td class="center"><?php echo $pastas['nome']; ?></td>
-                                            <td class="center"><a href="deletepasta.php?id=<?php echo $pastas['id']; ?>" class="icon icon-excluir" name="excluir" title="Excluir" data-key="83">&nbsp;</a></td>
+                                            <td class="center">
+                                                <input class="excluir_pasta button button_a button_center" type="submit" value="Excluir" data-id="<?php echo $pastas['id']; ?>">
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 <?php } else { ?>

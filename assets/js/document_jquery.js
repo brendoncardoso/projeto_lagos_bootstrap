@@ -140,7 +140,7 @@ $(document).ready(function(){
         });
     })
 
-    $('#modalintro').modal('show');
+    //$('#modalintro').modal('show');
     
 
     $('.enviar_mensagem').click(function(e){
