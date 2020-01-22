@@ -38,6 +38,7 @@
 
         <link rel="stylesheet" href="assets/css/animate.css">
 
+        <link rel="stylesheet" href="assets/css/cabecalho.css">
         <!--CSS-->
         <link rel="stylesheet" href="assets/css/style.css">
 
@@ -46,13 +47,433 @@
 
         <!--FONT-AWESOME-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        <style>
+            .pointer{
+                cursor: pointer!important;
+            }
+        </style>
+
+        <script src="assets/js/jquery.3-4-1.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.home').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+                    });
+                });
+
+                $('.home').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.institucional').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #00B3B6"
+                    
+                    });
+                });
+
+                $('.institucional').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.projetos').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, black"
+                    
+                    });
+                });
+
+                $('.projetos').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.noticias').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #FFBD00"
+                    
+                    });
+                });
+
+                $('.noticias').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.trabconosco').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #008B8B"
+                    
+                    });
+                });
+
+                $('.trabconosco').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.transparencia').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #8B008B"
+                    
+                    });
+                });
+
+                $('.transparencia').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+
+                $('.irs').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #FF7661"
+                    
+                    });
+                });
+
+                $('.irs').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+                    });
+                });
+
+                $('.colaboradores').mouseover(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #008DAF"
+                    
+                    });
+                });
+
+                $('.irs').mouseout(function(){
+                    $('.cabecalho').css({
+                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+                    });
+                });
+            })
+        </script>
     </head>
     
     <body>
         <?php $url = str_replace("/des.projeto_lagos_bootstrap.net/", " ", $_SERVER["REQUEST_URI"]); ?>
+        <!-- Cabeçalho -->
+        <div class="d-none d-lg-block cabecalho">
+            <div class="row">
+                <div class="col-lg-3 logo">
+                    <?php if($num_rows == 1) { ?>
+                        <a href="index.php" class="img-fluid">
+                            <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
+                        </a>
+                    <?php } else { ?>
+                        
+                    <?php } ?>
+                    <!--<a href="index.html">
+                        <img src="img/layout/logo-cabecalho.png" class="img-fluid" />
+                    </a>-->
+                </div>
+                <div class="col-lg-9 menu">
+                    <div class="row">
+                        <div class="col-md home">
+                            <p class="pointer text-center">
+                                <a href="index.php" style="font-size: 12px!important;">Home</a>
+                                <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+                            </p>
+                        </div>
+
+                        <div class="col-md institucional ">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">O Instituto</a>
+                                <i class="fa fa-3x fa-hospital-o" aria-hidden="true"></i>
+                            </p>
+                            <div class="submenu">
+                                <div class="row">
+                                    <div class="col-lg-3 barra">
+                                        <div class="horizontal">
+                                            <img src="assets/images/grafismo-barra-gestao.png" class="img-fluid" />
+                                            <p>Instituto</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-1 itens">
+                                        <div class="row">
+                                            <div class="col-lg-6 item"><a href="">- Breve História</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Visão, Missão e Valores</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Corpo Diretor</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Responsabilidade Social</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Unidades</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Convênios e Parceiros</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md projetos ">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Projetos</a>
+                                <i class="fa fa-3x fa-cogs" aria-hidden="true"></i>
+                            </p>
+                        </div>
+
+                        <div class="col-md noticias ">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Notícias</a>
+                                <i class="fa fa-3x fa-newspaper-o" aria-hidden="true"></i>
+                            </p>
+                            <div class="submenu">
+                                <div class="row">
+                                    <div class="col-lg-3 barra">
+                                        <div class="horizontal">
+                                            <img src="assets/images/grafismo-barra-escola.png" class="img-fluid" />
+                                            <p>Notícias</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-1 itens">
+                                        <div class="row" style="margin-top: 53px!important;">
+                                            <div class="col-lg-4 item"><a href="">- Notícias Recentes</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Eventos/Programas</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Blog Lagos</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md trabconosco ">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Trabalhe Conosco</a>
+                                <i class="fa fa-3x fa-user-plus"></i>
+                            </p>
+                            <div class="submenu">
+                                <div class="row">
+                                    <div class="col-lg-3 barra">
+                                        <div class="horizontal">
+                                            <img src="assets/images/grafismo-barra-trabalheconosco.png" class="img-fluid" />
+                                            <p style="font-size: 28px!important;">Trabalhe Conosco</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-1 itens">
+                                        <div class="row" style="margin-top: 53px!important;">
+                                            <div class="col-lg-6 item"><a href="o-cejam/sobre-nos.html">- Processo Seletivo Abertos</a></div>
+                                            <div class="col-lg-6 item"><a href="o-cejam/sobre-nos.html">- Processo Seletivo Encerrados</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md transparencia ">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Transparência</a>
+                                <i class="fa fa-3x fa-search" aria-hidden="true"></i>
+                            </p>
+                            <div class="submenu">
+                                <div class="row">
+                                    <div class="col-lg-3 barra">
+                                        <div class="horizontal">
+                                            <img src="assets/images/grafismo-barra-transparencia.png" class="img-fluid" />
+                                            <p style="font-size: 29px!important">Transparência</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-1 itens">
+                                        <div class="row" style="margin-top: 53px!important;">
+                                            <div class="col-lg-4 item"><a href="">- Proestação de Contas</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Editais Abertos</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Editais Finalizados</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md irs">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Fale Conosco</a>
+                                <i class="fa fa-3x fa-phone" aria-hidden="true"></i>
+                            </p>
+                            <div class="submenu">
+                                <div class="row">
+                                    <div class="col-lg-3 barra">
+                                        <div class="horizontal">
+                                            <img src="assets/images/grafismo-barra-irs.png" class="img-fluid" />
+                                            <p>Fale <br>Conosco</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 offset-lg-1 itens">
+                                        <div class="row" style="margin-top: 70px!important;">
+                                            <div class="col-lg-6 item"><a href="">- Avaliação de Atendimento</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Ouvidoria</a></div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-lg-8 offset-lg-1 itens">
+                                        <p class="gambi">&nbsp;</p>
+                                        <div class="row">
+                                            
+                                            <div class="col-lg-4 item">
+                                                <ul class="pl-15" style="margin-top: 35px!important; padding-left: 0px!important;">
+                                                    <li style="list-style: none">
+                                                        <a href="fornecedores.html" style="font-size: 19px;">- Avaliação de Atendimento</a>
+                                                    </li>
+
+                                                    <li style="list-style: none">
+                                                        <a href="ouvidoria.html" style="font-size: 19px;">- Ouvidoria</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3 item contato">
+                                                <p class="text-left">
+                                                    CEJAM<br/>
+                                                    (11) 3469-1818<br/><br/>
+                                                    SAU<br/>
+                                                    <br/>
+                                                    sau@cejam.org.br
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-3 item contato">
+                                                <p class="text-left">
+                                                    PAISM<br/>
+                                                    (11) 3469-1828<br/><br/>
+                                                    IMPRENSA<br/>
+                                                    (11) 3469-1815<br/>
+                                                    comunicacao@cejam.org.br
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md colaborador">
+                            <p class="pointer text-center">
+                                <a href="#" style="font-size: 12px!important;">Colaboradores</a>
+                                <i class="fa fa-3x fa-address-card" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Cabeçalho Responsivo -->
+        <div class="d-block d-lg-none cabecalho responsivo">
+            <div class="row">
+                <div class="col-12 logo text-center">
+                    <a class="icon menu-open">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                   
+                    <?php if($num_rows == 1) { ?>
+                        <a href="index.php" class="img-fluid">
+                            <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
+                        </a>
+                    <?php } else { ?>
+                        
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <div class="d-block d-lg-none cabecalho-menu responsivo oculto">
+            <div class="row topo">
+                <div class="col-12 logo">
+                    <a class="icon menu-open">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </a>
+                    <?php if($num_rows == 1) { ?>
+                        <a href="index.php" class="img-fluid">
+                            <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
+                        </a>
+                    <?php } else { ?>
+                        
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="item o-cejam">
+                        <button class="item-collapse" data-toggle="collapse" href="#o-cejam" role="button" aria-expanded="false" aria-controls="o-cejam">
+                            O Instituto
+                        </button>
+                        <div class="item-menu collapse" id="o-cejam">
+                            <ul>
+                                <li><a href="o-cejam/sobre-nos.html">Sobre Nós</a></li>
+                                <li><a href="o-cejam/o-que-fazemos.html">O que fazemos</a></li>
+                                <li><a href="etica-transparencia.html">Ética e Transparência</a></li>
+                                <li><a href="noticias.html">Notícias</a></li>
+                                <li><a href="titulos-recebidos.html">Títulos Recebidos</a></li>
+                                <li><a href="governanca-corporativa.html">Governança Corporativa</a></li>
+                                <li><a href="o-cejam/responsabilidade-social.html">Responsabilidade Social</a></li>
+                                <li><a href="o-cejam/parto-seguro.html">Parto Seguro</a></li>
+                                <li><a href="o-cejam/comite-de-etica-em-pesquisa.html">Comitê de Ética em Pesquisa</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="item onde-atuamos">
+                        <button class="item-collapse" data-toggle="collapse" href="#onde-atuamos" role="button" aria-expanded="false" aria-controls="onde-atuamos">
+                            Onde Atuamos
+                        </button>
+                        <div class="item-menu collapse" id="onde-atuamos">
+                            <ul>
+                                <li><a href="onde-atuamos/campinas.html">Campinas</a></li>
+                                <li><a href="onde-atuamos/embu-das-artes.html">Embu das Artes</a></li>
+                                <li><a href="onde-atuamos/mogi-das-cruzes.html">Mogi das Cruzes</a></li>
+                                <li><a href="onde-atuamos/rio-de-janeiro.html">Rio de Janeiro</a></li>
+                                <li><a href="onde-atuamos/sao-paulo.html">São Paulo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="item escola-saude">
+                        <a class="item-collapse" href="http://escolacejam.com.br/" target="_blank">
+                            Escola de Saúde
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="item fale-com-a-gente">
+                        <button class="item-collapse" data-toggle="collapse" href="#fale-com-a-gente" role="button" aria-expanded="false" aria-controls="fale-com-a-gente">
+                            Fale com a Gente
+                        </button>
+                        <div class="item-menu collapse" id="fale-com-a-gente">
+                            <ul>
+                                <li><a href="fornecedores.html">Canal do Fornecedor</a></li>
+                                <li><a href="processo-seletivos.html" target="_blank">Faça parte do nosso time</a></li>
+                                <li><a href="ouvidoria.html">Ouvidoria</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-block d-lg-none cabecalho-menu-padding"></div>
 
         <!--BARRA DE NAVEGAÇÃO-->
-        <div class="container">
+        <!--<div class="container">
             <div class="bs-example">
                 <nav class="navbar navbar-light navbar-static-top navbar-expand-md bg-white p-0">
 
@@ -82,14 +503,14 @@
                                     O Instituto
                                 </a>
                                 <div class="dropdown-menu">
-                                    <!--<a href="projetos.php" class="dropdown-item">
+                                    <a href="projetos.php" class="dropdown-item">
                                         - <i class="fa fa-cogs" aria-hidden="true"></i> 
                                         Projetos
                                     </a>
                                     <a href="noticias.php" class="dropdown-item"> - <i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias</a>
                                     <a href="capitacao.php" class="dropdown-item"> - <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Capitação</a>
                                     <a href="escala_medica.php" class="dropdown-item"> - <i class="fa fa-user-md" aria-hidden="true"></i> Escala Médica</a>
-                                    <a href="corpo_tecnico.php" class="dropdown-item"> - <i class="fa fa-users" aria-hidden="true"></i> Corpo Técnico</a>-->
+                                    <a href="corpo_tecnico.php" class="dropdown-item"> - <i class="fa fa-users" aria-hidden="true"></i> Corpo Técnico</a>
                                     <a href="breve_historia.php" class="dropdown-item"> - Breve História </a>
                                     <a href="" class="dropdown-item"> - Visão, Missão e Valores</a>
                                     <a href="" class="dropdown-item"> - Corpo Diretor</a>
@@ -99,7 +520,7 @@
                                 </div>
                             </div>
 
-                            <!--<div class="nav-item dropdown">
+                            <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle">
                                     <i class="fa fa-cogs text-white icones" aria-hidden="true"></i>
                                     Projetos
@@ -108,7 +529,7 @@
                                     <a href="" class="dropdown-item"> - Antigos</a>
                                     <a href="" class="dropdown-item"> - Atuais</a>
                                 </div>
-                            </div>-->
+                            </div>
 
                             <a href="projetos.php" class="nav-item nav-link <?php echo $url == '/projetos.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-cogs text-white container icones" aria-hidden="true"></i> 
@@ -141,10 +562,10 @@
                             </div>
 
                             
-                            <!--<a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
+                            <a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-search text-white icones" aria-hidden="true"></i>
                                 Transparência
-                            </a>-->
+                            </a>
 
                             <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -169,15 +590,15 @@
                                 </div>
                             </div>
 
-                            <!--<a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
+                            <a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-comments-o text-white container icones" aria-hidden="true"></i>
                                 Fale Conosco
-                            </a>-->
+                            </a>
 
-                            <!--<a href="http://f71lagos.com/extranet/login" class="nav-item nav-link <?php echo $url == '/http://f71lagos.com/extranet/login' ? 'active' : ''; ?>" target="_blank">
+                            <a href="http://f71lagos.com/extranet/login" class="nav-item nav-link <?php echo $url == '/http://f71lagos.com/extranet/login' ? 'active' : ''; ?>" target="_blank">
                                 <i class="fa fa-address-card text-white icones" aria-hidden="true"></i>
                                 Colaboradores
-                            </a>-->
+                            </a>
 
                             
 
@@ -186,7 +607,7 @@
                                 Colaboradores
                             </a>
 
-                            <!--<div class="nav-item dropdown">
+                            <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-hand-paper-o text-white container icones" aria-hidden="true"></i>
                                     Doação de Órgãos
@@ -195,19 +616,19 @@
                                     <a href="" class="dropdown-item"> - Saiba Mais</a>
                                     <a href="" class="dropdown-item"> - Jardim do Doador de Órgãos</a>
                                 </div>
-                            </div>-->
+                            </div>
 
-                            <!--<a href="selecoes.php" class="nav-item nav-link <?php echo $url == '/selecoes.php' ? 'active' : ''; ?>">
+                            <a href="selecoes.php" class="nav-item nav-link <?php echo $url == '/selecoes.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-user-plus text-white icones" aria-hidden="true" ></i>
                                 Seleções
-                            </a>-->
+                            </a>
 
-                            <!--<a href="ouvidoria.php" class="nav-item nav-link <?php echo $url == '/ouvidoria.php' ? 'active' : ''; ?>">
+                            <a href="ouvidoria.php" class="nav-item nav-link <?php echo $url == '/ouvidoria.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-phone text-white icones" aria-hidden="true" ></i>
                                 Ouvidoria
-                            </a>-->
+                            </a>
 
-                            <!--<div class="nav-item dropdown">
+                            <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle">
                                     <i class="text-white icones" aria-hidden="true"></i>
                                     Transplantes
@@ -216,14 +637,14 @@
                                     <a href="" class="dropdown-item"> - Jardim do Doador</a>
                                     <a href="" class="dropdown-item"> - Ações de Incentivo a Doação</a>
                                 </div>
-                            </div>-->
+                            </div>
 
-                            <!--<a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
+                            <a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-search text-white icones" aria-hidden="true"></i>
                                 Transparência
-                            </a>-->
+                            </a>
 
-                            <!--<div class="nav-item dropdown">
+                            <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle <?php echo $url == '/projetos.php' || $url == '/noticias.php' || $url == '/capitacao.php' || $url == '/escala_medica.php' || $url == '/noticia_bd.php?id_noticia='.$id || $url == '/corpo_tecnico.php'? 'active' : ''?>" data-toggle="dropdown">
                                     <i class="fa fa-plus-square text-white container icones" aria-hidden="true"></i>
                                     Informações
@@ -239,18 +660,18 @@
                                     <a href="escala_medica.php" class="dropdown-item"> - <i class="fa fa-user-md" aria-hidden="true"></i> Escala Médica</a>
                                     <a href="corpo_tecnico.php" class="dropdown-item"> - <i class="fa fa-users" aria-hidden="true"></i> Corpo Técnico</a>
                                 </div>
-                            </div>-->
+                            </div>
 
-                            <!--<a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
+                            <a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
                                 <i class="fa fa-comments-o text-white container icones" aria-hidden="true"></i>
                                 Fale Conosco
-                            </a>-->
+                            </a>
                             
                         </div>
                     </div>
                     
                 </nav>
             </div>
-        </div>
+        </div>-->
 
 

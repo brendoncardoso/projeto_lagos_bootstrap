@@ -1,0 +1,599 @@
+/* Font Face
+@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/** Cabeçalho **/
+.cabecalho{
+    background: linear-gradient(to right, #242952 25%, #4DB1E2);
+}
+
+.cabecalho a, .cabecalho p{
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+}
+.cabecalho > div{
+    /*background: linear-gradient(#ffffff, #dedede);*/
+    background-color: white;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .cabecalho.responsivo{
+        padding: 0 0 5px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+    }
+
+    .cabecalho.responsivo .icon{
+        background: #999;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        padding: 5px 10px;
+        position: absolute;
+    }
+    .cabecalho.responsivo .menu-open{
+        /*left: 10px;
+        top: 30%;*/
+
+        left: 30px;
+    top: 65%;
+    }
+    .cabecalho.responsivo .menu-search{
+        right: 10px;
+        top: 30%;
+    }
+    .cabecalho.responsivo .icon i{
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .cabecalho-menu-padding{
+        height: 105px;
+        width: 100%;
+    }
+
+    .cabecalho-menu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        width: 100%;
+        height: 100%;
+        background: #dedede;
+        transition: linear 0.4s;
+    }
+    .cabecalho-menu.oculto{
+        left: -100%;
+    }
+    .cabecalho-menu > .row > div{
+        /*padding: 0;*/
+    }
+
+    .cabecalho-menu .item{
+        width: 100%;
+        border-bottom: 1px solid #fff;
+    }
+    .cabecalho-menu .item .item-collapse{
+        width: 100%;
+        text-align: left;
+        border: none;
+        color: #777;
+        font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+        padding: 10px;
+    }
+    .cabecalho-menu .item.escola-saude{
+        padding: 10px 0;
+    }
+    .cabecalho-menu .item.escola-saude .item-collapse{
+        padding-right: 150px;
+        cursor: pointer;
+    }
+    .cabecalho-menu .topo{
+        background: white;
+    }
+    .cabecalho-menu .topo .logo img{
+        height: 100px;
+        float: right;
+        margin: 0 10px 0;
+    }
+    .cabecalho-menu .topo .logo .menu-open{
+        font-size: 24px;
+        color: black;
+        float: left;
+        margin: 30px 0 0 10px;
+    }
+
+    .cabecalho-menu .item .item-menu ul{
+        list-style: none;
+        padding: 0;
+    }
+    .cabecalho-menu .item .item-menu ul li{
+        border-bottom: 1px solid #fff;
+        padding: 5px 10px;
+    }
+    .cabecalho-menu .item .item-menu ul li a{
+        color: #fff;
+    }
+
+    .cabecalho-menu .item.o-cejam .item-menu{
+        background: #008daf;
+    }
+
+    .cabecalho-menu .item.onde-atuamos .item-menu{
+        background: #00b3b6;
+    }
+    
+    .cabecalho-menu .item.escola-saude .item-menu{
+        background: #ffbd00;
+    }
+
+    .cabecalho-menu .item.fale-com-a-gente .item-menu{
+        background: #FF7661;
+    }
+
+    .cabecalho.responsivo .logo{
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .cabecalho.responsivo .logo img{
+        height: 100px;
+    }
+
+    .rodape.responsivo p{
+        text-align: center !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /** Cabeçalho */
+    .cabecalho{
+        height: 140px;
+    }
+
+    .cabecalho > div{
+        height: 130px;
+        margin: 0 0 10px;
+    }
+
+    .cabecalho .logo img{
+        float: right;
+        max-height: 140px;
+    }
+
+    .cabecalho .menu > .row{
+        height: 140px;
+    }
+
+    .cabecalho .menu p{
+        height: 130px;
+        width: 500px;
+        margin-bottom: 10px;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+    .cabecalho .menu p a{
+        font-size: 18px;
+    }
+
+    .cabecalho .menu .submenu{
+        margin: 10px 0 0 0;
+    }
+
+    .cabecalho .social a img{
+        max-height: 36px;
+        margin: 47px 0 0 5px;
+    }
+
+    .cabecalho .social .search input{
+        padding: 5px 20px 5px 10px;
+        right: 10px;
+        top: 48px;
+    }
+
+    .cabecalho .social .search .link:hover > .field{
+        width: 288px;    
+        padding: 5px 40px 5px 10px;
+    }
+
+    /** Cabeçalho - Menu **/
+    .cabecalho .menu .escola-saude .submenu .itens p{
+        padding: 30px 0 !important;
+        text-align: justify !important;
+        width: auto;
+        font-size: 18px;
+    }
+
+    .cabecalho .menu .escola-saude .submenu .itens img{
+        margin: 35px 0 0 !important;
+        position: relative !important;
+        right: 0 !important;
+    }
+
+    .cabecalho .menu .irs .submenu .contato p{
+        padding: 10px 0 !important;
+        height: unset;
+    }
+
+    .cabecalho .menu .irs .submenu .contato .row > div{
+        padding: 5px !important;
+    }
+
+    .cabecalho .menu .irs .submenu .itens .item{
+        padding-top: 10px !important;
+    }
+
+    .cabecalho .menu, .cabecalho .menu .col-md{
+        position: initial;
+        height: 140px;
+    }
+
+    .cabecalho .menu .col-md p{
+        text-align: center;
+    }
+
+    .cabecalho .menu .col-md ul{
+        list-style: none;
+    }
+
+    .cabecalho .menu .col-md ul li{
+        padding: 15px 0;
+    }
+
+    .cabecalho .menu .col-md:hover p a{
+        color: #efefef;
+    }
+
+    .cabecalho .menu .home:hover, .cabecalho .menu .home.active, .cabecalho .menu .home .submenu{
+        background: #4DB1E2;
+    }
+    .cabecalho .menu .home .barra .horizontal{
+        background: linear-gradient(to right, #4DB1E2, #1c2452 80%);
+    }
+
+    .cabecalho .menu .institucional:hover, .cabecalho .menu .institucional.active, .cabecalho .menu .institucional .submenu{
+        background: #00b3b6;
+    }
+
+    .cabecalho .menu .institucional .barra .horizontal{
+        background: linear-gradient(to right, #00b3b6, #008293 80%);
+    }
+
+    .cabecalho .menu .projetos:hover, .cabecalho .menu .projetos.active, .cabecalho .menu .projetos .submenu{
+        background: black;
+    }
+    .cabecalho .menu .projetos .barra .horizontal{
+        background: linear-gradient(to right, black, #1c2452 80%);
+    }
+
+    .cabecalho .menu .noticias:hover, .cabecalho .menu .noticias.active, .cabecalho .menu .noticias .submenu{
+        background: #FFBD00;
+    }
+    .cabecalho .menu .noticias .barra .horizontal{
+        background: linear-gradient(to right, #FFBD00, #F99700 80%);
+    }
+
+    
+    .cabecalho .menu .transparencia:hover, .cabecalho .menu .transparencia.active, .cabecalho .menu .transparencia .submenu{
+        background: #8B008B;
+    }
+    .cabecalho .menu .transparencia .barra .horizontal{
+        background: linear-gradient(to right, #8B008B,  rgb(177, 0, 177) 80%);
+    }
+
+    .cabecalho .menu .trabconosco:hover, .cabecalho .menu .trabconosco.active, .cabecalho .menu .trabconosco .submenu{
+        background: DarkCyan;
+    }
+    .cabecalho .menu .trabconosco .barra .horizontal{
+        background: linear-gradient(to right, DarkCyan, rgb(0, 179, 179) 80%);
+    }
+
+    .cabecalho .menu .colaborador:hover, .cabecalho .menu .colaborador.active, .cabecalho .menu .colaborador .submenu{
+        background: #008daf;
+    }
+    .cabecalho .menu .colaborador .barra .horizontal{
+        background: linear-gradient(to right, #008daf, #1c2452 80%);
+    }
+
+    .cabecalho .menu .gestao-saude:hover, .cabecalho .menu .gestao-saude.active, .cabecalho .menu .gestao-saude .submenu{
+        background: #00b3b6;
+    }
+
+    .cabecalho .menu .gestao-saude .barra .horizontal{
+        background: linear-gradient(to right, #00b3b6, #008293 90%);
+    }
+
+    .cabecalho .menu .escola-saude:hover, .cabecalho .menu .escola-saude.active, .cabecalho .menu .escola-saude .submenu{
+        background: #ffbd00; 
+    }
+
+    .cabecalho .menu .escola-saude .barra .horizontal{
+        background: linear-gradient(to right, #ffbd00, #F99700 90%);
+    }
+
+    .cabecalho .menu .irs:hover, .cabecalho .menu .irs.active, .cabecalho .menu .irs .submenu{
+        background: #FF7661;
+    }
+
+    .cabecalho .menu .irs .barra .horizontal{
+        background: linear-gradient(to right, #FF7661, #d6524d 90%);
+    }
+
+    .cabecalho .menu .servicos-colab:hover, .cabecalho .menu .servicos-colab.active, .cabecalho .menu .servicos-colab .submenu{
+        background: #1ad46d;
+    }
+
+    .cabecalho .menu .servicos-colab .barra .horizontal{
+        background: linear-gradient(to right, #1ad46d, #006E2D 90%);
+    }
+
+    .cabecalho .menu .submenu{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        z-index: 99999;
+        color: #efefef;
+        height: 193px;
+        clip-path: inset(0 0 100%);
+        transition: 0.8s ease-out;
+    }
+    .cabecalho .menu .col-md:hover .submenu{
+        z-index: 99999;
+        clip-path: inset(0);
+    }
+    .cabecalho .menu .col-md.active .submenu{
+        z-index: 99998;
+        clip-path: inset(0);
+    }
+    .cabecalho .menu .col-md > p > i{
+        display: none;
+        color: #efefef;
+    }
+    .cabecalho .menu .col-md:hover > p > i, .cabecalho .menu .col-md.active > p > i{
+        display: block;
+    }
+    .cabecalho .menu .col-md:hover > p > a, .cabecalho .menu .col-md.active > p > a{
+        display: none;
+    }
+    .cabecalho .menu .submenu .barra{
+        height: 193px;
+        display: table;
+    }
+    .cabecalho .menu .submenu .barra .horizontal{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-left: -400px;
+        transition: 0.8s ease-in;
+    }
+
+    .cabecalho .menu .col-md:hover .barra .horizontal, .cabecalho .menu .col-md.active .barra .horizontal{
+        margin-left: 15px;
+    }
+    
+    .cabecalho .menu .submenu .barra .horizontal p{
+        padding: 50px 25px 0 40px;
+        font-size: 48px;
+        display: block;
+        text-align: right;
+        font-weight: bold;
+        line-height: 48px;
+        font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+        width: auto !important;
+    }
+
+    .cabecalho .menu .institucional .barra .horizontal p{
+        padding: 75px 25px 0 40px;
+    }
+
+    .cabecalho .menu .noticias .barra .horizontal p{
+        padding: 75px 25px 0 40px;
+    }
+
+    .cabecalho .menu .trabconosco .barra .horizontal p{
+        padding: 75px 25px 0 40px;
+    }
+
+    .cabecalho .menu .transparencia .barra .horizontal p{
+        padding: 75px 25px 0 40px;
+    }
+
+    .cabecalho .menu .submenu img{
+        position: absolute;
+        right: -76px;
+    }
+
+    .cabecalho .menu .submenu > .row{
+        margin-right: 0;
+    }
+
+    .cabecalho .menu .submenu .itens .item{
+        padding-top: 30px;
+    }
+
+    .cabecalho .menu .submenu a{
+        color: #efefef;
+        text-decoration: none;
+    }
+
+    .cabecalho .menu p{
+        text-align: center;
+    }
+
+    .cabecalho .menu p a{
+        color: #7c7c7c;
+    }
+
+    .cabecalho .menu p a:hover{
+        text-decoration: none;
+    }
+
+    .cabecalho .institucional .itens a{
+        font-size: 18px;
+    }
+
+    .cabecalho .noticias .itens a{
+        font-size: 18px;
+    }
+
+    .cabecalho .trabconosco .itens a{
+        font-size: 18px;
+    }
+
+    .cabecalho .transparencia .itens a{
+        font-size: 18px;
+    }
+
+    .cabecalho .irs .itens a{
+        font-size: 18px;
+    }
+
+    .cabecalho .gestao-saude .itens a{
+        font-size: 20px;
+    }
+    .cabecalho .gestao-saude .itens a{
+        font-size: 20px;
+    }
+
+    .cabecalho .irs .itens{
+        position: relative;
+    }
+
+    .cabecalho .irs .itens .gambi{
+        position: absolute;
+        top: 20px;
+        left: 270px;
+        width: 2px;
+        height: 150px;
+        background: #fff;
+        z-index: 999999999;
+    }
+
+    /** Cabeçalho - Social **/
+    .cabecalho .social a{
+        border: none;
+        text-decoration: none;
+    }
+    .cabecalho .social a img{
+        position: relative;
+        z-index: 999;
+        transition: 0.4s ease-out;
+    }
+    .cabecalho .social a:hover img{
+        transform: scale(1.3);
+    }
+    .cabecalho .social .row{
+        height: 100%;
+    }
+    .cabecalho .social .row > div{
+        padding: 0 5px;
+        height: 100%;
+    }
+    .cabecalho .social .search input{
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        position: absolute;
+        z-index: 1000;
+        width: 1px;
+        transition: 0.8s ease-out;
+        outline: none;
+    }
+    .cabecalho .social .search img{
+        position: relative;
+        z-index: 9999;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+    /** Cabeçalho */
+    .cabecalho{
+        /*height: 200px;*/
+    }
+    .cabecalho > div{
+        /*height: 180px;
+        margin: 0 0 20px;*/
+    }
+    .cabecalho .logo img{
+        max-height: 200px;
+    }
+    .cabecalho .menu > .row{
+        height: 200px;
+    }
+    .cabecalho .menu p{
+        /*height: 180px;*/
+        width: 500px;
+        margin-bottom: 20px;
+        vertical-align: middle;
+        display: table-cell;
+    }
+    .cabecalho .menu p a{
+        line-height: 30px;
+        font-size: 24px;
+    }
+    .cabecalho .menu .submenu{
+        /*margin: 20px 0 0 0;*/
+    }
+    .cabecalho .social a img{
+        max-height: 48px;
+        margin: 66px 0 0 5px;
+    }
+    .cabecalho .social .search input{
+        padding: 10px 32px 10px 10px;
+        right: calc(100% - 56px);
+        top: 68px;
+    }
+    .cabecalho .social .search .link:hover > .field{
+        width: 350px;    
+        padding: 10px 50px 10px 10px;
+    }
+}
