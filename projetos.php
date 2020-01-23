@@ -1,7 +1,7 @@
 <?php include_once('header.php'); ?>
 
     <!--HEADER MENU-->
-    <div class="borda_menu"></div>
+    <!--<div class="borda_menu"></div>
     <div class="page_title">
         <div class="container">
             <div class="col-sm-12">
@@ -88,6 +88,6 @@
             </div>
             <iframe frameBorder="0" width="100%" height="550px" scrolling = no src="http://institutolagosrio.com.br/novo/mapa/mapa.html"></iframe>
         </div>
-    </div>
+    </div>-->
 
 <?php include_once('footer.php'); ?>

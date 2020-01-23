@@ -49,7 +49,7 @@
     .cabecalho.responsivo{
         padding: 0 0 5px;
         width: 100%;
-        position: fixed;
+        /*position: fixed;*/
         top: 0;
         z-index: 9999;
     }
@@ -149,12 +149,12 @@
     }
 
     .cabecalho-menu .topo{
-        background: white;
+        /*background: white;*/
     }
     .cabecalho-menu .topo .logo img{
         height: 100px;
         float: right;
-        margin: 0 10px 0;
+        margin: 0 30px 0;
     }
     .cabecalho-menu .topo .logo .menu-open{
         font-size: 24px;
@@ -240,13 +240,31 @@
 
 }
 
+@media (max-width: 1024px)  {
+    .cabecalho .menu .trabconosco .barra .horizontal p {
+         padding: 50px 25px 0 40px!important;
+    }
+
+    .cabecalho .menu .submenu .barra .horizontal p{
+        padding: 50px 25px 0 40px;
+        font-size: 20px!important;
+        display: block;
+        text-align: right;
+        font-weight: bold;
+        line-height: 48px;
+        font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+        width: auto !important;
+    }
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     /** Cabeçalho */
     .cabecalho{
         height: 140px;
     }
-
+   
+    
     .cabecalho > div{
         height: 130px;
         margin: 0 0 10px;
@@ -442,6 +460,7 @@
         z-index: 99998;
         clip-path: inset(0);
     }
+    
     .cabecalho .menu .col-md > p > i{
         display: none;
         color: #efefef;
@@ -649,4 +668,6 @@
         width: 350px;    
         padding: 10px 50px 10px 10px;
     }
+
+    
 }

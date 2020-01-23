@@ -6,8 +6,7 @@
 ?>
 
 <!--HEADER MENU-->
-<div class="borda_menu"></div>
-<div class="page_title mb-5">
+<!--<div class="page_title mb-5">
     <div class="container">
         <div class="col-sm-12">
             <div class="row">
@@ -23,7 +22,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="container">
     <div class="col-sm-12">

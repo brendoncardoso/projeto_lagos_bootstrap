@@ -27,47 +27,40 @@
             </div>
 
             <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-12 footer_lagos">
-                        <div class="widget_icon">
-                            <img src="assets/images/planeta.png" alt="">
+                <div class="footer_lagos">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="widget_icon col-sm-12">
+                                <img src="assets/images/planeta.png" alt="">
+                            </div>
+                            
+                            <h5 class="text-white text-center mt-4 mb-5">SOBRE A LAGOS</h5>
                         </div>
-                        
-                        <h5 class="text-white text-center mt-4 mb-5">SOBRE A LAGOS</h5>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-sm-6 text-center">
-                                <li class="">
-                                    <iframe width="450" height="282" frameborder="5" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+do+Carmo,+9,+Centro,+Rio+de+Janeiro&amp;aq=1&amp;oq=rua+do+carmo,+9&amp;sll=-22.914131,-43.445982&amp;sspn=0.369991,0.676346&amp;ie=UTF8&amp;hq=&amp;hnear=Rua+do+Carmo,+9+-+Centro,+Rio+de+Janeiro,+20011-020&amp;t=m&amp;z=14&amp;ll=-22.903163,-43.176239&amp;output=embed"></iframe>
-                                </li>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <li>
+                                <iframe width="auto" height="282" frameborder="5" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+do+Carmo,+9,+Centro,+Rio+de+Janeiro&amp;aq=1&amp;oq=rua+do+carmo,+9&amp;sll=-22.914131,-43.445982&amp;sspn=0.369991,0.676346&amp;ie=UTF8&amp;hq=&amp;hnear=Rua+do+Carmo,+9+-+Centro,+Rio+de+Janeiro,+20011-020&amp;t=m&amp;z=14&amp;ll=-22.903163,-43.176239&amp;output=embed"></iframe>
+                            </li>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <li>
+                                <i class="fa fa-home" aria-hidden="true"></i> R. do Carmo, 9 - Centro, Rio de Janeiro
+                            </li>
 
-                            <div class="col-sm-1"></div>
-                           
-                            <div class="col-sm-3">
-                                <li class="">
-                                    <i class="fa fa-home" aria-hidden="true"></i> R. do Carmo, 9 - Centro, Rio de Janeiro
-                                </li>
+                            <li>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> 
+                                <strong>Email:</strong> <a class="link" style="font-size: 12px;" href="mailto:ouvidoria@institutolagosrio.com.br">ouvidoria@institutolagosrio.com.br</a>
+                            </li>
 
-                                <li class="">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i> 
-                                    <strong>Email:</strong> <a class="link" style="font-size: 12px;" href="mailto:ouvidoria@institutolagosrio.com.br">ouvidoria@institutolagosrio.com.br</a>
-                                </li>
-
-                                <!--<li>
-                                    <i class="fa fa-envelope" aria-hidden="true"></i> 
-                                    <strong>Email:</strong> <a class="link" style="font-size: 12px;" href="mailto:projeto@institutolagosrio.com.br">projeto@institutolagosrio.com.br</a>
-                                </li>-->
-
-                                <li>
-                                    <i class="fa fa-phone" aria-hidden="true"></i> <strong>Tel.: </strong>(21) 2725-5602 
-                                </li>
-                            </div>
+                            <li>
+                                <i class="fa fa-phone" aria-hidden="true"></i> <strong>Tel.: </strong>(21) 2725-5602 
+                            </li>
                         </div>
                     </div>
         
-                    
-
                     <!--<div class="col-sm-4">
                         <ul class="footer_lagos">
                             <div class="widget_icon">

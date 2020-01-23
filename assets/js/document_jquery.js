@@ -1,4 +1,19 @@
 $(document).ready(function(){
+    var style = document.querySelector('.cabecalho').style.background;
+    console.log(style);
+
+    $('.home').click(function(){
+        window.location.href="index.php"
+    });
+
+    $('.projetos').click(function(){
+        window.location.href="projetos.php"
+    });
+
+    $('.colaborador').click(function(){
+        window.open("http://f71lagos.com/extranet/login");
+    });
+
     $('.home').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, #4DB1E2"
@@ -7,50 +22,44 @@ $(document).ready(function(){
 
     $('.home').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
     $('.institucional').mouseover(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #00B3B6"
-        
+            background: "linear-gradient(to right, #242952 25%, #00B3B6",
+            transition: "margin-left 4s"
         });
     });
 
     $('.institucional').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
     $('.projetos').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, black"
-        
         });
     });
 
     $('.projetos').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
     $('.noticias').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, #FFBD00"
-        
         });
     });
 
     $('.noticias').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
@@ -63,8 +72,7 @@ $(document).ready(function(){
 
     $('.trabconosco').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
@@ -77,35 +85,31 @@ $(document).ready(function(){
 
     $('.transparencia').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
     $('.irs').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, #FF7661"
-        
         });
     });
 
     $('.irs').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+            background: (style)
         });
     });
 
     $('.colaboradores').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, #008DAF"
-        
         });
     });
 
     $('.irs').mouseout(function(){
         $('.cabecalho').css({
-            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
+            background: (style)
         });
     });
 
