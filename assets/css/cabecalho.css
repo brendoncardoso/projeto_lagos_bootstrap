@@ -115,10 +115,39 @@
     .cabecalho-menu .item.escola-saude{
         padding: 10px 0;
     }
+
     .cabecalho-menu .item.escola-saude .item-collapse{
         padding-right: 150px;
         cursor: pointer;
     }
+
+    .cabecalho-menu .item.home_cel{
+        padding: 10px 0;
+    }
+
+    .cabecalho-menu .item.home_cel .item-collapse{
+        padding-right: 150px;
+        cursor: pointer;
+    }
+
+    .cabecalho-menu .item.projeto_cel{
+        padding: 10px 0;
+    }
+
+    .cabecalho-menu .item.projeto_cel .item-collapse{
+        padding-right: 150px;
+        cursor: pointer;
+    }
+
+    .cabecalho-menu .item.colaborador_cel{
+        padding: 10px 0;
+    }
+
+    .cabecalho-menu .item.colaborador_cel .item-collapse{
+        padding-right: 150px;
+        cursor: pointer;
+    }
+
     .cabecalho-menu .topo{
         background: white;
     }
@@ -150,6 +179,30 @@
         background: #008daf;
     }
 
+    .cabecalho-menu .item.instituto_cel .item-menu{
+        background:  #00B3B6;
+    }
+
+    .cabecalho-menu .item.projeto_cel .item-menu{
+        background: black;
+    }
+
+    .cabecalho-menu .item.noticias_cel .item-menu{
+        background: #FFBD00;
+    }
+
+    .cabecalho-menu .item.trabalheconosco_cel .item-menu{
+        background: #008B8B;
+    }
+
+    .cabecalho-menu .item.transparencia_cel .item-menu{
+        background: #8B008B;
+    }
+
+    .cabecalho-menu .item.faleconosco_cel .item-menu{
+        background: #FF7661;
+    }
+    
     .cabecalho-menu .item.onde-atuamos .item-menu{
         background: #00b3b6;
     }

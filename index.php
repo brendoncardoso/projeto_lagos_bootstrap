@@ -141,23 +141,26 @@
             <strong><p class="title-home text-center mb-5">Acesso Rápido</p></strong>
             <div class="acesso-rapido">
                 <div class="row">
-                    <div class="transp col-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="acesso_rapido transp col-sm-3">
                         <a href="transparencia.php">
                             <img src="https://cejam.org.br/img/layout/acesso-rapido-transparencia.png" class="hide-o animated img-fluid ">
                         </a>
                     </div>
-                    <div class="colaboradores col-12 col-sm-6 col-md-6 col-lg-3 ">
+
+                    <div class="acesso_rapido  colaboradores col-sm-3">
                         <a href="http://f71lagos.com/extranet/login" target="_blank">
                             <img src="https://cejam.org.br/img/layout/acesso-rapido-colaborador.png" class="hide-o animated img-fluid">
                         </a>
                     </div>
-                    <div class="processos_seletivos col-12 col-sm-6 col-md-6 col-lg-3">
-                        <a href="https://cejam.org.br/etica-transparencia">
+
+                    <div class="acesso_rapido  processos_seletivos col-sm-3">
+                        <a href="">
                             <img src="https://cejam.org.br/img/layout/acesso-rapido-processo-seletivo.png" class="hide-o animated img-fluid">
                         </a>
                     </div>
-                    <div class="fornecedores col-12 col-sm-6 col-md-6 col-lg-3">
-                        <a href="https://cejam.org.br/etica-transparencia">
+
+                    <div class="acesso_rapido  fornecedores col-sm-3">
+                        <a href="">
                             <img src="https://cejam.org.br/img/layout/acesso-rapido-fornecedores.png" class="hide-o animated img-fluid">
                         </a>
                     </div>

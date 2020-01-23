@@ -1,4 +1,113 @@
 $(document).ready(function(){
+    $('.home').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+        });
+    });
+
+    $('.home').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.institucional').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #00B3B6"
+        
+        });
+    });
+
+    $('.institucional').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.projetos').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, black"
+        
+        });
+    });
+
+    $('.projetos').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.noticias').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #FFBD00"
+        
+        });
+    });
+
+    $('.noticias').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.trabconosco').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #008B8B"
+        
+        });
+    });
+
+    $('.trabconosco').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.transparencia').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #8B008B"
+        
+        });
+    });
+
+    $('.transparencia').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
+
+    $('.irs').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #FF7661"
+        
+        });
+    });
+
+    $('.irs').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+        });
+    });
+
+    $('.colaboradores').mouseover(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #008DAF"
+        
+        });
+    });
+
+    $('.irs').mouseout(function(){
+        $('.cabecalho').css({
+            background: "linear-gradient(to right, #242952 25%, #4DB1E2"
+
+        });
+    });
 
     $('.img1').mouseover(function(){
         $(this).css({'transform':'scale(1.1)', 'transition':'1s', 'cursor':'pointer'});
@@ -47,8 +156,6 @@ $(document).ready(function(){
     $('.fornecedores').mouseleave(function(){
         $(this).css({'transform':'scaleY(1.0)', 'transition':'1s', 'cursor':'pointer'});
     });
-
-
 
     var id_pasta = $('.getPasta').attr('data-id_pasta');
     var id_empresa = $('.getEmpresa').attr('data-id_empresa');

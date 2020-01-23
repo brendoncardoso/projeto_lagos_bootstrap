@@ -55,119 +55,6 @@
         </style>
 
         <script src="assets/js/jquery.3-4-1.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('.home').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-                    });
-                });
-
-                $('.home').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.institucional').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #00B3B6"
-                    
-                    });
-                });
-
-                $('.institucional').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.projetos').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, black"
-                    
-                    });
-                });
-
-                $('.projetos').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.noticias').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #FFBD00"
-                    
-                    });
-                });
-
-                $('.noticias').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.trabconosco').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #008B8B"
-                    
-                    });
-                });
-
-                $('.trabconosco').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.transparencia').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #8B008B"
-                    
-                    });
-                });
-
-                $('.transparencia').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-
-                $('.irs').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #FF7661"
-                    
-                    });
-                });
-
-                $('.irs').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-                    });
-                });
-
-                $('.colaboradores').mouseover(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #008DAF"
-                    
-                    });
-                });
-
-                $('.irs').mouseout(function(){
-                    $('.cabecalho').css({
-                        background: "linear-gradient(to right, #242952 25%, #4DB1E2"
-
-                    });
-                });
-            })
-        </script>
     </head>
     
     <body>
@@ -183,9 +70,6 @@
                     <?php } else { ?>
                         
                     <?php } ?>
-                    <!--<a href="index.html">
-                        <img src="img/layout/logo-cabecalho.png" class="img-fluid" />
-                    </a>-->
                 </div>
                 <div class="col-lg-9 menu">
                     <div class="row">
@@ -292,7 +176,7 @@
                                     </div>
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 53px!important;">
-                                            <div class="col-lg-4 item"><a href="">- Proestação de Contas</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Prestação de Contas</a></div>
                                             <div class="col-lg-4 item"><a href="">- Editais Abertos</a></div>
                                             <div class="col-lg-4 item"><a href="">- Editais Finalizados</a></div>
                                         </div>
@@ -403,57 +287,124 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
 
-                    <div class="item o-cejam">
-                        <button class="item-collapse" data-toggle="collapse" href="#o-cejam" role="button" aria-expanded="false" aria-controls="o-cejam">
-                            O Instituto
-                        </button>
-                        <div class="item-menu collapse" id="o-cejam">
-                            <ul>
-                                <li><a href="o-cejam/sobre-nos.html">Sobre Nós</a></li>
-                                <li><a href="o-cejam/o-que-fazemos.html">O que fazemos</a></li>
-                                <li><a href="etica-transparencia.html">Ética e Transparência</a></li>
-                                <li><a href="noticias.html">Notícias</a></li>
-                                <li><a href="titulos-recebidos.html">Títulos Recebidos</a></li>
-                                <li><a href="governanca-corporativa.html">Governança Corporativa</a></li>
-                                <li><a href="o-cejam/responsabilidade-social.html">Responsabilidade Social</a></li>
-                                <li><a href="o-cejam/parto-seguro.html">Parto Seguro</a></li>
-                                <li><a href="o-cejam/comite-de-etica-em-pesquisa.html">Comitê de Ética em Pesquisa</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="item onde-atuamos">
-                        <button class="item-collapse" data-toggle="collapse" href="#onde-atuamos" role="button" aria-expanded="false" aria-controls="onde-atuamos">
-                            Onde Atuamos
-                        </button>
-                        <div class="item-menu collapse" id="onde-atuamos">
-                            <ul>
-                                <li><a href="onde-atuamos/campinas.html">Campinas</a></li>
-                                <li><a href="onde-atuamos/embu-das-artes.html">Embu das Artes</a></li>
-                                <li><a href="onde-atuamos/mogi-das-cruzes.html">Mogi das Cruzes</a></li>
-                                <li><a href="onde-atuamos/rio-de-janeiro.html">Rio de Janeiro</a></li>
-                                <li><a href="onde-atuamos/sao-paulo.html">São Paulo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="item escola-saude">
-                        <a class="item-collapse" href="http://escolacejam.com.br/" target="_blank">
-                            Escola de Saúde
+                    <div class="item home_cel">
+                        <a class="item-collapse" >
+                            Home
                         </a>
                     </div>
                 </div>
             </div>
+
             <div class="row">
+                <div class="col-12">
+                    <div class="item instituto_cel">
+                        <button class="item-collapse" data-toggle="collapse" href="#instituto_cel" role="button" aria-expanded="false" aria-controls="instituto_cel">
+                            O Instituto
+                        </button>
+                        <div class="item-menu collapse" id="instituto_cel">
+                            <ul>
+                                <li><a href="">- Breve História</a></li>
+                                <li><a href="">- Visão, Missão e Valores</a></li>
+                                <li><a href="">- Corpo Diretor</a></li>
+                                <li><a href="">- Responsabilidade Social</a></li>
+                                <li><a href="">- Unidades</a></li>
+                                <li><a href="">- Convênios e Parceiros</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item projeto_cel">
+                        <a class="item-collapse" >
+                            Projetos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item noticias_cel">
+                        <button class="item-collapse" data-toggle="collapse" href="#noticias_cel" role="button" aria-expanded="false" aria-controls="noticias_cel">
+                            Notícias
+                        </button>
+                        <div class="item-menu collapse" id="noticias_cel">
+                            <ul>
+                                <li><a href=""></a>- Notícias Recentes</li>
+                                <li><a href=""></a>- Eventos Programas</li>
+                                <li><a href=""></a>- Blog Lagos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item trabalheconosco_cel">
+                        <button class="item-collapse" data-toggle="collapse" href="#trabalheconosco_cel" role="button" aria-expanded="false" aria-controls="trabalheconosco_cel">
+                            Trabalhe Conosco
+                        </button>
+                        <div class="item-menu collapse" id="trabalheconosco_cel">
+                            <ul>
+                                <li><a href=""></a>- Processo Seletivo Abertos</li>
+                                <li><a href=""></a>- Processo Seletivo Encerrados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item transparencia_cel">
+                        <button class="item-collapse" data-toggle="collapse" href="#transparencya" role="button" aria-expanded="false" aria-controls="transparencya">
+                            Transparência
+                        </button>
+                        <div class="item-menu collapse" id="transparencya">
+                            <ul>
+                                <li><a href=""></a>- Prestação de Contas</li>
+                                <li><a href=""></a>- Editais Abertos</li>
+                                <li><a href=""></a>- Editais Finalizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item faleconosco_cel">
+                        <button class="item-collapse" data-toggle="collapse" href="#faleconosco" role="button" aria-expanded="false" aria-controls="faleconosco">
+                            Fale Conosco
+                        </button>
+                        <div class="item-menu collapse" id="faleconosco">
+                            <ul>
+                                <li><a href=""></a>- Avaliação de Atendimento</li>
+                                <li><a href=""></a>- Ouvidoria</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="item colaborador_cel">
+                        <a class="item-collapse" >
+                            Colaboradores
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="row">
                 <div class="col-12">
                     <div class="item fale-com-a-gente">
                         <button class="item-collapse" data-toggle="collapse" href="#fale-com-a-gente" role="button" aria-expanded="false" aria-controls="fale-com-a-gente">
@@ -468,9 +419,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-        <div class="d-block d-lg-none cabecalho-menu-padding"></div>
+        <!--<div class="d-block d-lg-none cabecalho-menu-padding"></div>-->
 
         <!--BARRA DE NAVEGAÇÃO-->
         <!--<div class="container">
