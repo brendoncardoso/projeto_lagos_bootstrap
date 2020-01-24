@@ -5,6 +5,8 @@
     $texto = $row['cms_historia'];
 ?>
 
+<?php include_once('breadcrumb.php'); ?>
+
 <!--HEADER MENU-->
 <!--<div class="page_title mb-5">
     <div class="container">

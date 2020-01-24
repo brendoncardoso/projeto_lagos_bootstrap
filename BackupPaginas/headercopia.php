@@ -74,12 +74,9 @@
             <?php echo $url == '' || $url == 'index.php' ? '#4DB1E2' : '' ?> 
             <?php echo $url == 'breve_historia.php' || $url == 'corpo_diretor.php' || $url == 'valores.php' || $url == 'corpo_diretor.php' || $url == 'responsabilidade_social.php' || $url == 'unidades.php' || $url == 'parceiros.php' ? '#00B3B6' : '' ?> 
             <?php echo $url == 'projetos.php' ? 'black' : '' ?> 
-            <?php echo $url == 'processo_seletivo.php' ? '#008B8B' : '' ?> 
-            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' ? '#FFBD00' : ''; ?>
-            <?php echo $url == 'transparencia.php' ? '#8B008B' : ''; ?>
-            <?php echo $url == 'avaliacao_atendimento.php' || $url == 'ouvidoria.php' ? '#FF7661' : ''; ?>
-            );">
+            <?php echo $url == 'processo_seletivo.php' ? '#008B8B' : '' ?> );">
             
+
             <div class="row">
                 <div class="col-lg-3 logo">
                     <?php if($num_rows == 1) { ?>
@@ -134,7 +131,7 @@
                             </p>
                         </div>
 
-                        <div class="col-md noticias <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' ? 'active' : '';?>">
+                        <div class="col-md noticias">
                             <p class="pointer text-center">
                                 <a href="#" style="font-size: 12px!important;">Notícias</a>
                                 <i class="fa fa-3x fa-newspaper-o" aria-hidden="true"></i>
@@ -149,9 +146,9 @@
                                     </div>
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 53px!important;">
-                                            <div class="col-lg-4 item"><a href="noticias.php">- Notícias Recentes</a></div>
-                                            <div class="col-lg-4 item"><a href="eventos_programas.php">- Eventos/Programas</a></div>
-                                            <div class="col-lg-4 item"><a href="blog_lagos.php">- Blog Lagos</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Notícias Recentes</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Eventos/Programas</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Blog Lagos</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,14 +171,14 @@
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 53px!important;">
                                             <div class="col-lg-6 item"><a href="processo_seletivo.php">- Processo Seletivo Abertos</a></div>
-                                            <div class="col-lg-6 item"><a href="processo_seletivo.php">- Processo Seletivo Encerrados</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Processo Seletivo Encerrados</a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md transparencia <?php echo $url == 'transparencia.php' ? 'active' : ''?>">
+                        <div class="col-md transparencia ">
                             <p class="pointer text-center">
                                 <a href="#" style="font-size: 12px!important;">Transparência</a>
                                 <i class="fa fa-3x fa-search" aria-hidden="true"></i>
@@ -196,16 +193,16 @@
                                     </div>
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 53px!important;">
-                                            <div class="col-lg-4 item"><a href="transparencia.php">- Prestação de Contas</a></div>
-                                            <div class="col-lg-4 item"><a href="transparencia.php">- Editais Abertos</a></div>
-                                            <div class="col-lg-4 item"><a href="transparencia.php">- Editais Finalizados</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Prestação de Contas</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Editais Abertos</a></div>
+                                            <div class="col-lg-4 item"><a href="">- Editais Finalizados</a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                        
-                        <div class="col-md irs <?php echo $url == 'avaliacao_atendimento.php' || $url == 'ouvidoria.php' ? 'active' : ''?>">
+                        <div class="col-md irs">
                             <p class="pointer text-center">
                                 <a href="#" style="font-size: 12px!important;">Fale Conosco</a>
                                 <i class="fa fa-3x fa-phone" aria-hidden="true"></i>
@@ -220,11 +217,45 @@
                                     </div>
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 70px!important;">
-                                            <div class="col-lg-6 item"><a href="avaliacao_atendimento.php">- Avaliação de Atendimento</a></div>
-                                            <div class="col-lg-6 item"><a href="ouvidoria.php">- Ouvidoria</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Avaliação de Atendimento</a></div>
+                                            <div class="col-lg-6 item"><a href="">- Ouvidoria</a></div>
                                         </div>
                                     </div>
+                                    <!--<div class="col-lg-8 offset-lg-1 itens">
+                                        <p class="gambi">&nbsp;</p>
+                                        <div class="row">
+                                            
+                                            <div class="col-lg-4 item">
+                                                <ul class="pl-15" style="margin-top: 35px!important; padding-left: 0px!important;">
+                                                    <li style="list-style: none">
+                                                        <a href="fornecedores.html" style="font-size: 19px;">- Avaliação de Atendimento</a>
+                                                    </li>
 
+                                                    <li style="list-style: none">
+                                                        <a href="ouvidoria.html" style="font-size: 19px;">- Ouvidoria</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3 item contato">
+                                                <p class="text-left">
+                                                    CEJAM<br/>
+                                                    (11) 3469-1818<br/><br/>
+                                                    SAU<br/>
+                                                    <br/>
+                                                    sau@cejam.org.br
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-3 item contato">
+                                                <p class="text-left">
+                                                    PAISM<br/>
+                                                    (11) 3469-1828<br/><br/>
+                                                    IMPRENSA<br/>
+                                                    (11) 3469-1815<br/>
+                                                    comunicacao@cejam.org.br
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -322,9 +353,9 @@
                         </button>
                         <div class="item-menu collapse" id="noticias_cel">
                             <ul>
-                                <li><a href="noticias.php"></a>- Notícias Recentes</li>
-                                <li><a href="eventos_programas.php"></a>- Eventos Programas</li>
-                                <li><a href="blog_lagos.php"></a>- Blog Lagos</li>
+                                <li><a href=""></a>- Notícias Recentes</li>
+                                <li><a href=""></a>- Eventos Programas</li>
+                                <li><a href=""></a>- Blog Lagos</li>
                             </ul>
                         </div>
                     </div>
@@ -389,6 +420,226 @@
                     </div>
                 </div>
             </div>
+            
+            <!--<div class="row">
+                <div class="col-12">
+                    <div class="item fale-com-a-gente">
+                        <button class="item-collapse" data-toggle="collapse" href="#fale-com-a-gente" role="button" aria-expanded="false" aria-controls="fale-com-a-gente">
+                            Fale com a Gente
+                        </button>
+                        <div class="item-menu collapse" id="fale-com-a-gente">
+                            <ul>
+                                <li><a href="fornecedores.html">Canal do Fornecedor</a></li>
+                                <li><a href="processo-seletivos.html" target="_blank">Faça parte do nosso time</a></li>
+                                <li><a href="ouvidoria.html">Ouvidoria</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
         </div>
+        <!--<div class="d-block d-lg-none cabecalho-menu-padding"></div>-->
+
+        <!--BARRA DE NAVEGAÇÃO-->
+        <!--<div class="container">
+            <div class="bs-example">
+                <nav class="navbar navbar-light navbar-static-top navbar-expand-md bg-white p-0">
+
+                    <?php if($num_rows == 1) { ?>
+                        <a href="index.php" class="navbar-brand">
+                            <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" width="150px" alt="">
+                        </a>
+                    <?php } else { ?>
+                        
+                    <?php } ?>
+                    
+
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse" style="margin-bottom: 30px;">
+                        <div class="navbar-nav header-menu text-center">
+                            <a href="index.php" class="nav-item nav-link <?php echo $url == '/' ? 'active' : "" ; ?> <?php echo $url == '/index.php' ? 'active' : "" ; ?>">
+                                <i class="fa fa-home fa-1x text-white icones" aria-hidden="true" ></i>
+                                Home
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle dropdown1 <?php echo $url == '/instituto.php' || $url == '/breve_historia.php' ? 'active' : ''; ?>" data-toggle="dropdown">
+                                    <i class="fa fa-hospital-o text-white icones" aria-hidden="true" ></i>
+                                    O Instituto
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="projetos.php" class="dropdown-item">
+                                        - <i class="fa fa-cogs" aria-hidden="true"></i> 
+                                        Projetos
+                                    </a>
+                                    <a href="noticias.php" class="dropdown-item"> - <i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias</a>
+                                    <a href="capitacao.php" class="dropdown-item"> - <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Capitação</a>
+                                    <a href="escala_medica.php" class="dropdown-item"> - <i class="fa fa-user-md" aria-hidden="true"></i> Escala Médica</a>
+                                    <a href="corpo_tecnico.php" class="dropdown-item"> - <i class="fa fa-users" aria-hidden="true"></i> Corpo Técnico</a>
+                                    <a href="breve_historia.php" class="dropdown-item"> - Breve História </a>
+                                    <a href="" class="dropdown-item"> - Visão, Missão e Valores</a>
+                                    <a href="" class="dropdown-item"> - Corpo Diretor</a>
+                                    <a href="" class="dropdown-item"> - Responsabilidade Social</a>
+                                    <a href="" class="dropdown-item"> - Unidades</a>
+                                    <a href="" class="dropdown-item"> - Convênios e Parceiros </a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle">
+                                    <i class="fa fa-cogs text-white icones" aria-hidden="true"></i>
+                                    Projetos
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Antigos</a>
+                                    <a href="" class="dropdown-item"> - Atuais</a>
+                                </div>
+                            </div>
+
+                            <a href="projetos.php" class="nav-item nav-link <?php echo $url == '/projetos.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-cogs text-white container icones" aria-hidden="true"></i> 
+                                Projetos
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle dropdown2"  data-toggle="dropdown">
+                                    <i class="fa fa-newspaper-o text-white icones" aria-hidden="true"></i>
+                                    Notícias
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a href="noticias.php" class="dropdown-item"> - Notícias Recentes</a>
+                                    <a href="" class="dropdown-item"> - Eventos/Programas</a>
+                                    <a href="" class="dropdown-item"> - Blog Lagos</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user-plus text-white icones"></i>
+                                    Trabalhe Conosco
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Processo Seletivo Abertos</a>
+                                    <a href="" class="dropdown-item"> - Processo Seletivo Encerrados</a>
+                                </div>
+                            </div>
+
+                            
+                            <a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-search text-white icones" aria-hidden="true"></i>
+                                Transparência
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-search text-white container icones" aria-hidden="true"></i>
+                                    Transparência
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Prestação de Contas</a>
+                                    <a href="" class="dropdown-item"> - Editais Abertos</a>
+                                    <a href="" class="dropdown-item"> - Editais Finalizados</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-comments-o text-white container icones" aria-hidden="true"></i>
+                                    Fale Conosco
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Avaliação do Atendimento</a>
+                                    <a href="ouvidoria.php" class="dropdown-item"> - Ouvidoria</a>
+                                </div>
+                            </div>
+
+                            <a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-comments-o text-white container icones" aria-hidden="true"></i>
+                                Fale Conosco
+                            </a>
+
+                            <a href="http://f71lagos.com/extranet/login" class="nav-item nav-link <?php echo $url == '/http://f71lagos.com/extranet/login' ? 'active' : ''; ?>" target="_blank">
+                                <i class="fa fa-address-card text-white icones" aria-hidden="true"></i>
+                                Colaboradores
+                            </a>
+
+                            
+
+                            <a href="http://f71lagos.com/extranet/login" class="nav-item nav-link <?php echo $url == '/http://f71lagos.com/extranet/login' ? 'active' : ''; ?>" target="_blank">
+                                <i class="fa fa-address-card text-white icones" aria-hidden="true"></i>
+                                Colaboradores
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-hand-paper-o text-white container icones" aria-hidden="true"></i>
+                                    Doação de Órgãos
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Saiba Mais</a>
+                                    <a href="" class="dropdown-item"> - Jardim do Doador de Órgãos</a>
+                                </div>
+                            </div>
+
+                            <a href="selecoes.php" class="nav-item nav-link <?php echo $url == '/selecoes.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-user-plus text-white icones" aria-hidden="true" ></i>
+                                Seleções
+                            </a>
+
+                            <a href="ouvidoria.php" class="nav-item nav-link <?php echo $url == '/ouvidoria.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-phone text-white icones" aria-hidden="true" ></i>
+                                Ouvidoria
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle">
+                                    <i class="text-white icones" aria-hidden="true"></i>
+                                    Transplantes
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item"> - Jardim do Doador</a>
+                                    <a href="" class="dropdown-item"> - Ações de Incentivo a Doação</a>
+                                </div>
+                            </div>
+
+                            <a href="transparencia.php" class="nav-item nav-link <?php echo $url == '/transparencia.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-search text-white icones" aria-hidden="true"></i>
+                                Transparência
+                            </a>
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle <?php echo $url == '/projetos.php' || $url == '/noticias.php' || $url == '/capitacao.php' || $url == '/escala_medica.php' || $url == '/noticia_bd.php?id_noticia='.$id || $url == '/corpo_tecnico.php'? 'active' : ''?>" data-toggle="dropdown">
+                                    <i class="fa fa-plus-square text-white container icones" aria-hidden="true"></i>
+                                    Informações
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a href="projetos.php" class="dropdown-item">
+                                        - <i class="fa fa-cogs" aria-hidden="true"></i> 
+                                        Projetos
+                                    </a>
+                                    <a href="noticias.php" class="dropdown-item"> - <i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias</a>
+                                    <a href="capitacao.php" class="dropdown-item"> - <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Capitação</a>
+                                    <a href="escala_medica.php" class="dropdown-item"> - <i class="fa fa-user-md" aria-hidden="true"></i> Escala Médica</a>
+                                    <a href="corpo_tecnico.php" class="dropdown-item"> - <i class="fa fa-users" aria-hidden="true"></i> Corpo Técnico</a>
+                                </div>
+                            </div>
+
+                            <a href="fale_conosco.php" class="nav-item nav-link <?php echo $url == '/fale_conosco.php' ? 'active' : ''; ?>">
+                                <i class="fa fa-comments-o text-white container icones" aria-hidden="true"></i>
+                                Fale Conosco
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+        </div>-->
 
 

@@ -138,7 +138,7 @@
     </div>
     <div class="container mt-5">
         <div class="col-sm-12 text-center">
-            <strong><p class="title-home text-center mb-5">Acesso Rápido</p></strong>
+            <strong><p class="title-home text-center">Acesso Rápido</p></strong>
             <div class="acesso-rapido">
                 <div class="row">
                     <div class="acesso_rapido transp col-sm-3">
@@ -154,7 +154,7 @@
                     </div>
 
                     <div class="acesso_rapido  processos_seletivos col-sm-3">
-                        <a href="">
+                        <a href="processo_seletivo.php">
                             <img src="https://cejam.org.br/img/layout/acesso-rapido-processo-seletivo.png" class="hide-o animated img-fluid">
                         </a>
                     </div>
@@ -171,7 +171,7 @@
 
     <div class="container mt-5 mb-5">
         <div class="col-sm-12">
-            <strong><p class="title-home text-center mb-5">Notícias Recentes</p></strong>
+            <strong><p class="title-home text-center ">Notícias Recentes</p></strong>
             <?php
                 $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, B.img_noticia, A.status, A.status_img, A.data
                 FROM noticias AS A

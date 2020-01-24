@@ -1,0 +1,186 @@
+/* Font Face */
+@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** Paginas **/
+.breadcrumbs{
+    margin: 10px 0 50px;
+}
+.breadcrumbs.separador{
+    margin: 20px 0 50px;
+}
+.breadcrumbs.separador .pagina{
+    min-height: 42px;
+    position: relative;
+}
+.breadcrumbs p, .breadcrumbs a, .breadcrumbs span{
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+}
+.breadcrumbs ul{
+    list-style: none;
+    padding: 0;
+}
+.breadcrumbs ul li{
+    display: inline;
+}
+.breadcrumbs a{
+    color: #7b7b7b;
+}
+.breadcrumbs.o-cejam span, .breadcrumbs.o-cejam i{
+    color: #008daf;
+}
+.breadcrumbs.o-cejam .pagina{
+    border-bottom: 2px solid #008daf;
+}
+.breadcrumbs.onde-atuamos span, .breadcrumbs.onde-atuamos i{
+    color: #00b3b6;
+}
+.breadcrumbs.onde-atuamos .pagina{
+    border-bottom: 2px solid #00b3b6;
+}
+.breadcrumbs.irs span, .breadcrumbs.irs i{
+    color: #FF7661;
+}
+
+.breadcrumbs.irs .pagina{
+    border-bottom: 2px solid #FF7661;
+}
+
+.breadcrumbs.instituto_breadcrumb span, .breadcrumbs.instituto_breadcrumb i{
+    color: #00B3B6;
+}
+
+.breadcrumbs.instituto_breadcrumb .pagina{
+    border-bottom: 2px solid #00B3B6;
+}
+
+.breadcrumbs.projeto_breadcrumb{
+    margin: 35px 0 30px!important;
+}
+
+.breadcrumbs.projeto_breadcrumb span, .breadcrumbs.projeto_breadcrumb i{
+    color: black;
+}
+
+.breadcrumbs.projeto_breadcrumb .pagina{
+    border-bottom: 2px solid black;
+}
+
+.breadcrumbs.noticias_breadcrumb span, .breadcrumbs.noticias_breadcrumb i{
+    color: #FFBD00;
+}
+
+.breadcrumbs.noticias_breadcrumb .pagina{
+    border-bottom: 2px solid #FFBD00;
+}
+
+.breadcrumbs.trabconosco_breadcrumb span, .breadcrumbs.trabconosco_breadcrumb i{
+    color: #008B8B;
+}
+
+.breadcrumbs.trabconosco_breadcrumb .pagina{
+    border-bottom: 2px solid #008B8B;
+}
+
+.breadcrumbs.transparencia_breadcrumb span, .breadcrumbs.transparencia_breadcrumb i{
+    color: #8b008b;
+}
+
+.breadcrumbs.transparencia_breadcrumb .pagina{
+    border-bottom: 2px solid #8b008b;
+}
+
+.breadcrumbs.faleconosco_breadcrumb span, .breadcrumbs.faleconosco_breadcrumb i{
+    color: #FF7661;
+}
+
+.breadcrumbs.faleconosco_breadcrumb .pagina{
+    border-bottom: 2px solid #FF7661;
+}
+
+.breadcrumbs i.big{
+    font-size: 180px;
+}
+.breadcrumbs i.small{
+    font-size: 170px!important;
+    color: #fff !important;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+}
+.breadcrumbs .grafismo{
+    position: absolute;
+    z-index: 999;
+    bottom: -98px;
+    left: 20%;
+    clip-path: inset(80px 0 0 0);
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .breadcrumbs{
+        margin: 10px 0 20px;
+    }
+    .breadcrumbs.separador{
+        margin: 20px 0;
+    }
+    .breadcrumbs .grafismo{
+        display: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .breadcrumbs{
+        margin: 220px 0 30px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

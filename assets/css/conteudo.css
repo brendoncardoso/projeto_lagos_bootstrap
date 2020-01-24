@@ -1,0 +1,423 @@
+/* Font Face */
+@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** Paginas Conteudo **/
+.pagina-conteudo{
+    margin: 0 0 20px;
+}
+.pagina-conteudo h1{
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 0 25px;
+}
+.pagina-conteudo.o-cejam h1, .pagina-conteudo.o-cejam i{
+    color: #008daf;
+}
+.pagina-conteudo.onde-atuamos h1, .pagina-conteudo.onde-atuamos i{
+    color: #00b3b6;
+}
+.pagina-conteudo.irs h1, .pagina-conteudo.irs i{
+    color: #FF7661;
+}
+.pagina-conteudo a, .pagina-conteudo p, .pagina-conteudo span, .pagina-conteudo li{
+    font-size: 14px;
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+}
+.pagina-conteudo .menu-lateral{
+    padding-left: 0;
+}
+
+.pagina-conteudo .menu-lateral .nav-toggle{
+    width: 100%;
+    background: #efefef;
+    color: #777;
+    padding: 5px 10px;
+    margin: 0 0 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.pagina-conteudo.o-cejam .menu-lateral .nav-toggle{
+    border-color: #008daf;
+}
+.pagina-conteudo.onde-atuamos .menu-lateral .nav-toggle{
+    border-color: #00b3b6;
+}
+.pagina-conteudo.escola-saude .menu-lateral .nav-toggle{
+    border-color: #ffbd00;
+}
+.pagina-conteudo.fale-com-a-gente .menu-lateral .nav-toggle{
+    border-color: #FF7661;
+}
+
+.pagina-conteudo .menu-lateral ul li a{
+    font-size: 16px;
+    color: #7b7b7b;
+}
+.pagina-conteudo.o-cejam .menu-lateral ul li a.active{
+    color: #008daf;
+}
+.pagina-conteudo.onde-atuamos .menu-lateral ul li a.active{
+    color: #00b3b6;
+}
+.pagina-conteudo.irs .menu-lateral ul li a.active{
+    color: #FF7661;
+}
+.pagina-conteudo .menu-lateral ul li a .grafismo{
+    display: none;
+}
+.pagina-conteudo .conteudo h1{
+    margin: 0 0 30px;
+}
+.pagina-conteudo .conteudo p{
+    text-align: justify;
+}
+.pagina-conteudo .conteudo img{
+    margin: 0 0 20px;
+}
+.pagina-conteudo .conteudo i{
+    margin: 0 5px;
+}
+/** Cards Eventos **/
+.pagina-conteudo.eventos{
+    padding: 0;
+    background: #fff;
+}
+
+/** Formulários **/
+.pagina-conteudo .cadastro{
+    margin-top: 60px;
+}
+.pagina-conteudo .form-control + .border-effect{
+    height: 1px;
+    width: 0;
+    transition: 0.3s linear;
+    font-size: 12px;
+    border: 1px solid #fff;
+    margin: 0 0 5px;
+    padding: 0;
+}
+.pagina-conteudo.o-cejam .form-control:focus + .border-effect, .pagina-conteudo.o-cejam .form-control:hover + .border-effect, .pagina-conteudo.o-cejam .form-control.alerta + .border-effect{
+    border: 1px solid #008daf;
+}
+.pagina-conteudo.gestao-saude .form-control:focus + .border-effect, .pagina-conteudo.gestao-saude .form-control:hover + .border-effect, .pagina-conteudo.gestao-saude .form-control.alerta + .border-effect{
+    border: 1px solid #00b3b6;
+}
+.pagina-conteudo.onde-atuamos .form-control:focus + .border-effect, .pagina-conteudo.onde-atuamos .form-control:hover + .border-effect, .pagina-conteudo.onde-atuamos .form-control.alerta + .border-effect{
+    border: 1px solid #00b3b6;
+}
+.pagina-conteudo.irs .form-control:focus + .border-effect, .pagina-conteudo.irs .form-control:hover + .border-effect, .pagina-conteudo.irs .form-control.alerta + .border-effect{
+    border: 1px solid #FF7661;
+}
+.pagina-conteudo .form-control:focus + .border-effect, .pagina-conteudo .form-control:hover + .border-effect, .pagina-conteudo .form-control.alerta + .border-effect{
+    width: 100%;
+}
+.pagina-conteudo .form-control{
+    border: 1px solid #ccc;
+    transition: 0.3s linear;
+}
+.pagina-conteudo .form-control:focus, .pagina-conteudo .form-control:hover, .pagina-conteudo .form-control.alerta{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #fff;
+}
+.pagina-conteudo textarea.form-control{
+    height: 150px;
+}
+
+.pagina-conteudo .container-check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 14px;
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+    padding-top: 8px;
+    transition: 0.3s linear;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Hide the browser's default checkbox */
+.pagina-conteudo .container-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.pagina-conteudo .container-check .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    transition: 0.3s linear;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.pagina-conteudo .container-check:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.pagina-conteudo.o-cejam .container-check input:checked ~ .checkmark {
+    background-color: #008daf;
+}
+.pagina-conteudo.gestao-saude .container-check input:checked ~ .checkmark {
+    background-color: #00b3b6;
+}
+.pagina-conteudo.irs .container-check input:checked ~ .checkmark {
+    background-color: #FF7661;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.pagina-conteudo .container-check .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.pagina-conteudo .container-check input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.pagina-conteudo .container-check .checkmark:after {
+    left: 10px;
+    top: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.pagina-conteudo #accordion .card-header{
+    background: linear-gradient(#ffffff, #dedede);
+}
+.pagina-conteudo #accordion .card-header a{
+    color: #777;
+}
+
+.pagina-conteudo.o-cejam .btn-primary {
+    color: #fff;
+    background-color: #008daf;
+    border-color: #008daf;
+}
+.pagina-conteudo.onde-atuamos .btn-primary {
+    color: #fff;
+    background-color: #00b3b6;
+    border-color: #00b3b6;
+}
+.pagina-conteudo.escola-saude .btn-primary {
+    color: #fff;
+    background-color: #ffbd00;
+    border-color: #ffbd00;
+}
+.pagina-conteudo.fale-com-a-gente .btn-primary {
+    color: #fff;
+    background-color: #FF7661;
+    border-color: #FF7661;
+}
+
+.pagina-conteudo .prazo-inscricao{
+    float: left;
+    width: 100%;
+}
+.pagina-conteudo .prazo-inscricao .title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.pagina-conteudo.o-cejam .prazo-inscricao .title, .pagina-conteudo.o-cejam .prazo-inscricao b{
+    color: #008daf;
+    border-bottom: 1px solid #008daf;
+}
+.pagina-conteudo.onde-atuamos .prazo-inscricao .title, .pagina-conteudo.onde-atuamos .prazo-inscricao b{
+    color: #00b3b6;
+    border-bottom: 1px solid #00b3b6;
+}
+.pagina-conteudo.escola-saude .prazo-inscricao .title, .pagina-conteudo.escola-saude .prazo-inscricao b{
+    color: #ffbd00;
+    border-bottom: 1px solid #ffbd00;
+}
+.pagina-conteudo.irs .prazo-inscricao .title, .pagina-conteudo.irs .prazo-inscricao b{
+    color: #FF7661;
+    border-bottom: 1px solid #FF7661;
+}
+.pagina-conteudo .prazo-inscricao b{
+    border-bottom: none !important;
+}
+.pagina-conteudo .prazo-inscricao .prazo{
+    float: left;
+    width: 100%;
+}
+.pagina-conteudo .prazo-inscricao .prazo .inicio{
+    float: left;
+}
+.pagina-conteudo .prazo-inscricao .prazo .fim{
+    float: right;
+}
+.pagina-conteudo .inscricao{
+    float: left;
+    width: 100%;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .pagina-conteudo .menu-lateral .side-scroll{
+        width: 100%;
+        height: 100px;
+        overflow: scroll;
+        margin: 0 0 20px;
+    }
+    .pagina-conteudo .menu-lateral .side-scroll::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    .pagina-conteudo .menu-lateral .side-scroll::-webkit-scrollbar:vertical {
+        width: 12px;
+    }
+    .pagina-conteudo .menu-lateral .side-scroll::-webkit-scrollbar:horizontal {
+        height: 12px;
+    }
+    .pagina-conteudo .menu-lateral .side-scroll::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .5);
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+    }
+    .pagina-conteudo .menu-lateral .side-scroll::-webkit-scrollbar-track {
+        border-radius: 10px;  
+        background-color: #ffffff; 
+    }    
+    .pagina-conteudo .menu-lateral ul{
+        display: inline;
+    }
+    .pagina-conteudo .menu-lateral ul li{
+        float: left;
+        padding: 0 5px 0 0;
+    }
+    .conteudo .tab-content .btn{
+        margin: 10px 0;
+    }
+    .pagina-conteudo h1{
+        margin: 0 0 50px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .pagina-conteudo h1{
+        text-align: left;
+    }
+
+    .pagina-conteudo .menu-lateral{
+        padding-left: 0;
+    }
+    .pagina-conteudo .menu-lateral ul{
+        display: block;
+        width: unset;
+    }
+    .pagina-conteudo .menu-lateral ul li{
+        position: relative;
+        padding: 0 30px 0 0;
+    }
+    .pagina-conteudo .menu-lateral ul li:hover{
+        background: #efefef;
+    }
+    .pagina-conteudo .menu-lateral ul li a{
+        font-size: 20px;
+        color: #7b7b7b;
+    }
+    .pagina-conteudo .menu-lateral ul li a .grafismo{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .pagina-conteudo .menu-lateral ul li a .grafismo i.big{
+        font-size: 50px;
+    }
+    .pagina-conteudo .menu-lateral ul li a .grafismo i.small{
+        position: absolute;
+        font-size: 35px;
+        color: #fff;
+        top: 8px;
+        left: -2px;
+    }
+    .pagina-conteudo .menu-lateral ul li a.active .grafismo{
+        display: block;
+    }
+    .pagina-conteudo .conteudo ul.columns{
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        columns: 3;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

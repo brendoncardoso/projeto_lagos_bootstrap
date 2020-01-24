@@ -33,7 +33,7 @@
 
 /** Cabeçalho **/
 .cabecalho{
-    background: linear-gradient(to right, #242952 25%, #4DB1E2);
+    /*background: linear-gradient(to right, #242952 25%, #4DB1E2);*/
 }
 
 .cabecalho a, .cabecalho p{

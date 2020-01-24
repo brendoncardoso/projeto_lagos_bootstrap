@@ -1,6 +1,5 @@
 $(document).ready(function(){
     var style = document.querySelector('.cabecalho').style.background;
-    console.log(style);
 
     $('.home').click(function(){
         window.location.href="index.php"
@@ -107,11 +106,6 @@ $(document).ready(function(){
         });
     });
 
-    $('.irs').mouseout(function(){
-        $('.cabecalho').css({
-            background: (style)
-        });
-    });
 
     $('.img1').mouseover(function(){
         $(this).css({'transform':'scale(1.1)', 'transition':'1s', 'cursor':'pointer'});

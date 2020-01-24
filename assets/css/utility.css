@@ -1,0 +1,169 @@
+/* Font Face */
+@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.html') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+.hide{
+    display: none !important;
+}
+.hide-o{
+    opacity: 0;
+}
+.pointer{
+    cursor: pointer;
+}
+.mb-5{
+    margin-bottom: 5px !important;
+}
+.mb-10{
+    margin-bottom: 10px !important;
+}
+.mt-20{
+    margin-top: 20px !important;
+}
+.mt-35{
+    margin-top: 35px !important;
+}
+.large{
+    font-size: 24px !important;
+    margin-bottom: 0;
+}
+.pl-0{
+    padding-left: 0 !important;
+}
+.pl-15{
+    padding-left: 15px !important;
+}
+
+/** Conteúdo **/
+.conteudo{
+    min-height: 200px;
+}
+
+/** Home **/
+.carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: #ccc;
+}
+.carousel-indicators li.active{
+    background: #777;
+}
+
+/** image clip **/
+.img-clip{
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/** Ouvidoria **/
+.ouvidoria{
+    margin: 50px 0 30px;
+}
+
+/** Paginador **/
+.pagination{
+    text-align: center;
+}
+.pagination li{
+    display: inline-block;
+}
+.page-item .page-link{
+    border: none;
+    padding: 0 5px;
+    margin: 0 5px 0 0;
+    color: #777;
+}
+.page-item.active .page-link{
+    color: #008daf;
+    background: unset;
+}
+.page-item.disabled .page-link{
+    color: #ccc;
+}
+
+/** Loader **/
+#loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 999999999;
+    display: none;
+}
+#loader > div{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+#loader > div #loader-img{
+    cursor: pointer;
+    width: 100%;
+}
+#loader > div .loadgo-overlay{
+    background: rgba(0, 0, 0, 0) !important;
+}
+#loader p{
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+/** Notificação **/
+.alert{
+    width: 50% !important;
+}
+.alert button{
+    position: absolute !important;
+    right: 10px !important;
+    border: none !important;
+    background: none !important;
+    color: #777 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif !important;
+}
+
+.invalid-feedback{
+    margin: 0 0 20px !important;
+}
