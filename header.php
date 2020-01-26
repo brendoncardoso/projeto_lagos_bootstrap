@@ -88,8 +88,6 @@
                         <a href="index.php" class="img-fluid">
                             <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
                         </a>
-                    <?php } else { ?>
-                        
                     <?php } ?>
                 </div>
 

@@ -28,7 +28,6 @@ $(document).ready(function(){
     $('.institucional').mouseover(function(){
         $('.cabecalho').css({
             background: "linear-gradient(to right, #242952 25%, #00B3B6",
-            transition: "margin-left 4s"
         });
     });
 
@@ -105,7 +104,6 @@ $(document).ready(function(){
             background: "linear-gradient(to right, #242952 25%, #008DAF"
         });
     });
-
 
     $('.img1').mouseover(function(){
         $(this).css({'transform':'scale(1.1)', 'transition':'1s', 'cursor':'pointer'});
