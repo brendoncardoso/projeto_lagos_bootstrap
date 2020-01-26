@@ -65,8 +65,10 @@
     </head>
     
     <body>
-        <?php $request_uri = str_replace("/des.projeto_lagos_bootstrap.net/", " ", $_SERVER["REQUEST_URI"]); ?>
-        <?php $url = str_replace('/', "", $request_uri);?>
+        <?php 
+            $local = array("/projeto_lagos_bootstrap/", "/des.projeto_lagos_bootstrap.net/");
+            $url = str_replace($local, "", $_SERVER["REQUEST_URI"]); 
+        ?>
          
         <!-- Cabeçalho -->
         <div class="d-none d-lg-block cabecalho" 
