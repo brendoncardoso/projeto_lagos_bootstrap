@@ -1,5 +1,5 @@
 /* Font Face */
-@font-face {
+/*@font-face {
     font-family: 'ubuntubold';
     src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
          url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
@@ -29,7 +29,7 @@
          url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 body{
     overflow-x: hidden;
@@ -70,7 +70,7 @@ body{
 
 /** Conteúdo **/
 .conteudo{
-    min-height: 200px;
+    /*min-height: 200px;*/
 }
 
 /** Home **/
@@ -151,7 +151,7 @@ body{
 
 /** Notificação **/
 .alert{
-    width: 50% !important;
+    /*width: 50% !important;*/
 }
 .alert button{
     position: absolute !important;

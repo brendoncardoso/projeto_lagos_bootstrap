@@ -1,0 +1,71 @@
+/* Font Face */
+/*@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/** Media Queries **/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .row{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {    
+    .pagina-conteudo h1{
+        font-size: 30px;
+    }
+}
+
+/* Ultra large devices (large desktops, 1600px and up) */
+@media (min-width: 1600px) {    
+    .pagina-conteudo h1{
+        font-size: 48px;
+    }
+}

@@ -1,11 +1,11 @@
-<?php include_once('header.php'); ?>
-<?php
-    $sql = mysql_query("SELECT cms_historia FROM cms WHERE id = 1");
-    $row = mysql_fetch_assoc($sql);
-    $texto = $row['cms_historia'];
-?>
+<?php 
+include_once('header.php'); 
+include_once('breadcrumb.php'); 
 
-<?php include_once('breadcrumb.php'); ?>
+$sql = mysql_query("SELECT cms_historia FROM cms WHERE id = 1");
+$row = mysql_fetch_assoc($sql);
+$texto = $row['cms_historia'];
+?>
 
 <!--HEADER MENU-->
 <!--<div class="page_title mb-5">
@@ -26,10 +26,10 @@
     </div>
 </div>-->
 
-<div class="container">
+<!--<div class="container">
     <div class="col-sm-12">
         <?php echo $texto; ?>
     </div>
-</div>
+</div>-->
 
 <?php include_once('footer.php'); ?>

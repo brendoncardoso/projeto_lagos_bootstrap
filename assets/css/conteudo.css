@@ -1,5 +1,5 @@
 /* Font Face */
-@font-face {
+/*@font-face {
     font-family: 'ubuntubold';
     src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
          url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
@@ -29,7 +29,7 @@
          url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 /** Paginas Conteudo **/
 .pagina-conteudo{
@@ -37,13 +37,18 @@
 }
 .pagina-conteudo h1{
     font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 24px!important;
     text-align: center;
     margin: 0 0 25px;
 }
 .pagina-conteudo.o-cejam h1, .pagina-conteudo.o-cejam i{
     color: #008daf;
 }
+
+.pagina-conteudo.noticias h1, .pagina-conteudo.noticias i{
+    color: #FFBD00;
+}
+
 .pagina-conteudo.onde-atuamos h1, .pagina-conteudo.onde-atuamos i{
     color: #00b3b6;
 }
@@ -131,6 +136,10 @@
 .pagina-conteudo.o-cejam .form-control:focus + .border-effect, .pagina-conteudo.o-cejam .form-control:hover + .border-effect, .pagina-conteudo.o-cejam .form-control.alerta + .border-effect{
     border: 1px solid #008daf;
 }
+.pagina-conteudo.noticias .form-control:focus + .border-effect, .pagina-conteudo.noticias .form-control:hover + .border-effect, .pagina-conteudo.noticias .form-control.alerta + .border-effect {
+    border: 1px solid #FFBD00;
+}
+
 .pagina-conteudo.gestao-saude .form-control:focus + .border-effect, .pagina-conteudo.gestao-saude .form-control:hover + .border-effect, .pagina-conteudo.gestao-saude .form-control.alerta + .border-effect{
     border: 1px solid #00b3b6;
 }

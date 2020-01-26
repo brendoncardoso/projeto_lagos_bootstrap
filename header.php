@@ -1,4 +1,6 @@
 <?php
+
+    setcookie('samesite', '1', 0, '/; samesite=strict');
     include("sistema/includes/conecte.php");
 
     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
@@ -42,6 +44,8 @@
         <link rel="stylesheet" href="assets/css/breadcrumbs.css">
         <link rel="stylesheet" href="assets/css/utility.css">
         <link rel="stylesheet" href="assets/css/conteudo.css">
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/pagina-noticias.css">
         <!--CSS-->
         <link rel="stylesheet" href="assets/css/style.css">
 
@@ -247,13 +251,10 @@
                     <a class="icon menu-open">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </a>
-                   
                     <?php if($num_rows == 1) { ?>
                         <a href="index.php" class="img-fluid">
                             <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
                         </a>
-                    <?php } else { ?>
-                        
                     <?php } ?>
                 </div>
             </div>

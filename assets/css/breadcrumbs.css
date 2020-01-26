@@ -1,5 +1,5 @@
 /* Font Face */
-@font-face {
+/*@font-face {
     font-family: 'ubuntubold';
     src: url('ubuntu/ubuntu-b_0-webfont.html') format('woff2'),
          url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
@@ -29,7 +29,7 @@
          url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 /** Paginas **/
 .breadcrumbs{
@@ -83,8 +83,8 @@
     border-bottom: 2px solid #00B3B6;
 }
 
-.breadcrumbs.projeto_breadcrumb{
-    margin: 35px 0 30px!important;
+.projeto_breadcrumb{
+    margin-top: 50px!important;
 }
 
 .breadcrumbs.projeto_breadcrumb span, .breadcrumbs.projeto_breadcrumb i{
@@ -171,7 +171,9 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .breadcrumbs{
-        margin: 220px 0 30px;
+        /*margin: 220px 0 30px;*/
+        margin: 220px 155px;
+        margin-bottom: 0px!important;
     }
 }
 
