@@ -71,7 +71,8 @@
     <body>
         <?php 
             $local = array("/projeto_lagos_bootstrap/", "/des.projeto_lagos_bootstrap.net/");
-            $url = str_replace($local, "", $_SERVER["REQUEST_URI"]); 
+            $removeBar = str_replace($local, "", $_SERVER["REQUEST_URI"]); 
+            $url = str_replace('/', "", $removeBar);
         ?>
          
         <!-- Cabeçalho -->
