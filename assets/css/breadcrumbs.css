@@ -36,7 +36,7 @@
     margin: 10px 0 50px;
 }
 .breadcrumbs.separador{
-    margin: 20px 0 50px;
+    margin: 20px 0 50px!important;
 }
 .breadcrumbs.separador .pagina{
     min-height: 42px;
@@ -58,9 +58,15 @@
 .breadcrumbs.o-cejam span, .breadcrumbs.o-cejam i{
     color: #008daf;
 }
+
 .breadcrumbs.o-cejam .pagina{
     border-bottom: 2px solid #008daf;
 }
+
+.breadcrumbs.noticias .pagina{
+    border-bottom: 2px solid #FFBD00;
+}
+
 .breadcrumbs.onde-atuamos span, .breadcrumbs.onde-atuamos i{
     color: #00b3b6;
 }
@@ -171,8 +177,10 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .breadcrumbs{
-        /*margin: 220px 0 30px;*/
-        margin: 220px 155px;
+        /*margin: 220px 0 35px;*/
+        /*margin: 220px 0 110px;*/
+        /*margin: 220px 155px;*/
+        margin: 220px 135px;
         margin-bottom: 0px!important;
     }
 }

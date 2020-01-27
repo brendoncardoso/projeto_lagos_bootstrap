@@ -1,11 +1,15 @@
 <?php
-
     setcookie('samesite', '1', 0, '/; samesite=strict');
     include("sistema/includes/conecte.php");
 
     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
     date_default_timezone_set('America/Sao_Paulo');
-    
+
+    $limit = 5;
+    $sql_noticias_paginacao = mysql_query("SELECT * FROM noticias");
+    $count_posts = mysql_num_rows($sql_noticias_paginacao);
+    $paginas = round($count_posts/$limit);
+
     $id_noticia = isset($_REQUEST['id_noticia']) ? $_REQUEST['id_noticia'] : NULL;
     $sql = mysql_query("SELECT * FROM noticias WHERE id_noticia = '$id_noticia'");
 
@@ -82,15 +86,20 @@
             <?php echo $url == 'breve_historia.php' || $url == 'corpo_diretor.php' || $url == 'valores.php' || $url == 'corpo_diretor.php' || $url == 'responsabilidade_social.php' || $url == 'unidades.php' || $url == 'parceiros.php' ? '#00B3B6' : '' ?> 
             <?php echo $url == 'projetos.php' ? 'black' : '' ?> 
             <?php echo $url == 'processo_seletivo.php' ? '#008B8B' : '' ?> 
-            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' ? '#FFBD00' : ''; ?>
+            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? '#FFBD00' : ''; ?> 
+            <?php for($x = 0; $x <= $paginas; $x++) { 
+                echo $url == "noticias.php?pagina=$x" ? '#FFBD00' : '';
+            } ?>
+
             <?php echo $url == 'transparencia.php' ? '#8B008B' : ''; ?>
             <?php echo $url == 'avaliacao_atendimento.php' || $url == 'ouvidoria.php' ? '#FF7661' : ''; ?>
             );">
             
+
             <div class="row">
                 <div class="col-lg-3 logo">
                     <?php if($num_rows == 1) { ?>
-                        <a href="index.php" class="img-fluid">
+                        <a href="index.php" class="img-fluid align-items-center">
                             <img src="sistema/adm/cms_logo_images/<?php echo $cms_logo; ?>" height="130" alt="">
                         </a>
                     <?php } ?>
@@ -139,7 +148,10 @@
                             </p>
                         </div>
 
-                        <div class="col-md noticias <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' ? 'active' : '';?>">
+                        <div class="col-md noticias <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? 'active' : '';?>
+                            <?php for($x = 0; $x <= $paginas; $x++) { 
+                                echo $url == "noticias.php?pagina=$x" ? 'active' : '';
+                            } ?>">
                             <p class="pointer text-center">
                                 <a href="#" style="font-size: 12px!important;">Notícias</a>
                                 <i class="fa fa-3x fa-newspaper-o" aria-hidden="true"></i>

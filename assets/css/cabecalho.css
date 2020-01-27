@@ -98,6 +98,7 @@
     }
     .cabecalho-menu > .row > div{
         /*padding: 0;*/
+        padding: 0!important;
     }
 
     .cabecalho-menu .item{
@@ -340,7 +341,7 @@
 
     .cabecalho .menu, .cabecalho .menu .col-md{
         position: initial;
-        height: 140px;
+        /*height: 140px;*/
     }
 
     .cabecalho .menu .col-md p{
@@ -629,20 +630,20 @@
 @media (min-width: 1600px) {
     /** Cabeçalho */
     .cabecalho{
-        /*height: 200px;*/
+        height: 190px;
     }
     .cabecalho > div{
-        /*height: 180px;
-        margin: 0 0 20px;*/
+        height: 180px;
+        margin: 0 0 20px;
     }
     .cabecalho .logo img{
         max-height: 200px;
     }
     .cabecalho .menu > .row{
-        height: 200px;
+        /*height: 200px;*/
     }
     .cabecalho .menu p{
-        /*height: 180px;*/
+        height: 180px;
         width: 500px;
         margin-bottom: 20px;
         vertical-align: middle;

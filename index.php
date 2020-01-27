@@ -258,7 +258,7 @@
                                 ?>
 
                                 <hr style="margin-bottom: 1px;">
-                                <span class="data p-0" style="font-size: 12px;"><?= $dia." de ".$nome_mes." às ".$horas; ?></span>
+                                <span class="data_noticias_home p-0" style="font-size: 12px;"><?= $dia." de ".$nome_mes." às ".$horas; ?></span>
                             </div>
                         <?php } ?>
                         <?php $contador++; ?>
