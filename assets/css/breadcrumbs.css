@@ -140,7 +140,7 @@
     font-size: 170px!important;
     color: #fff !important;
     position: absolute;
-    top: 2px;
+    top: 3px;
     left: 3px;
 }
 .breadcrumbs .grafismo{
@@ -148,7 +148,8 @@
     z-index: 999;
     bottom: -98px;
     left: 20%;
-    clip-path: inset(80px 0 0 0);
+    /*clip-path: inset(80px 0 0 0);*/
+    clip: rect(0px,94px,127px,10px);
 }
 
 /* Extra small devices (portrait phones, less than 576px) */

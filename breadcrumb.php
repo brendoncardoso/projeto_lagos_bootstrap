@@ -25,6 +25,9 @@
                                     <?php echo $url == 'breve_historia.php' || $url == 'corpo_diretor.php' || $url == 'unidades.php' || $url == 'valores.php' || $url == 'responsabilidade_social.php' || $url == 'parceiros.php' ? 'O Instituto' : ''; ?>
                                     <?php echo $url == 'projetos.php' ? 'Projetos' : ''; ?>
                                     <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == 'ver_noticia.php?id_noticia='.$id_noticia ? 'Notícias' : ''; ?>
+                                    <?php for($x = 0; $x <= $paginas; $x++) { 
+                                        echo $url == "noticias.php?pagina=$x" ? 'Notícias' : '';
+                                    } ?>
                                     <?php echo $url == 'processo_seletivo.php' ? 'Trabalhe Conosco' : ''; ?>
                                     <?php echo $url == 'transparencia.php' ? 'Transparência' : ''; ?>
                                     <?php echo $url == 'avaliacao_atendimento.php' || $url == 'ouvidoria.php' ? 'Fale Conosco' : ''; ?>

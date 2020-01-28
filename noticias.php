@@ -1,10 +1,7 @@
 <?php 
 include_once('header.php');
 include_once('breadcrumb.php');
-
-$sql_noticias_paginacao = mysql_query("SELECT * FROM noticias");
-$count_posts = mysql_num_rows($sql_noticias_paginacao);
-
+$paginas = 0;
 $p = 0;
 $limit = 5;
 $pg = 1;
@@ -15,13 +12,100 @@ if(isset($_GET['pagina']) && !empty($_GET['pagina'])){
 
 $p = ($pg - 1) * $limit;
 
-$sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data
-FROM noticias AS A
-LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia)
-WHERE A.STATUS = 1
-ORDER BY A.data DESC LIMIT $p, $limit");
+$busca = isset($_POST['titulo']) ? $_POST['titulo'] : '';
 
-$sql_noticias_num_rows = mysql_num_rows($sql_noticias);
+if(isset($_POST['titulo']) && !empty($_POST['titulo']) 
+    && isset($_POST['data_ini']) && !empty($_POST['data_ini'])
+        && isset($_POST['data_fim']) && !empty($_POST['data_fim'])){
+          
+            $data_ini_converter = str_replace("/", "-", $_POST['data_ini']);
+            $explode_data_ini = explode('-', $data_ini_converter);
+            $data_ini = $explode_data_ini[2]."-".$explode_data_ini[1]."-".$explode_data_ini[0];
+
+            $data_fim_converter = str_replace("/", "-", $_POST['data_fim']);
+            $explode_data_fim = explode('-', $data_fim_converter);
+            $data_fim = $explode_data_fim[2]."-".$explode_data_fim[1]."-".($explode_data_fim[0] + 1);
+
+            $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.titulo LIKE '%$busca%' AND A.data BETWEEN '$data_ini' AND '$data_fim' ORDER BY A.data DESC");
+            $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+            $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.titulo LIKE '%$busca%' AND A.data BETWEEN '$data_ini' AND '$data_fim' ORDER BY A.data DESC");
+
+
+}else if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
+
+    $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.titulo LIKE '%$busca%' ORDER BY A.data DESC");
+    
+    $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.titulo LIKE '%$busca%' ORDER BY A.data DESC");
+    $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+
+}else if(isset($_POST['data_ini']) && !empty($_POST['data_ini']) && isset($_POST['data_fim']) && !empty($_POST['data_fim'])) {
+
+    $data_ini_converter = str_replace("/", "-", $_POST['data_ini']);
+    $explode_data_ini = explode('-', $data_ini_converter);
+    $data_ini = $explode_data_ini[2]."-".$explode_data_ini[1]."-".$explode_data_ini[0];
+
+    $data_fim_converter = str_replace("/", "-", $_POST['data_fim']);
+    $explode_data_fim = explode('-', $data_fim_converter);
+    $data_fim = $explode_data_fim[2]."-".$explode_data_fim[1]."-".($explode_data_fim[0] + 1);
+
+    $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.data BETWEEN '$data_ini' AND '$data_fim' ORDER BY A.data DESC");
+    
+    $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.data BETWEEN '$data_ini' AND '$data_fim' ORDER BY A.data DESC");
+    $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+
+
+}else if(isset($_POST['data_ini']) && !empty($_POST['data_ini'])) {
+
+    $data_ini_converter = str_replace("/", "-", $_POST['data_ini']);
+    $explode_data_ini = explode('-', $data_ini_converter);
+    $data_ini = $explode_data_ini[2]."-".$explode_data_ini[1]."-".$explode_data_ini[0];
+
+    $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE WHERE A.status = 1 AND A.data LIKE '$data_ini' ORDER BY A.data DESC");
+    
+    $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE WHERE A.status = 1 AND A.data LIKE '$data_ini' ORDER BY A.data DESC");
+    $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+}else if(isset($_POST['data_fim']) && !empty($_POST['data_fim'])){
+        
+    $data_fim_converter = str_replace("/", "-", $_POST['data_fim']);
+    $explode_data_fim = explode('-', $data_fim_converter);
+    $data_fim = $explode_data_fim[2]."-".$explode_data_fim[1]."-".($explode_data_fim[0] + 1);
+    $sql_ultima_data = mysql_query("SELECT DATE_FORMAT(data, '%d/%m/%Y') AS data_ultimo FROM noticias ORDER BY DATA ASC LIMIT 1");
+    $row_data = mysql_fetch_assoc($sql_ultima_data);
+    $ultima_data = $row_data['data_ultimo'];
+
+    $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.data BETWEEN '$ultima_data' AND '$data_fim' ORDER BY A.data DESC");
+    
+    $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.data BETWEEN '$ultima_data' AND '$data_fim' ORDER BY A.data DESC");
+    $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+}else{
+    
+    $sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 ORDER BY A.data DESC LIMIT $p, $limit");
+
+    $sql_rows_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 ORDER BY A.data DESC");
+    $sql_num_rows_noticias = mysql_num_rows($sql_rows_noticias);
+
+    $paginas = $sql_num_rows_noticias/$limit;
+    $sql_noticias_num_rows = mysql_num_rows($sql_noticias);
+}
+
+
 while($row = mysql_fetch_assoc($sql_noticias)){
     $arrayNoticias[$row['id_noticia']] = [
         "titulo" => $row['titulo'],
@@ -37,19 +121,7 @@ while($row = mysql_fetch_assoc($sql_noticias)){
     ];
 }
 
-$paginas = $count_posts/$limit;
 
-if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
-    $busca = $_POST['titulo'];
-    $sql = mysql_query("SELECT * FROM noticias WHERE titulo LIKE '%$busca%'");
-    echo "SELECT * FROM noticias WHERE titulo LIKE '%$busca%'";
-    exit;
-}else if(isset($_POST['data_ini']) && !empty($_POST['data_ini'])){
-    $data_ini = $_POST['data_ini'];
-    $sql = mysql_query("SELECT * FROM noticias WHERE data LIKE '%$data_ini%'");
-    echo "SELECT * FROM noticias WHERE data LIKE '%$data_ini%'";
-    exit;
-}
 ?>
     <div class="pagina-noticias pagina-conteudo noticias">
         <div class="col-sm-10 offset-sm-1">
@@ -81,7 +153,7 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
                     </div>
                 </div>
             </form>
-            <?php if(!empty($sql_noticias_num_rows) || $sql_noticias_num_rows > 0) { ?>
+            <?php if(isset($sql_noticias_num_rows) && !empty ($sql_noticias_num_rows) || isset($sql_noticias_num_rows) && !empty($sql_noticias_num_rows) || !empty($sql_num_rows_noticias) || $sql_num_rows_noticias > 0) { ?>
                 <?php foreach($arrayNoticias AS $id_noticia => $values) { ?>
                     <div class="d-none d-lg-block">
                         <div class="breadcrumbs noticias separador">
@@ -135,7 +207,7 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
                                 <!-- </a> -->
                             </p>
                             <p class="titulo">
-                                <a href="https://cejam.org.br/noticias/fala-saude-01--hanseniase">
+                                <a href="ver_noticia.php?id_noticia=<?php echo $id_noticia; ?>">
                                     <?php echo $values['titulo']; ?>
                                 </a>
                             </p>
@@ -152,7 +224,9 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
                         </div>
                     </div>
                 <?php } ?>
-                <div class="paginador">
+
+                <?php if(isset($paginas) && !empty($paginas)) { ?>
+                    <div class="paginador">
                         <ul class="pagination" role="navigation">
                             <li class="page-item <?php echo $pg == "" || $pg == 1 ? 'disabled' : 'active'?>">
                                 <a class="page-link" href="?pagina=<?= ($pg - 1); ?>" rel="next" aria-label="« Previous">‹</a>
@@ -168,8 +242,13 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
                             </li>
                         </ul>
                     </div>
+                <?php } else { ?>
+
+                <?php } ?>
             <?php } else { ?>
-                SINTO MUITO MEU CHAPA
+                <div class="alert alert-warning" role="alert">
+                    <b>Atenção!</b> Não foi possível encontrar notícias de acordo com os campos preenchidos.
+                </div>
             <?php } ?>
         </div>
     </div>

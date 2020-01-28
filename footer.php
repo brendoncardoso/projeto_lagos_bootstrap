@@ -205,6 +205,8 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!--POPPER-->
     <!--<script src="assets/js/popper.min.js"></script>-->
+
+    <script src="assets/js/jquery.mask.function.js"></script>
     <script src="assets/js/responsive.js"></script>
     <script src="assets/js/script.js"></script>   
     <script src="assets/js/document_jquery.js"></script>

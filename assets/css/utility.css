@@ -152,6 +152,8 @@ body{
 /** Notificação **/
 .alert{
     /*width: 50% !important;*/
+    margin-right: -15px;
+    margin-left: -15px;
 }
 .alert button{
     position: absolute !important;
