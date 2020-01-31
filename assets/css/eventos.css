@@ -1,0 +1,163 @@
+/* Font Face */
+/*@font-face {
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+.eventos{
+    padding: 20px 0 30px;
+    margin-right: 0;
+    background: linear-gradient(#00b3b6,#242952);
+}
+.eventos .title{
+    font-size: 36px;
+}
+.eventos p, .eventos a, .eventos span{
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+}
+.eventos .title{
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+    color: #fff;
+    margin: 0 0 20px;
+}
+.eventos .card{
+    padding: 10px;
+    border: none;
+    -webkit-border-radius: 30px 0;
+    -moz-border-radius: 30px 0;
+    border-radius: 30px 0!important;
+    height: 450px;
+    position: relative;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    background: rgb(255, 233, 171);
+    margin: 0 0 10px;  
+}
+.eventos .card img, .eventos .card .card-img-top{
+    -webkit-border-radius: 30px 0 0 0;
+    -moz-border-radius: 30px 0 0 0;
+    border-radius: 30px 0 0 0;
+    height: 240px;
+}
+.eventos .card .btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    -webkit-border-radius: 0 0 30px 0;
+    -moz-border-radius: 0 0 30px 0;
+    border-radius: 0 0 30px 0;
+    color: #fff;
+    background: #F48B00;
+    text-align: left;
+}
+.eventos .card .card-body{
+    position: relative;
+    padding: 20px 0!important;
+}
+.eventos .card .card-tag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    padding: 5px 10px;
+    -webkit-border-radius: 0 0 20px 0;
+    -moz-border-radius: 0 0 20px 0;
+    border-radius: 0 0 20px 0;
+}
+.eventos .card .card-tag.blue{
+    background: #00b3b6;
+}
+.eventos .card .card-tag.purple{
+    background: #722380;
+}
+.eventos .card .card-title{
+    color: #242952;
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+    margin-top: 20px!important;
+    height: 85px!important;
+}
+.eventos .card .card-text{
+    color: #F48B00;
+    text-align: right!important;
+    font-family: 'ubuntuitalic', Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.eventos .ver-mais{
+    margin: 50px 0 15px;
+    width: 100%;
+}
+.eventos .ver-mais a{
+    color: #00b3b6;
+    background: #fff;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .eventos .card{
+        transition: 0.8s linear;
+    }
+    .eventos .card:hover{
+        background: #fff;
+    }
+    .eventos .card .card-title{
+        font-size: 18px!important;
+    }
+    .eventos .card .card-text{
+        font-size: 14px!important;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

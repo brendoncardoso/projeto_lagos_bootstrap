@@ -1,0 +1,122 @@
+/* Font Face */
+/*@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/** PÃ¡gina Busca **/
+.pagina-busca .tags{
+    border: none !important;
+}
+.pagina-busca .tags .tag{
+    float: left;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    background: #777;
+}
+.pagina-busca .tags .tag a, .pagina-busca .tags .tag i{
+    color: #fff;
+}
+.pagina-busca .tags .tag i{
+    cursor: pointer;
+}
+.pagina-busca .abas ul{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.pagina-busca .busca-item h1{
+    text-align: left;
+}
+.pagina-busca .busca-item h1 a{
+    font-size: 20px;
+    color: #FF7661;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .pagina-busca .abas .nav-item{
+        width: 100%;
+        margin: 0 0 10px;
+    }
+    .pagina-busca .abas .nav-link{
+        background-color: #fff;
+        border-color: #242952;
+        color: #777;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .pagina-busca .abas .nav-link.active{
+        background-color: #242952;
+        color: #fff;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .pagina-busca .abas .nav-link{
+        background-color: #fff;
+        border-color: #fff #fff #242952;
+        color: #777;
+    }
+    .pagina-busca .abas .nav-link.active{
+        background-color: #242952;
+        border-color: #242952;
+        color: #fff;
+    }
+    .pagina-busca .abas .nav-link:hover{
+        border-color: #d3d8fd #d3d8fd #242952;
+    }
+    .pagina-busca .busca-item{
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

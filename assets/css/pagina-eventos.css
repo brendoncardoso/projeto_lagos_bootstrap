@@ -1,0 +1,104 @@
+/* Font Face */
+/*@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/** PÃ¡gina Eventos **/
+.pagina-eventos{
+    margin-top: 50px;
+}
+.pagina-eventos h1{
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif !important;
+    font-size: 32px !important;
+    margin: 0 0 20px 0;
+}
+.pagina-eventos .compartilhe h1{
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif !important;
+    font-size: 20px !important;
+    margin: 20px 0 10px;
+}
+.pagina-eventos .compartilhe .row > div{
+    padding: 0 5px;
+}
+.pagina-eventos .info{
+    color: #777;
+}
+.pagina-eventos .banner-evento{
+    -webkit-border-radius: 0 0 30px 0;
+    -moz-border-radius: 0 0 30px 0;
+    border-radius: 0 0 30px 0;
+}
+.pagina-eventos hr{
+    border-top: 1px solid #999;
+    margin: 30px 0;
+}
+.pagina-eventos .compartilhe{
+    display: block;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+    .pagina-eventos .menu-lateral{
+        padding-left: 15px;
+    }
+    .pagina-eventos #inscricoes .btn{
+        margin: 0 0 50px;
+    }
+
+    .pagina-eventos .compartilhe .row .first-icon{
+        padding-left: 50px !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

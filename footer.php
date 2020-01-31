@@ -193,8 +193,6 @@
         </div>
 
     </div>
-
-    
     
     <!--JavaScript--><!--JQUERY-->        
     <script src="assets/js/jquery.3-4-1.js"></script>
@@ -206,7 +204,7 @@
     <!--POPPER-->
     <!--<script src="assets/js/popper.min.js"></script>-->
 
-    <script src="assets/js/jquery.mask.function.js"></script>
+    <script src="assets/js/jquery.mask.min.js"></script>
     <script src="assets/js/responsive.js"></script>
     <script src="assets/js/script.js"></script>   
     <script src="assets/js/document_jquery.js"></script>

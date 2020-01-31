@@ -34,6 +34,8 @@ $data = date("Y-m-d H:i:s");
 $prioridade = $_REQUEST['prioridade'];
 $imagem_noticia = $_REQUEST['imagem_noticia'];
 $id_noticia = $_REQUEST['id_noticia'];
+$tags = $_REQUEST['tag'];
+$id_editalnoticia = intval($_REQUEST['edital_noticias']);
 
 
 //VERIFICA SE É CADASTRO
@@ -53,7 +55,7 @@ if (isset($_REQUEST['enviar']) && $_REQUEST['enviar'] == "Cadastrar") {
                 mkdir($pasta);
             }
 
-            $sql = mysql_query ("INSERT INTO noticias (titulo, subtitulo, texto, data, fonte, link, prioridade, status_img) VALUES ('$titulo', '$subtitulo', '$texto', '$data', '$fonte', '$link', '$prioridade', 1)") &&
+            $sql = mysql_query ("INSERT INTO noticias (id_editalnoticia, titulo, subtitulo, texto, data, tags, fonte, link, prioridade, status_img) VALUES ('$id_editalnoticia' ,'$nome', '$titulo', '$subtitulo', '$texto', '$data', '$tags', '$fonte', '$link', '$prioridade', 1)") &&
             $get_id_noticia = mysql_query("SELECT LAST_INSERT_ID()");
             $last_id = mysql_fetch_assoc($get_id_noticia);
             $last_id_noticia = $last_id['LAST_INSERT_ID()'];
@@ -68,7 +70,7 @@ if (isset($_REQUEST['enviar']) && $_REQUEST['enviar'] == "Cadastrar") {
             }
         }
     }else{
-        if (mysql_query("INSERT INTO noticias (titulo, subtitulo, texto, data, fonte, link, prioridade) VALUES ('$titulo', '$subtitulo', '$texto', '$data', '$fonte', '$link', '$prioridade')")) {
+        if (mysql_query("INSERT INTO noticias (id_editalnoticia, titulo, subtitulo, texto, data, tags, fonte, link, prioridade) VALUES ('$id_editalnoticia', '$titulo', '$subtitulo', '$texto', '$data', '$tags', '$fonte', '$link', '$prioridade')")) {
             $_SESSION["message"] = "Notícia cadastrada com sucesso";
             header("Location: ../adm/noticias.php");
         } else {
@@ -94,7 +96,7 @@ if (isset($_REQUEST['enviar']) && $_REQUEST['enviar'] == "Cadastrar") {
                 mkdir($pasta);
             }
 
-            if (mysql_query("UPDATE noticias SET titulo='{$titulo}', subtitulo='{$subtitulo}', texto='{$texto}', fonte='{$fonte}', link='{$link}', status_img = 1 WHERE id_noticia = '{$id}'") &&
+            if (mysql_query("UPDATE noticias SET id_editalnoticia ='{$id_editalnoticia}', titulo='{$titulo}', subtitulo='{$subtitulo}', texto='{$texto}', tags= '{$tags}', fonte='{$fonte}', link='{$link}', status_img = 1 WHERE id_noticia = '{$id}'") &&
                 mysql_query("INSERT INTO cms_img_noticia (id_noticia, img_noticia) VALUES ($id, '$nome_img')") &&  move_uploaded_file($_FILES['imagem_noticia']['tmp_name'], $pasta."/".$nome_img)) {
                 $_SESSION["message"] = "Notícia alterada com sucesso";
                 header("Location: ../adm/noticias.php");
@@ -104,7 +106,7 @@ if (isset($_REQUEST['enviar']) && $_REQUEST['enviar'] == "Cadastrar") {
             } 
         }
     }else{
-        if (mysql_query("UPDATE noticias SET titulo='{$titulo}', subtitulo='{$subtitulo}', texto='{$texto}', fonte='{$fonte}', link='{$link}' WHERE id_noticia = '{$id}'")) {
+        if (mysql_query("UPDATE noticias SET id_editalnoticia ='{$id_editalnoticia}', titulo='{$titulo}', subtitulo='{$subtitulo}', texto='{$texto}', tags='{$tags}', fonte='{$fonte}', link='{$link}' WHERE id_noticia = '{$id}'")) {
             $_SESSION["message"] = "Notícia alterada com sucesso";
             header("Location: ../adm/noticias.php");
         } else {

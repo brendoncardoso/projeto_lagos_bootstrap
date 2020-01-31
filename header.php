@@ -16,6 +16,12 @@
     $sql_id = mysql_fetch_assoc($sql);
     $id = $sql_id['id_noticia'];
 
+    if(isset($_REQUEST['busca']) && !empty($_REQUEST['busca'])){
+        $tag_busca = urlencode($_REQUEST['busca']);
+        $busca = $tag_busca;
+    }
+
+   
     $sql = mysql_query("SELECT * FROM cms_logo WHERE status = 1");
     $num_rows = mysql_num_rows($sql);
     $row = mysql_fetch_assoc($sql);
@@ -43,6 +49,7 @@
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/eventos.css">
 
         <link rel="stylesheet" href="assets/css/cabecalho.css">
         <link rel="stylesheet" href="assets/css/breadcrumbs.css">
@@ -50,6 +57,12 @@
         <link rel="stylesheet" href="assets/css/conteudo.css">
         <link rel="stylesheet" href="assets/css/default.css">
         <link rel="stylesheet" href="assets/css/pagina-noticias.css">
+        <link rel="stylesheet" href="assets/css/flip-card.css">
+        <link rel="stylesheet" href="assets/css/pagina-busca.css">
+        <link rel="stylesheet" href="assets/css/pagina-eventos.css">
+        <link rel="stylesheet" href="assets/css/select2.min.css">
+
+
         <!--CSS-->
         <link rel="stylesheet" href="assets/css/style.css">
 
@@ -87,6 +100,9 @@
             <?php echo $url == 'projetos.php' ? 'black' : '' ?> 
             <?php echo $url == 'processo_seletivo.php' ? '#008B8B' : '' ?> 
             <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? '#FFBD00' : ''; ?> 
+            <?php if(isset($busca) && !empty($busca)) { ?>
+                <?php echo $url == 'eventos_programas.php?busca='.$busca ? '#FFBD00': '' ?>
+            <?php } ?>
             <?php for($x = 0; $x <= $paginas; $x++) { 
                 echo $url == "noticias.php?pagina=$x" ? '#FFBD00' : '';
             } ?>
@@ -148,7 +164,12 @@
                             </p>
                         </div>
 
-                        <div class="col-md noticias <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? 'active' : '';?>
+                        <div class="col-md noticias 
+                            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? 'active' : '';?>
+                            <?php if(isset($busca) && !empty($busca)) { ?>
+                                <?php echo $url == 'eventos_programas.php?busca='.$busca ? 'active': '' ?>
+                            <?php } ?>
+
                             <?php for($x = 0; $x <= $paginas; $x++) { 
                                 echo $url == "noticias.php?pagina=$x" ? 'active' : '';
                             } ?>">

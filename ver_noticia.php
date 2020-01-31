@@ -3,9 +3,13 @@
 <?php 
     $id = isset($_GET['id_noticia']) ? $_GET['id_noticia'] : ''; 
     $sql = mysql_query("SELECT * FROM noticias AS A
-    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.id_noticia =". $id);
-    while($row = mysql_fetch_assoc($sql)){
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) LEFT JOIN editalnoticias AS C ON (A.id_editalnoticia = C.id_editalnoticia) WHERE A.id_noticia =". $id);
+    
+    while($row = mysql_fetch_assoc($sql)) {
+        $verifica_tag = $row['tags'];
+
         $arrayNoticias[$row['id_noticia']] = [
+            "nome_edital" => $row['nome_edital'],
             "titulo" => $row['titulo'],
             "subtitulo" => $row['subtitulo'],
             "texto" => $row['texto'],
@@ -15,14 +19,22 @@
             "status" => $row['status'],
             "status_img" => $row['status_img'],
             "prioridade" => $row['prioridade'], 
-            "img_noticia" => $row['img_noticia']
+            "img_noticia" => $row['img_noticia'],
+            "tags" => explode(",", $row['tags'])
         ];
     }
 
-    $sql_leia_tambem = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) ORDER BY A.id_noticia DESC LIMIT 5");
+    if(!empty($verifica_tag)){
+        $act = 1;
+    }else{
+        $act = 0;
+    }
+
+    $sql_leia_tambem = mysql_query("SELECT A.id_noticia, C.nome_edital, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) LEFT JOIN editalnoticias AS C ON (A.id_editalnoticia = C.id_editalnoticia) ORDER BY A.id_noticia DESC LIMIT 5");
     while($row_leia_tambem = mysql_fetch_assoc($sql_leia_tambem)){
         $arrayLeiaTambem[$row_leia_tambem['id_noticia']] = [
+            "nome_edital" => $row['nome_edital'],
             "titulo" => $row_leia_tambem['titulo'],
             "subtitulo" => $row_leia_tambem['subtitulo'],
             "texto" => $row_leia_tambem['texto'],
@@ -32,7 +44,7 @@
             "status" => $row_leia_tambem['status'],
             "status_img" => $row_leia_tambem['status_img'],
             "prioridade" => $row_leia_tambem['prioridade'], 
-            "img_noticia" => $row_leia_tambem['img_noticia']
+            "img_noticia" => $row_leia_tambem['img_noticia'],
         ];
     }
 ?>
@@ -45,11 +57,15 @@
             <div class="col-sm-10 offset-sm-1">
                 <div class="row">
                     <div class="col-sm-8 noticia-interna">
-                        <p class="editorial d-none d-lg-block">
-                            <a href="https://cejam.org.br/noticias/editoria/responsabilidade-social" class="editorial">Responsabilidade Social</a>
-                        </p>
-                        <a href="https://cejam.org.br/noticias/editoria/responsabilidade-social" class="editorial-mobile d-block d-lg-none">Responsabilidade Social</a>
+                       
                         <?php foreach($arrayNoticias AS $id_noticia => $values) { ?>
+                            <?php if(!empty($values['nome_edital'])) { ?>
+                                <p class="editorial d-none d-lg-block">
+                                    <a href="" class="editorial"><?= $values['nome_edital']; ?></a>
+                                </p>
+                                
+                                <a href="" class="editorial-mobile d-block d-lg-none"><?= $values['nome_edital']; ?></a>
+                            <?php } ?>
                             <?php
                                     $dia = date('d', strtotime($values['data'])); 
                                     $mes = date('m', strtotime($values['data'])); 
@@ -82,6 +98,19 @@
                                 <?php echo $values['texto']?>
                                 <b>Fonte: </b> <?php echo $values['fonte']; ?>
                             </div>
+
+                            <p class="tags text-left">
+                                <?php if($act == 1) { ?>
+                                    <i class="fa fa-tags fa-2x" aria-hidden="true"></i>
+                                <?php } ?>
+                                
+                                <?php foreach($values['tags'] AS $tags) { ?>
+                                    <?php if(!empty($tags) || $tags != NULL) { ?>
+                                        <a href="eventos_programas.php?busca=<?php echo urlencode(trim($tags)); ?>"><?php echo $tags; ?></a>
+                                    <?php } ?>
+                                <?php } ?>
+                            </p>
+                            
                                                     
                             <!--<div class="texto">
                                 <p><span style="font-weight: 400;">O Natal costuma ser uma época na qual a paz, o amor e a confraternização se evidenciam em ações de solidariedade e união. É um momento de respeito, alegria e harmonia. E esse misto de sentimentos positivos foi desfrutado no último sábado (07) por mais de 250 pessoas, na Igreja Missão Paz, Baixada do Glicério, onde ocorreu a </span><strong>14ª Edição da Campanha Natal com Saúde</strong><span style="font-weight: 400;">.&nbsp;</span></p>

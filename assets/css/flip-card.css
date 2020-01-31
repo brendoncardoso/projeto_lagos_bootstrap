@@ -1,0 +1,278 @@
+/* Font Face */
+/*@font-face {
+    font-family: 'ubuntubold';
+    src: url('ubuntu/ubuntu-b_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-b_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntubold_italic';
+    src: url('ubuntu/ubuntu-bi_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-bi_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubuntuitalic';
+    src: url('ubuntu/ubuntu-i_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-i_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu/ubuntu-r_0-webfont.woff2') format('woff2'),
+         url('ubuntu/ubuntu-r_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    margin: 0 0 20px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    display: none;
+    color: black;
+}
+
+.flip-card-front img{
+    height: 300px;
+    width: 100%;
+    -webkit-border-radius: 30px 0 30px 0;
+    -moz-border-radius: 30px 0 30px 0;
+    border-radius: 30px 0 30px 0;
+}
+.flip-card-front .img-clip{
+    height: 300px;
+    width: 100%;
+    -webkit-border-radius: 30px 0 30px 0;
+    -moz-border-radius: 30px 0 30px 0;
+    border-radius: 30px 0 30px 0;
+    background-size: auto 300px !important;
+}
+.flip-card-front .opacity{
+    height: 300px;
+    width: 100%;
+    -webkit-border-radius: 30px 0 30px 0;
+    -moz-border-radius: 30px 0 30px 0;
+    border-radius: 30px 0 30px 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.flip-card:hover .flip-card-front .opacity{
+    display: none;
+}
+.flip-card-front p{
+    position: absolute;
+    top: 30%;
+    font-size: 18px;
+    padding: 0 10px;
+    color: #efefef;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+    text-align: center !important;
+    z-index: 99999;
+}
+.titulos-recebidos .flip-card-front p{
+    position: absolute;
+    top: 60%;
+    font-size: 16px;
+    color: #efefef;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'ubuntubold', Arial, Helvetica, sans-serif;
+    text-align: center !important;
+    z-index: 99999;
+}
+.titulos-recebidos .flip-card-front img{
+    height: unset;
+    width: 80%;
+}
+
+/* Style the back side */
+.flip-card-back {
+    color: white;
+    -webkit-border-radius: 30px 0 30px 0;
+    -moz-border-radius: 30px 0 30px 0;
+    border-radius: 30px 0 30px 0;
+}
+
+/**********/
+
+.o-cejam .flip-card-back{
+    background-color: #008daf;
+}
+.onde-atuamos .flip-card-back{
+    background-color: #00b3b6;
+}
+.irs .flip-card-back{
+    background-color: #FF7661;
+}
+
+.flip-card-back .conteudo{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.flip-card-back .conteudo p, .flip-card-back .conteudo a, .flip-card-back .conteudo h1{
+    font-family: 'ubunturegular', Arial, Helvetica, sans-serif;
+    color: #fff;
+    text-align: left;
+}
+.flip-card-back .conteudo i{
+    color: #fff;
+    margin: 0 10px;
+}
+.flip-card-back .conteudo p{
+    font-size: 18px;
+    padding: 10px 0 0 10px;
+}
+.flip-card-back .conteudo h1{
+    font-size: 20px;
+    margin: 10px 0 !important;
+    padding: 0 0 0 10px;
+    text-align: center;
+}
+.flip-card-back .conteudo a{
+    font-size: 14px;
+}
+
+.flip-card-back .conteudo .vaga-titulo{
+    font-size: 15px !important;
+    padding: 12px 10px 5px 5px;
+    display: inline-block;
+    text-align: center
+}
+.flip-card-back .conteudo a.btn{
+    padding: 15px 20px;
+    background: #fff;
+    color: #777;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.flip-card-back .conteudo ul li{
+    text-align: left;
+    list-style: disc;
+}
+
+/* width */
+.flip-card-back .conteudo::-webkit-scrollbar {
+    width: 10px;
+}
+
+  /* Track */
+.flip-card-back .conteudo::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    margin: 10px 10px 20px 0;
+}
+
+/* Handle */
+.flip-card-back .conteudo::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+  /* Handle on hover */
+.flip-card-back .conteudo::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.flip-card .conteudo .imagem img{
+    background: #fff;
+    border-radius: 40px;
+    height: 150px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) and (max-width: 991.98px) {
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Doan horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card:hover .flip-card-inner .flip-card-front p{
+        display: none;
+    }
+
+    .flip-card-front {
+        display: block;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Ultra large devices (large desktops, 1600px) */
+@media (min-width: 1600px) {
+
+}

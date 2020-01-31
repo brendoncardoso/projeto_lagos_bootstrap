@@ -19,6 +19,8 @@ if (isset($_REQUEST['id'])) {
 
         $row = mysql_fetch_assoc($result);
 
+        $id_editalnoticia_noticia = $row['id_editalnoticia'];
+
         $id_noticia = $row['id_noticia'];
 
         $titulo = $row['titulo'];
@@ -33,6 +35,8 @@ if (isset($_REQUEST['id'])) {
 
         $status_img = $row['status_img'];
 
+        $tags = $row['tags'];
+
         
 
     } else {
@@ -44,6 +48,8 @@ if (isset($_REQUEST['id'])) {
     }
 
 } else {
+
+    $id_editalnoticia_noticia = "";
 
     $id_noticia = "";
 
@@ -61,7 +67,19 @@ if (isset($_REQUEST['id'])) {
 
     $status_img = "";
 
+    $tags = "";
+
 }
+
+$sql_edital_noticias = mysql_query("SELECT * FROM editalnoticias WHERE status = 1"); 
+while($row = mysql_fetch_assoc($sql_edital_noticias)){
+    $arrayNoticiasEdital[$row['id_editalnoticia']] = [
+        "nome_edital" => $row['nome_edital']
+    ];
+}
+
+$sql_num_rows_edital_noticias = mysql_num_rows($sql_edital_noticias);
+
 
 ?>
 
@@ -186,6 +204,8 @@ if (isset($_REQUEST['id'])) {
                     }
                  });
 
+                 $(".message").delay(5000).fadeOut("slow");
+
                  $('.status_novo_assunto').on('click', function(){
                     var val = $(this).val();
                     if(val == 1){
@@ -198,7 +218,7 @@ if (isset($_REQUEST['id'])) {
                     }
                  });
 
-                 $('.excluir_img').on('click', function(){
+                $('.excluir_img').on('click', function(){
                     var id_noticia = $(this).data('id_noticia');
                     if(confirm("Tem certeza que deseja Exluir a Imagem da notícia do id = "+ id_noticia +" ?")){
                         $.post('../actions/action.noticias.php', {id_noticia:id_noticia, method: "excluir_thumb"}, 
@@ -209,11 +229,16 @@ if (isset($_REQUEST['id'])) {
                         },"json");
                     }
                 });
+
+                $('.cadastraredital').click(function(){
+                    window.location = "editalnoticiaform.php";
+                })
+
+                $('.listaedital').click(function(){
+                    window.location = "editalnoticia.php";
+                })
 //               
             });
-
-            
-
         </script>
 
         <style>
@@ -237,7 +262,13 @@ if (isset($_REQUEST['id'])) {
         </style>
     </head>
 
+<?php 
 
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
+
+?>
 
     <body>
 
@@ -260,15 +291,34 @@ if (isset($_REQUEST['id'])) {
             <section>
 
                 <form name="" action="../actions/action.noticias.php" method="post" enctype="multipart/form-data" id="form1">
-
+                
                     <div id="conteudo">
-
+                        
                         <div class="blocos">
 
                             <h3>Cadastro de Processo Seletivo</h3>
 
-                            <hr/>
+                            <div id="novo" class="box-1">
+                                <div class="box-image center cadastraredital">
+                                    <a hraf="javascript:;" class="icon-grande icon-novo-grande">&nbsp;</a>
+                                    <p class="center">Cadastrar Edital</p>
+                                </div>
+                            </div>
 
+                            <div id="novo" class="box-1">
+                                <div class="box-image center listaedital">
+                                    <a hraf="javascript:;" class="icon-grande icon-novo-grande">&nbsp;</a>
+                                    <p class="center">Lista de Edital</p>
+                                </div>
+                            </div>
+                            <hr class="clear" />
+                            
+                            <?php if (isset($mensagem)) { ?> 
+                               <div class='message'>
+                                   <?php echo $mensagem; ?>
+                               </div> 
+                            <?php } ?>
+                            
                             <fieldset>
 
                                 <legend>Dados</legend>
@@ -278,6 +328,22 @@ if (isset($_REQUEST['id'])) {
                                 <label class="first2">Prioridade:</label><input id="prioridade" name="prioridade" class="prioridade" type="checkbox" value="1"></p>
                                 
                                 <p><label class="first2">Subtítulo:</label><input type="text" name="subtitulo" id="subtitulo" value="<?php echo $subtitulo ?>" />  &nbsp; <small class="caracteres"> 0/52</small></p>
+                                
+                               
+                                <p>
+                                        
+                                    <label class="first2">Edital:</label>
+                                    <select name="edital_noticias" id="edital_noticias" style="width: 400px;" <?php echo $sql_num_rows_edital_noticias > 0 ? '': 'disabled'?>>
+                                        <?php if($sql_num_rows_edital_noticias > 0){ ?>
+                                            <option value="-1"> « Selecione o Edital » </option>
+                                            <?php foreach($arrayNoticiasEdital AS $id_editalnoticia => $values) { ?>
+                                                <option value="<?php echo $id_editalnoticia?>" <?= $id_editalnoticia == $id_editalnoticia_noticia ? 'selected' : ''; ?>><?php echo $values['nome_edital']?></option>
+                                            <?php } ?>
+                                        <?php }else{ ?>
+                                            <option value="-1"></option>
+                                        <?php } ?>
+                                    </select>
+                                </p>
 
                                 <!--<p>
                                     <label class="first2">Assuntos:</label><input type="text" name="titulo" id="titulo" value="<?php echo $titulo ?>" class="validate[required]" />
@@ -296,7 +362,7 @@ if (isset($_REQUEST['id'])) {
 
                                 <p>
                                     <?php if($status_img == 0) { ?>
-                                        <label class="first2">Thumbnail(Home):</label><input type="file" name="imagem_noticia" id="" value="" />
+                                        <label class="first2">Thumbnail:</label><input type="file" name="imagem_noticia" id="" value="" />
                                     <?php }else{ ?>
                                         <?php 
                                             $sql_img_noticia = mysql_query("SELECT * FROM cms_img_noticia WHERE id_noticia = {$id_noticia}");    
@@ -304,7 +370,7 @@ if (isset($_REQUEST['id'])) {
                                             $img_noticia = $row['img_noticia'];
                                         ?>
                                         
-                                        <label class="first2">Thumbnail(Home):</label>
+                                        <label class="first2">Thumbnail:</label>
                                         <table width="100%" class="grid" cellspacing="0" cellpadding="0" border="0">
                                             <thead>
                                                 <tr>
@@ -331,6 +397,15 @@ if (isset($_REQUEST['id'])) {
                                     <?php } ?>
                                 </p>
 
+                                <p>
+                                    <label class="first2">Tags:</label>
+                                    <input type="text" name="tag" id="tag" value="<?php echo $tags; ?>" />
+                                    <small>
+                                        <i>
+                                            <b>Exemplo:</b> Tag1, Tag2, Tag3 ...
+                                        </i>
+                                    </small>
+                                </p>
                                 <p><label class="first2">Fonte:</label><input type="text" name="fonte" id="fonte" value="<?php echo $fonte ?>" /></p>
                                 <p><label class="first2">Link:</label><input type="text" name="link" id="link" value="<?php echo $link ?>" /></p>
 
