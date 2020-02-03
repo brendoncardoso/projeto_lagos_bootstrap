@@ -372,7 +372,6 @@ else if(isset($_POST['data_ini']) && !empty($_POST['data_ini']) && empty($_POST[
         ];
     }
 }else if(!empty($_REQUEST['pagina']) && empty($_POST['titulo']) && empty($_POST['id_editalnoticia']) && empty($_POST['data_ini']) && empty($_POST['data_fim'])){
-   
     $sql_noticias = mysql_query("SELECT A.id_noticia, C.nome_edital, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
     LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) LEFT JOIN editalnoticias AS C ON (A.id_editalnoticia = C.id_editalnoticia) WHERE A.status = 1 ORDER BY A.data DESC LIMIT $p, $limit");
     echo "SELECT A.id_noticia, C.nome_edital, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A

@@ -20,6 +20,7 @@
                 <li><a href="unidades.php">UNIDADES</a> </li>
                 <li><a href="cargos.php">CARGOS</a> </li>
                 <li><a href="escala.php">ESCALA</a></li>
+                <li><a href="eventos.php">EVENTOS</a></li>
                 <li><a href="noticias.php">NOTÍCIAS</a> </li>
                 <li><a href="regulamentos.php">REGULAMENTOS</a> </li>
                 <li><a href="relatorios.php">RELATÓRIOS</a></li>

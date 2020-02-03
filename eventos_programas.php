@@ -5,9 +5,10 @@
     if(isset($_REQUEST['busca']) && !empty($_REQUEST['busca'])){
         $tag_request = $_REQUEST['busca'];
 
-        $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+        $sql_noticia = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
         LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%$tag_request%' ORDER BY A.data DESC";
-        $sql_noticias = mysql_query($sql);
+
+        $sql_noticias = mysql_query($sql_noticia);
         $sql_noticias_count_isset = mysql_num_rows($sql_noticias);
         while($row = mysql_fetch_assoc($sql_noticias)){
             $arrayNoticias[$row['id_noticia']] = [
@@ -24,17 +25,52 @@
                 "tags" => explode(",", $row['tags'])
             ];
         }
+
+        $sql_evento = "SELECT * FROM eventos WHERE nome_local LIKE '%$tag_request%' ORDER BY DATA ASC"; 
+
+        $sql_eventos = mysql_query($sql_evento);
+        $sql_eventos_rows = mysql_num_rows($sql_eventos);
+
+        while($row = mysql_fetch_assoc($sql_eventos)){
+            $arrayEventos[$row['id']] = [
+                "nome_evento" => $row['nome_evento'],
+                "subtitulo" => $row['subtitulo'],
+                "data" => $row['data'],
+                "dia_da_semana" => date('w', strtotime($row['data'])),
+                "nome_local" => $row['nome_local'],
+                "descricao" => $row['descricao'],
+                "programacao" => $row['programacao'],
+                "participantes" => $row['participantes'],
+                "inscricao" => $row['inscricao'],
+                "regulamento" => $row['regulamento']
+            ];
+        }
     }else{
-      
+        $sql = "SELECT * FROM eventos ORDER BY DATA ASC";
+        $sql_eventos = mysql_query($sql);
+        $sql_eventos_rows = mysql_num_rows($sql_eventos);
+
+        while($row = mysql_fetch_assoc($sql_eventos)){
+            $arrayEventos[$row['id']] = [
+                "nome_evento" => $row['nome_evento'],
+                "subtitulo" => $row['subtitulo'],
+                "data" => $row['data'],
+                "dia_da_semana" => date('w', strtotime($row['data'])),
+                "nome_local" => $row['nome_local'],
+                "descricao" => $row['descricao'],
+                "programacao" => $row['programacao'],
+                "participantes" => $row['participantes'],
+                "inscricao" => $row['inscricao'],
+                "regulamento" => $row['regulamento']
+            ];
+        }
     }
 
     if(isset($_POST['buscar_tag']) && !empty($_POST['buscar_tag'])){
-       
         unset($_REQUEST['busca']);
-        
     }
 
-    if(isset($_POST['tags']) && !empty($_POST['tags'])){
+    if(isset($_POST['tags']) && !empty($_POST['tags'])) {
         $teste = $_POST['tags'];
         $tag_post_remove_vazios = explode(",", $_POST['tags']);
         $tag_post = array_filter($tag_post_remove_vazios);
@@ -47,72 +83,68 @@
         
     
         $tags_post_isset = substr($gambiarra_tag, 3);
-   
-        if($quantidade_palavras <= 1){
-            $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%".$tag_post[0]."%' ORDER BY A.data DESC";
+    
+            if($quantidade_palavras <= 1){
+                $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+                LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%".$tag_post[0]."%' ORDER BY A.data DESC";
 
-            echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%".$tag_post[0]."%' ORDER BY A.data DESC";
-        
-        $sql_noticias = mysql_query($sql);
-        $sql_noticias_count = mysql_num_rows($sql_noticias);
+                echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+                LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%".$tag_post[0]."%' ORDER BY A.data DESC";
+            
+            $sql_noticias = mysql_query($sql);
+            $sql_noticias_count = mysql_num_rows($sql_noticias);
 
-        while($row = mysql_fetch_assoc($sql_noticias)){
-            $arrayNoticias[$row['id_noticia']] = [
-                "titulo" => $row['titulo'],
-                "subtitulo" => $row['subtitulo'],
-                "texto" => $row['texto'],
-                "data" => $row['data'],
-                "fonte" => $row['fonte'],
-                "link" => $row['link'],
-                "status" => $row['status'],
-                "status_img" => $row['status_img'],
-                "prioridade" => $row['prioridade'], 
-                "img_noticia" => $row['img_noticia'],
-                "tags" => explode(",", $row['tags'])
-            ];
-        }
-    }else{
-            $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND $tags_post_isset ORDER BY A.data DESC";
+            while($row = mysql_fetch_assoc($sql_noticias)){
+                $arrayNoticias[$row['id_noticia']] = [
+                    "titulo" => $row['titulo'],
+                    "subtitulo" => $row['subtitulo'],
+                    "texto" => $row['texto'],
+                    "data" => $row['data'],
+                    "fonte" => $row['fonte'],
+                    "link" => $row['link'],
+                    "status" => $row['status'],
+                    "status_img" => $row['status_img'],
+                    "prioridade" => $row['prioridade'], 
+                    "img_noticia" => $row['img_noticia'],
+                    "tags" => explode(",", $row['tags'])
+                ];
+            }
+        }else{
+                $sql = "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+                LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND $tags_post_isset ORDER BY A.data DESC";
 
-            echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-            LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND $tags_post_isset ORDER BY A.data DESC";
-        
-        $sql_noticias = mysql_query($sql);
-        $sql_noticias_count = mysql_num_rows($sql_noticias);
+                echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+                LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND $tags_post_isset ORDER BY A.data DESC";
+            
+            $sql_noticias = mysql_query($sql);
+            $sql_noticias_count = mysql_num_rows($sql_noticias);
 
-        while($row = mysql_fetch_assoc($sql_noticias)){
-            $arrayNoticias[$row['id_noticia']] = [
-                "titulo" => $row['titulo'],
-                "subtitulo" => $row['subtitulo'],
-                "texto" => $row['texto'],
-                "data" => $row['data'],
-                "fonte" => $row['fonte'],
-                "link" => $row['link'],
-                "status" => $row['status'],
-                "status_img" => $row['status_img'],
-                "prioridade" => $row['prioridade'], 
-                "img_noticia" => $row['img_noticia'],
-                "tags" => explode(",", $row['tags'])
-            ];
+            while($row = mysql_fetch_assoc($sql_noticias)){
+                $arrayNoticias[$row['id_noticia']] = [
+                    "titulo" => $row['titulo'],
+                    "subtitulo" => $row['subtitulo'],
+                    "texto" => $row['texto'],
+                    "data" => $row['data'],
+                    "fonte" => $row['fonte'],
+                    "link" => $row['link'],
+                    "status" => $row['status'],
+                    "status_img" => $row['status_img'],
+                    "prioridade" => $row['prioridade'], 
+                    "img_noticia" => $row['img_noticia'],
+                    "tags" => explode(",", $row['tags'])
+                ];
+            }
         }
     }
 
 
-        /*$sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-        LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%$tag_post%' ORDER BY A.data DESC");
+    /*$sql_noticias = mysql_query("SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%$tag_post%' ORDER BY A.data DESC");
 
-        echo "<pre>";
-        echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
-        LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%$tag_request%'  $tag_post ORDER BY A.data DESC";
-        echo "</pre>";*/
-
-    }else{
-        $tag = "";
-        $sql_noticias_count = 0;
-    }
+    echo "<pre>";
+    echo "SELECT A.id_noticia, A.titulo, A.subtitulo, A.texto, A.tags, A.fonte, A.link, A.prioridade, B.img_noticia, A.status, A.status_img, A.data FROM noticias AS A
+    LEFT JOIN cms_img_noticia AS B ON (A.id_noticia = B.id_noticia) WHERE A.status = 1 AND A.tags LIKE '%$tag_request%'  $tag_post ORDER BY A.data DESC";
+    echo "</pre>";*/
 ?>
     <style>
     .pane_tab{
@@ -150,7 +182,13 @@
                 <div class="row abas">
                     <ul class="nav nav-tabs nav-fill" id="buscaTab" role="tablist">
                         <li class="nav-item removeListStyle">
-                            <a class="nav-link <?= !isset($_REQUEST['busca']) ? 'active show' : ''; ?>" id="eventos-tab" data-toggle="tab" href="#eventos" role="tab" aria-controls="eventos" aria-selected="true">Eventos <span class="badge badge-warning">0</span></a>
+                            <a class="nav-link <?= !isset($_REQUEST['busca']) ? 'active show' : ''; ?>" id="eventos-tab" data-toggle="tab" href="#eventos" role="tab" aria-controls="eventos" aria-selected="true">Eventos
+                                <?php if($sql_eventos_rows > 0) { ?>
+                                    <span class="badge badge-warning">
+                                        <?php echo $sql_eventos_rows; ?>
+                                    </span>
+                                <?php } ?>
+                            </a>
                         </li>
                         <?php if(isset($_REQUEST['busca']) && !empty($_REQUEST['busca'])) { ?>
                             <li class="nav-item removeListStyle ">
@@ -182,19 +220,43 @@
                 <div class="tab-content" id="myTabContent" style="width: 100%">
                     <div class="tab-pane fade getEventos" id="eventos" role="tabpanel" aria-labelledby="eventos-tab">
                         <div class="pagina-conteudo eventos">
-                            <div class="col-sm-4 pl-0">
-                                <div class="card">
-                                    <div class="img-clip card-img-top" bg="https://cejam.org.br/adm-portal/storage/imagens_eventos/3653de00-de3e-11e9-9cbd-37c7339a2723.jpeg" style="background-image: url(&quot;https://cejam.org.br/adm-portal/storage/imagens_eventos/3653de00-de3e-11e9-9cbd-37c7339a2723.jpeg&quot;);"></div>
-                                    <div class="card-body">
-                                        <span class="card-tag purple">Gestão em Saúde</span>
-                                        <h5 class="card-title">I Simpósio da Sepse: Estratégias de combate à SEPSE na Terapia Intensiva</h5>
-                                        <p class="card-text">Terça-Feira - 24/09/2019</p>
-                                        </div>
-                                    <a href="https://cejam.org.br/eventos/i-simposio-da-sepse-estrategias-de-combate-a-sepse-na-terapia-intensiva" target="_blank" class="btn">Saiba Mais</a>
-                                </div>
-                            </div>                                                                                                            
+                            <div class="row">
+                                <?php if($sql_eventos_rows > 0) { ?>
+                                    <?php foreach($arrayEventos as $id => $values) { ?>
+                                        <div class="col-sm-4 pl-0">
+                                            <div class="card">
+                                                <div class="img-clip card-img-top" style="background-image: url(&quot;sistema/adm/cms_logo_images/3.png&quot;);"></div>
+                                                <div class="card-body">
+                                                    <span class="card-tag purple"><?= $values['nome_evento']; ?></span>
+                                                    <h5 class="card-title"><?= $values['subtitulo']; ?></h5>
+                                                    <?php
+                                                        switch($values['dia_da_semana']){
+                                                            case 0: $dia_da_semana = "Domingo"; break;
+                                                            case 1: $dia_da_semana = "Segunda - Feira"; break;
+                                                            case 2: $dia_da_semana = "Terça - Feira"; break;
+                                                            case 3: $dia_da_semana = "Quarta - Feira"; break;
+                                                            case 4: $dia_da_semana = "Quinta - Feira"; break;
+                                                            case 5: $dia_da_semana = "Sexta - Feira"; break;
+                                                            case 6: $dia_da_semana = "Sábado"; break;
+                                                            default;
+                                                        }
+                                                    ?>
+                                                    <p class="card-text"><?php echo $dia_da_semana." ". date('d/m/Y', strtotime($values['data']))?></p>
+                                                </div>
+                                                <a href="ver_evento.php?id_evento=<?php echo $id; ?>" target="_blank" class="btn">Saiba Mais</a>
+                                            </div>
+                                        </div>   
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <div class="alert alert-warning m-0" role="alert" style="width: 100% !important;">
+                                        <strong>Atenção!</strong> Nenhum Evento Encontrado.
+                                    </div>
+                                <?php } ?>
+                                  
+                            </div>                                                                                                      
                         </div>
                     </div>
+                    
 
                     <!--NOTÍCIAS-->
                     <div class="tab-pane fade getNoticias" id="noticias" role="tabpanel" aria-labelledby="noticias-tab">

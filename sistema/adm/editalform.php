@@ -134,7 +134,8 @@ if (isset($_REQUEST['id'])) {
                                 </p>
                                 <p><label class="first2">Data e Hora de Início:</label><input type="text" name="data_ini" id="data_ini" value="<?php echo $data_ini ?>" class="validate[required,custom[dateBr]] datepicker maskdata" /> <input type="text" name="hora_ini" id="hora_ini" value="<?php echo $hora_ini ?>" class="hora" /> </p>
                                 <p><label class="first2">Data e Hora de Encerramento:</label><input type="text" name="data_fim" id="data_fim" value="<?php echo $data_fim ?>" class="validate[required,custom[dateBr]] datepicker maskdata" /> <input type="text" name="hora_fim" id="hora_fim" value="<?php echo $hora_fim ?>" class="hora" /> </p>
-                                <p><label class="first2">Chamamento:</label><textarea name="observacao" id="observacao" rows="12" cols="52" class="validate[required]"><?php echo $observacao ?></textarea></p>
+                                <p><label class="first2">Chamamento:</label>
+                                <textarea name="observacao" id="observacao" rows="12" cols="52" class="validate[required]"><?php echo $observacao ?></textarea></p>
                                 <p><label class="first2">Edital:</label>
                                     <?php if ($act == 1) { ?>
                                         <span><a href="<?php echo $edital ?>" target="_blank">Baixar Edital</a></span>
