@@ -28,17 +28,11 @@ if (isset($_REQUEST['id'])) {
         $inscricao = $row['inscricao'];
         $regulamento = $row['regulamento'];
         $data_ini = date("d/m/Y", strtotime($row['data']));
-        $hora_ini = date("H:i", strtotime($row['data']));
-
-
-        
-
+        $hora_ini = $row['hora_ini'];
+        $hora_fim = $row['hora_fim'];
     } else {
-
         $_SESSION["message"] = "Erro ao tentar editar, tente mais tarde";
-
         header("Location: ../adm/eventos.php");
-
     }
 
 } else {
@@ -74,6 +68,7 @@ if (isset($_REQUEST['id'])) {
     $regulamento = "";
     $data_ini = "";
     $hora_ini = "00:00";
+    $hora_fim = "00:00";
     $act = 2;
 }
 
@@ -404,7 +399,7 @@ $sql_num_rows_edital_noticias = mysql_num_rows($sql_edital_noticias);
                                 <p><label class="first2" for="">Data e Hora: </label>
                                 <!--<input type="text" name="data_ini" id="data_ini" value="" class="validate[required,custom[dateBr]] datepicker maskdata hasDatepicker"></p>-->
                                 <input type="text" name="data_ini" id="data_ini" value="<?php echo $data_ini ?>" class="validate[required,custom[dateBr]] datepicker maskdata" /> 
-                                <input type="text" name="hora_ini" id="hora_ini" value="<?php echo $hora_ini ?>" class="hora" /> </p>
+                                <input type="text" name="hora_ini" id="hora_ini" value="<?php echo $hora_ini ?>" class="hora" /> às <input type="text" name="hora_fim" id="hora_fim" value="<?php echo $hora_fim ?>" class="hora" /> </p>
                                 <!--<p><label class="first2">Nome do Local:</label>
                                 <input type="text" name="nome_local" id="nome_local" value="" />  &nbsp; </p>-->
                                 <p><label class="first2">Local:</label>

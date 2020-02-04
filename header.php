@@ -15,12 +15,14 @@
 
     $sql_id = mysql_fetch_assoc($sql);
     $id = $sql_id['id_noticia'];
+    $id_evento = isset($_REQUEST['id_evento']) ? $_REQUEST['id_evento'] : NULL;
 
     if(isset($_REQUEST['busca']) && !empty($_REQUEST['busca'])){
         $tag_busca = urlencode($_REQUEST['busca']);
         $busca = $tag_busca;
-    }
 
+        
+    }
    
     $sql = mysql_query("SELECT * FROM cms_logo WHERE status = 1");
     $num_rows = mysql_num_rows($sql);
@@ -98,8 +100,8 @@
             <?php echo $url == '' || $url == 'index.php' ? '#4DB1E2' : '' ?> 
             <?php echo $url == 'breve_historia.php' || $url == 'corpo_diretor.php' || $url == 'valores.php' || $url == 'corpo_diretor.php' || $url == 'responsabilidade_social.php' || $url == 'unidades.php' || $url == 'parceiros.php' ? '#00B3B6' : '' ?> 
             <?php echo $url == 'projetos.php' ? 'black' : '' ?> 
-            <?php echo $url == 'processo_seletivo.php' ? '#008B8B' : '' ?> 
-            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? '#FFBD00' : ''; ?> 
+            <?php echo $url == 'processo_seletivo.php' || isset($_REQUEST['pagina']) && $url == 'processo_seletivo.php?pagina='.$_REQUEST['pagina'] ? '#008B8B' : '' ?> 
+            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == "ver_evento.php?id_evento=".$id_evento || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? '#FFBD00' : ''; ?> 
             <?php if(isset($busca) && !empty($busca)) { ?>
                 <?php echo $url == 'eventos_programas.php?busca='.$busca ? '#FFBD00': '' ?>
             <?php } ?>
@@ -165,7 +167,7 @@
                         </div>
 
                         <div class="col-md noticias 
-                            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? 'active' : '';?>
+                            <?php echo $url == 'noticias.php' || $url == 'eventos_programas.php' || $url == "ver_evento.php?id_evento=".$id_evento || $url == 'blog_lagos.php' || $url == "ver_noticia.php?id_noticia=".$id_noticia ? 'active' : '';?>
                             <?php if(isset($busca) && !empty($busca)) { ?>
                                 <?php echo $url == 'eventos_programas.php?busca='.$busca ? 'active': '' ?>
                             <?php } ?>
@@ -196,7 +198,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md trabconosco <?php echo $url == 'processo_seletivo.php' ? 'active' : '' ?>">
+                        <div class="col-md trabconosco <?php echo $url == 'processo_seletivo.php' || isset($_REQUEST['pagina']) && $url == 'processo_seletivo.php?pagina='.$_REQUEST['pagina']  ? 'active' : '' ?>">
                             <p class="pointer text-center">
                                 <a href="#" style="font-size: 12px!important;">Trabalhe Conosco</a>
                                 <i class="fa fa-3x fa-user-plus"></i>
@@ -211,8 +213,8 @@
                                     </div>
                                     <div class="col-lg-8 offset-lg-1 itens">
                                         <div class="row" style="margin-top: 53px!important;">
-                                            <div class="col-lg-6 item"><a href="processo_seletivo.php">- Processo Seletivo Abertos</a></div>
-                                            <div class="col-lg-6 item"><a href="processo_seletivo.php">- Processo Seletivo Encerrados</a></div>
+                                            <div class="col-lg-6 item"><a href="processo_seletivo.php?pagina=aberto">- Processo Seletivo Abertos</a></div>
+                                            <div class="col-lg-6 item"><a href="processo_seletivo.php?pagina=encerrado">- Processo Seletivo Encerrados</a></div>
                                         </div>
                                     </div>
                                 </div>

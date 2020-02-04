@@ -87,7 +87,7 @@ $html_pagina = geraPaginacao($pagina, $limite, $sql, "");
                 <form method="post" action="" name="form1" id="form1">
                     <div id="conteudo">
                         <div class="blocos">
-                            <h2>Notícias</h2>
+                            <h2>Eventos</h2>
 
                             <input type="hidden" name="id" id="id" value="" />
                             <input type="hidden" name="pagina" id="pagina" value="<?php echo $pagina ?>" />
