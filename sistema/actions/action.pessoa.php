@@ -17,6 +17,7 @@ if (isset($_REQUEST['nivel'])) {
     $edital = mysql_real_escape_string($_REQUEST['edital']);
     $cargo_id = mysql_real_escape_string($_REQUEST['cargo']);
     $deficien = mysql_real_escape_string($_REQUEST['deficiente']);
+    $estado = mysql_real_escape_string(intval($_REQUEST['estado']));
     
     $qrCargo = "AND B.id_cargo = '$cargo_id' ";
     if($cargo_id=="-1"){
@@ -26,6 +27,11 @@ if (isset($_REQUEST['nivel'])) {
     $qrDefici = "AND A.deficiente = ".$deficien;
     if($deficien=="-1"){
         $qrDefici = "";
+    }
+
+    $qrEstado = "AND A.id_estado = ".$estado;
+    if($estado=="-1"){
+        $estado = "";
     }
     
     
@@ -41,15 +47,29 @@ if (isset($_REQUEST['nivel'])) {
     $limite = 20;
     $pagina = (isset($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
     $inicio = ($pagina > 1) ? ($pagina-1) * $limite : 0;
-    $sql = "SELECT A.id_pessoa,A.nome,A.telefone,A.email,A.anexo,IF(A.deficiente=0,\"NÃO\",\"SIM\") as defici,C.cargo 
+    $sql = "SELECT A.id_pessoa, A.id_estado, D.sigla, A.nome,A.telefone,A.email,A.anexo,IF(A.deficiente=0,\"NÃO\",\"SIM\") as defici,C.cargo 
             FROM pessoa AS A
             INNER JOIN pessoa_cargo AS B ON (B.id_pessoa=A.id_pessoa)
             INNER JOIN cargos AS C ON (C.id_cargo=B.id_cargo)
+            LEFT JOIN estados AS D ON (A.id_estado = D.id)
             WHERE   A.id_edital = '$edital' 
             AND     A.id_nivel = '$nivel_id' 
+            AND     A.id_estado = '$estado'
             {$qrCargo}
             {$qrDefici} 
             ORDER BY C.cargo,A.nome";
+
+echo "SELECT A.id_pessoa, A.id_estado, D.sigla, A.nome,A.telefone,A.email,A.anexo,IF(A.deficiente=0,\"NÃO\",\"SIM\") as defici,C.cargo 
+FROM pessoa AS A
+INNER JOIN pessoa_cargo AS B ON (B.id_pessoa=A.id_pessoa)
+INNER JOIN cargos AS C ON (C.id_cargo=B.id_cargo)
+LEFT JOIN estados AS D ON (A.id_estado = D.id)
+WHERE   A.id_edital = '$edital' 
+AND     A.id_nivel = '$nivel_id' 
+AND     A.id_estado = '$estado'
+{$qrCargo}
+{$qrDefici} 
+ORDER BY C.cargo,A.nome";
     $qr_pessoa = mysql_query($sql . " LIMIT $inicio,$limite");
     
     $html_pagina = geraPaginacao($pagina, $limite, $sql, "pessoas");

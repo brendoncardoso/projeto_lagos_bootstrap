@@ -44,6 +44,8 @@ if (isset($_REQUEST['enviar']) && !empty($_REQUEST['enviar'])) {
 
     $id_unidade = $_REQUEST['unidade'];
 
+    $id_estado = $_REQUEST['estado'];
+
     $nivel = $_REQUEST['nivel'];
 
     $nome = trim(str_replace("'","",$_REQUEST['nome']));
@@ -68,8 +70,7 @@ if (isset($_REQUEST['enviar']) && !empty($_REQUEST['enviar'])) {
 
     if ($verifica==0){
 
-        if (mysql_query("INSERT INTO pessoa (id_edital, id_unidade, id_nivel, nome, telefone, email, data, deficiente) VALUES ({$id_edital}, {$id_unidade}, {$nivel}, '{$nome}', '{$telefone}', '{$email}', '{$dt}', '{$deficiente}');")) {
-
+        if (mysql_query("INSERT INTO pessoa (id_edital, id_estado, id_unidade, id_nivel, nome, telefone, email, data, deficiente) VALUES ({$id_edital}, {$id_estado}, {$id_unidade}, {$nivel}, '{$nome}', '{$telefone}', '{$email}', '{$dt}', '{$deficiente}');")) {
             $pessoa_id = mysql_insert_id();
 
             $qr = "INSERT INTO `pessoa_cargo` (`id_pessoa`, `id_cargo`) VALUES ";
@@ -409,6 +410,18 @@ $anexos = $edital['anexos'];
                             <p><label class="first2">Nome:</label><input type="text" name="nome" id="nome" value="" class="validate[required]" /></p>
 
                             <p><label class="first2">Telefone:</label><input type="text" name="telefone" id="telefone" value="" class="validate[required]" /></p>
+
+                            <p><label class="first2">Estado:</label>
+                                <select name="estado" id="estado" class="validate[required,custom[select]]">
+                                <option value="-1">« Selecione »</option>
+                                    <?php
+                                        $qr_estados = mysql_query("SELECT * FROM estados");
+                                        while ($row_estado = mysql_fetch_assoc($qr_estados)) {
+                                            echo "<option value=\"{$row_estado['id']}\">{$row_estado['estado']}</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </p>
 
                             <p><label class="first2">Email:</label><input type="text" name="email" id="email" value="" class="validate[required,custom[email]]" /></p>
 

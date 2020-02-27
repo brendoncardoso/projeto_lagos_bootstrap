@@ -25,6 +25,15 @@ include('../includes/restricao.php');
                     $('#nivel').val("-1");
                     $('#cargo').html("");
                 });
+
+                $('#cadastrar_estado').click(function(){
+                    window.location.href= "estadosform.php";
+                });
+
+                $('#lista_estado').click(function(){
+                    window.location.href= "estados.php";
+                });
+
                 $('#nivel').change(function(){
                     var edital = $("#edital").val();
                     var nivel_id = $(this).val();
@@ -39,12 +48,13 @@ include('../includes/restricao.php');
                 $('#busca').click(function(){
                     /*$('#pesquisa').html('<div style="width:100%; text-align:center;"><img src="../resources/images/loader.gif"/></div>');*/
                     var nivel = $('#nivel').val();
+                    var estado = $('#estado').val();
                     var edital = $('#edital').val();
                     var cargo = $('#cargo').val();
                     var pagina = $('#pagina').val();
                     var defi = $('#defi').val();
                     $.post("../actions/action.pessoa.php",
-                            {nivel:nivel, edital:edital, cargo:cargo,pagina:pagina,deficiente:defi},
+                            {nivel:nivel, edital:edital, cargo:cargo,pagina:pagina,deficiente:defi, estado: estado},
                             function(resposta){
                                 $('#pesquisa').html(resposta);
                             },"html");	
@@ -82,6 +92,23 @@ include('../includes/restricao.php');
                     <div class="blocos">
                         <h2>Currículos</h2>
 
+                        <input type="hidden" name="id" id="id" value="" />
+                        <div id="cadastrar_estado" class="box-1 " style="margin-bottom: 10px!important">
+                            <div class="box-image center" >
+                                <a hraf="javascript:;" class="icon-grande icon-novo-grande">&nbsp;</a>
+                                <p class="center">Cadastrar Estado</p>
+                            </div>
+                        </div>
+
+                        <div id="lista_estado" class="box-1 " style="margin-bottom: 10px!important">
+                            <div class="box-image center" >
+                                <a hraf="javascript:;" class="icon-grande icon-novo-grande">&nbsp;</a>
+                                <p class="center">Lista de Estado</p>
+                            </div>
+                        </div>
+                            
+                        <hr class="clear"/>
+
                         <fieldset>
                             <legend>Busca</legend>
                             <p>
@@ -98,6 +125,22 @@ include('../includes/restricao.php');
 
                                 </select>
                             </p>
+
+                            <p>
+                                <label class="first">Estados:</label>
+                                <select name="estado" id="estado" style="width: 300px;">
+                                    <option value="-1"> « Selecione » </option>
+                                        <?php
+                                           $qr_estados = mysql_query("SELECT * FROM estados");
+                                           while ($row_estado = mysql_fetch_assoc($qr_estados)):
+                                               ?>
+                                               <option value="<?php echo $row_estado['id']; ?>"><?php echo $row_estado['sigla']?> - <?php echo $row_estado['estado']; ?></option>
+                                               <?php
+                                           endwhile;
+                                        ?>
+                                </select>
+                            </p>
+
                             <p>
                                 <label class="first">Nível:</label>
                                 <select name="nivel" id="nivel">

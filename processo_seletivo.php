@@ -72,9 +72,17 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!--<li class="nav-item">
                                     <a class="nav-link" id="tutorial-tab" title="Clique Aqui para Acessar o Tutorial de Canditatura" href="">
                                         Tutorial
+                                        <div class="grafismo">
+                                            <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </li>-->
+                                <li class="nav-item">
+                                    <a href="https://www.institutolagosrio.com.br/novo/arquivos/regulamentos/regime_contratacao.pdf" class="nav-link" id="tutorial-tab" title="Clique Aqui para Acessar o Tutorial de Canditatura" target="_blank">
+                                        Regulamento
                                         <div class="grafismo">
                                             <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
                                         </div>
@@ -138,7 +146,7 @@
                                                             <?php foreach($val1 as $id_editalpessoal => $values) { ?>
                                                                 <h1 class="d-block d-lg-none"><?= $nome_unidade; ?></h1>
                                                                 <a class="vaga-titulo" href="" title="Visualizar Detalhes da Vaga">
-                                                                    N° <?= $values['num_edital']; ?> - <?= $values['cargo'];?>
+                                                                    - <?= $values['cargo'];?>
                                                                 </a>
                                                             <?php } ?>
                                                         </div>
@@ -152,39 +160,45 @@
 
                             <div class="tab-pane fade <?php echo $_REQUEST['pagina'] == 'encerrado' ? 'active show' : ''; ?>" id="editais-finalizados" role="tabpanel" aria-labelledby="editais-finalizados-tab">
                                 <div class="row">
-                                    <?php foreach($arrayB as $nome_unidade => $val1) { ?>
-                                        <?php foreach($val1 AS $uf => $val2) { ?>
-                                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                                <div class="flip-card">
-                                                    <div class="flip-card-inner">
-                                                        <div class="flip-card-front">
-                                                            <img src="https://cejam.org.br/img/layout/fornecedores-1.png" alt="Avatar" class="img-fluid">
-                                                            <p><?= $nome_unidade; ?> - (<?= $uf; ?>)</p>
-                                                        </div>
-                                                        <div class="flip-card-back">
-                                                            <div class="conteudo">
-                                                                <h1 class="d-block d-lg-none"><?= $nome_unidade; ?></h1>
-                                                                <p class="text-center">Anexos</p>
-                                                                <ul>
-                                                                    <?php foreach($val2 AS $ano => $val3) { ?>
-                                                                        <li><?= $ano; ?>
-                                                                            <ul style="padding-left: 15px!important">
-                                                                                <li>                                                                           
-                                                                                    <?php foreach($val3 AS $id_editalpessoal => $values) { ?>
-                                                                                        <a class="vaga-titulo" href="<?= $values['edital']; ?>" title="Visualizar Detalhes da Vaga" style="padding: 0px!important; font-size: 9px!important" target="_blank">
-                                                                                            N° <?= $values['num_edital']; ?> - <?= $values['cargo'];?>
-                                                                                        </a>
-                                                                                    <?php } ?>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </li>
-                                                                    <?php } ?>
-                                                                </ul>
+                                    <?php if($to_estadosB > 0) { ?>
+                                        <?php foreach($arrayB as $nome_unidade => $val1) { ?>
+                                            <?php foreach($val1 AS $uf => $val2) { ?>
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="flip-card">
+                                                        <div class="flip-card-inner">
+                                                            <div class="flip-card-front">
+                                                                <img src="https://cejam.org.br/img/layout/fornecedores-1.png" alt="Avatar" class="img-fluid">
+                                                                <p><?= $nome_unidade; ?> - (<?= $uf; ?>)</p>
+                                                            </div>
+                                                            <div class="flip-card-back">
+                                                                <div class="conteudo">
+                                                                    <h1 class="d-block d-lg-none"><?= $nome_unidade; ?></h1>
+                                                                    <p class="text-center">Anexos</p>
+                                                                    <ul>
+                                                                        <?php foreach($val2 AS $ano => $val3) { ?>
+                                                                            <li><?= $ano; ?>
+                                                                                <ul style="padding-left: 15px!important">
+                                                                                    <li>                                                                           
+                                                                                        <?php foreach($val3 AS $id_editalpessoal => $values) { ?>
+                                                                                            <a class="vaga-titulo" href="<?= $values['edital']; ?>" title="Visualizar Detalhes da Vaga" style="padding: 0px!important; font-size: 9px!important" target="_blank">
+                                                                                                N° <?= $values['num_edital']; ?> - <?= $values['cargo'];?>
+                                                                                            </a>
+                                                                                        <?php } ?>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        <?php } ?>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            <?php } ?>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <div class="alert alert-warning" role="alert" style="width: 100%!important; margin-top: 20px;">
+                                            <strong>Atenção!</strong> Não há processo seletivo encerrado.
                                         </div>
                                     <?php } ?>
                                 </div>
