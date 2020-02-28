@@ -2,8 +2,9 @@
     setcookie('samesite', '1', 0, '/; samesite=strict');
     include("sistema/includes/conecte.php");
 
-    setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
-    date_default_timezone_set('America/Sao_Paulo');
+    header('Content-type: text/html; charset=utf-8');
+    /*setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+    date_default_timezone_set('America/Sao_Paulo');*/
 
     $limit = 5;
     $sql_noticias_paginacao = mysql_query("SELECT * FROM noticias");
@@ -20,8 +21,6 @@
     if(isset($_REQUEST['busca']) && !empty($_REQUEST['busca'])){
         $tag_busca = urlencode($_REQUEST['busca']);
         $busca = $tag_busca;
-
-        
     }
    
     $sql = mysql_query("SELECT * FROM cms_logo WHERE status = 1");
@@ -33,7 +32,7 @@
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Projeto_Lagos_Bootstrap</title>
 
